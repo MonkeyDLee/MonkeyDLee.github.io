@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="libinxu">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="MonkeyDLee">
+  <meta property="og:description" content="C/C++">
+  <meta property="og:site_name" content="MonkeyDLee">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="MonkeyDLee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>MonkeyDLee</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Untitled Post</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MonkeyDLee">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:532900395@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By libinxu</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-14</span>
+            <span class="time">23:58:14</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>基础I/O:</p>
+<p>文件系统:Linux_ext2-超级块,iNode块,数据块,iNode_bitmap,data_bitmap</p>
+<pre><code>文件存储流程:
+</code></pre><p>​    文件读取流程:</p>
+<p>软硬链接</p>
+<p>区别</p>
+<p> IPC</p>
+<p>管道:内核中的缓冲区</p>
+<p>匿名管道:只能用于具有亲缘关系的进程间通信—-缓冲区没有标识符</p>
+<p>命名管道:随便,命名管道有名称</p>
+<p>管道的读写特性:</p>
+<p>管道提供流失服务:面向字节流数据传输:(数据粘连)</p>
+<p>共享内存:(最快的通讯方式)</p>
+<p>​     本质:在物理内存上开辟空间,将这块空间映射到进程的虚拟地址空间中,</p>
+<h3 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h3><p>1.创建-&gt;添加数据结点-&gt;获取数据结点-&gt;删除</p>
+<p>msgget  -&gt;  msgsnd-&gt;msgrcv-&gt;msgctl</p>
+<p>消息队列传输的 是有类型的数据块</p>
+<h2 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h2><p>内核中的一个计数器，如果计数器&lt;=0表示没有资源则需要等待</p>
+<p>若计数&gt;0表示有资源获取资源计数-1</p>
+<p>如果放置了资源则计数器+1并且唤醒等待的进程</p>
+<p>实现进程的同步互斥</p>
+<h1 id="信号"><a href="#信号" class="headerlink" title="信号"></a>信号</h1><p>信号的基本认知:软件的中断,通知时间的发生</p>
+<p>生命周期</p>
+<p>信号的种类(kill -l)  </p>
+<p>Linux:62种:1-31对应不同的事件     非可靠信号/非实时(事件可能会丢失/是否立即会处理)</p>
+<p>​                     34-64用户添加的信号    可靠信号/实时信号</p>
+<p>信号的生命周期:产生–&gt;注册–&gt;注销–&gt;处理     阻塞</p>
+<p>信号的产生:</p>
+<p>​        1.硬件产生:Ctrl+c Ctrl+l Ctrl+z</p>
+<p>​        2.软件产生:kill  kill（） raize（）abort（）alarm（）</p>
+<p> #include &lt;sys/types.h&gt;</p>
+<pre><code>#include &lt;signal.h&gt;
+
+int kill(pid_t pid, int sig);
+给指定进程发送指定信号
+sig 信号种类
+</code></pre><p>int raise(int sig);</p>
+<p>给自己发送信号</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<pre><code>void abort(void);
+给调用进程发送SIGABRT信号
+</code></pre><p>#include &lt;unistd.h&gt;</p>
+<pre><code>unsigned int alarm(unsigned int seconds);
+给调用进程指定时间后发送SIGALRM信号
+返回上一个定时器剩余的时间或0
+参数为0表示取消定时器返回上一个定时器的剩余时间
+</code></pre><p>core dumped :黑匣子,默认关闭,站磁盘资源</p>
+<p>进程异常运行时，保存信息到core.pid文件中方便调试</p>
+<p>ulimit -a 查看是否开启0</p>
+<p>ulimit -c  1024 设置大小,开启核心转储文件</p>
+<p>gdb./loop  –&gt; c ore-file core.pid –&gt;bt</p>
+<p>信号的注册:信号在进程的注册  sigset_t</p>
+<h2 id="信号注册"><a href="#信号注册" class="headerlink" title="信号注册"></a>信号注册</h2><p>​    在pcb中做标记：修改未决信号集合（位图）对应的信号位</p>
+<p>task_struct-&gt;struct sigpending pending-&gt;sigset_t signal</p>
+<p>非可靠信号的注册：判断是否有相同的未决信号，若有，则什么也不做；否则修改位图添加结点</p>
+<p>可靠信号的注册：是否有相同未决信号的注册，若没有修改位图添加节点；否则直接添加结点</p>
+<p>信号的注销：删除信号的sigqueue结点，修改pending位图</p>
+<p>非可靠信号注销：删除节点，修改位图（非可靠信号只会注册一次）</p>
+<p>可靠信号注册：删除节点，检测是否还有相同信号，若有则位图依然置1否则修改为0</p>
+<p>信号的处理：</p>
+<p>​    默认处理方式：</p>
+<p>​    忽略处理方式：</p>
+<p>​    自定义处理方式：</p>
+<p>​typedef void (*sighandler_t)(int);</p>
+<pre><code>sighandler_t signal(int signum, sighandler_t handler);    
+signum信号编号
+handler 函数指针使用函数指针替换signum的处理方式
+SIG_DEL
+SIG_IDN
+</code></pre><p>int sigaction(int signum, const struct sigaction <em>act,<br>                     struct sigaction </em>oldact);</p>
+<p>​    自定信号处理方式的处理流程：用户态切换回内核态，完毕后准备从内核态切换回用户态的时候去处理信号</p>
+<p>若信号为默认或者忽略处理，则在内核中直接完成，但是信号如果是自定义的处理方式，则需要返回用户态执行信号回调函数，执行完毕后回到内核态没有信号则回到信号主流程</p>
+<p>信号阻塞：阻止信号被递达（站不处理信号）</p>
+<p>在进程pcb中标记 那些信号来了不处理</p>
+<p>在进程pcb中有个信号阻塞集，阻塞信号就是在这个集合做标记</p>
+<p>有两个信号无法被阻塞,忽略,自定义SIGKILL,SIGSTOP19</p>
+<p>接口</p>
+<p>静态条件：</p>
+<p>​    时序的竞争执行：函数的可重入与不可重入（是否进行了）对全局数据的非原子性操作</p>
+<p>关键字：volatile：保持内存可见性—防止编译器过度优化-每次对变量访问都从内存重新获取</p>
+<p>SIGCHLD：子进程退出，操作系统通知父进程，自定义一个SIGCGLD信号处理方式sigcb，当子进程退出操作系统发送信号给父进程直接触发信号回调sigbc用户主要在sigbc中调用wait/wait_pid就可以处理子进程退出</p>
+<p>sigchld是一个非可靠信号，假如有多个子进程同时退出则有可能造成事件丢失导致sigbc只被调用一次，只处理了一个子进程因此需要在sigcb中需要用户循环非阻塞处理子进程退出，直到没有子进程退出</p>
+<p>while（waitpid（-11，NULL，WONOHANG）&gt; 0)//因为&gt;0表示有子进程退出必须用非阻塞，否则没有子进程·退出的时候waitpid将阻塞导致进程无法回到主控流程  </p>
+<p>​        </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+

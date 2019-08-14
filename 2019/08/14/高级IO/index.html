@@ -35,8 +35,7 @@
 </head>
 
   <body>
-    <!-- Archive Header -->
-<!-- Page Header -->
+    <!-- Page Header -->
 
 
 <header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
@@ -44,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">Blog Archives</p>
+          <p class="title">Untitled Post</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -89,113 +88,47 @@
   </div>
 </header>
 
-<!-- Archive List -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/源文件/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/应用层和HTTP协议/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/信号/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/消息队列/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/线性表相关总结/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/线程池/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/网络编程/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/设计模式/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/进程控制/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/进程间通信/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By libinxu</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-14</span>
+            <span class="time">23:58:14</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="高级I-O"><a href="#高级I-O" class="headerlink" title="高级I/O"></a>高级I/O</h1><p>阻塞:</p>
+<p>非阻塞:</p>
+<p>同步:</p>
+<p>异步:</p>
+<p>同步/异步优缺点</p>
+<p>同步流程控制简单,异步效率高</p>
+<p>异步阻塞:</p>
+<p>异步非阻塞:</p>
+<p>就绪:对于可读事件,有数据到来就是就绪,杜宇可写数据换冲区有空闲就是就绪</p>
+<h2 id="五种I-O模型"><a href="#五种I-O模型" class="headerlink" title="五种I/O模型"></a>五种I/O模型</h2><h3 id="阻塞I-O"><a href="#阻塞I-O" class="headerlink" title="阻塞I/O"></a>阻塞I/O</h3><p>I/O操作分了两个过程:等待+拷贝数据</p>
+<h3 id="非阻塞I-O"><a href="#非阻塞I-O" class="headerlink" title="非阻塞I/O"></a>非阻塞I/O</h3><h3 id="信号驱动I-O"><a href="#信号驱动I-O" class="headerlink" title="信号驱动I/O"></a>信号驱动I/O</h3><h3 id="异步I-O"><a href="#异步I-O" class="headerlink" title="异步I/O"></a>异步I/O</h3><h3 id="多路转接I-O"><a href="#多路转接I-O" class="headerlink" title="多路转接I/O"></a>多路转接I/O</h3><p>功能:I/O的事件监控,同时对大量的描述符进行事件默认阻塞监控(描述符的可读可写异常);监控是否具备I/O条件,高并发模型</p>
+<p>作用:</p>
+<h4 id="多路转接I-O模型"><a href="#多路转接I-O模型" class="headerlink" title="多路转接I/O模型"></a>多路转接I/O模型</h4><h5 id="select模型"><a href="#select模型" class="headerlink" title="select模型:"></a>select模型:</h5><p>定义描述符集合 fd_set</p>
+<p>将集合拷贝到内核进行监控,监控的原理就是对所有描述符进行轮询遍历</p>
+<p>当有描述符就绪时在调用返回之前,将集合中没有就绪的的描述符剔除</p>
+<h5 id="poll模型"><a href="#poll模型" class="headerlink" title="poll模型:"></a>poll模型:</h5><h5 id="epoll模型"><a href="#epoll模型" class="headerlink" title="epoll模型:"></a>epoll模型:</h5>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<!-- Pagination -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1">
-      <ul class="pagination">
-          
-          
-            <li class="next">
-              <a href="/archives/page/2/">
-                <span>NEXT</span>
-                <span class="symbol-right">&gt;</span>
-              </a>
-            </li>
-          
-      </ul>
-    </div>
-  </div>
-</div>
+</article>
 
 
 

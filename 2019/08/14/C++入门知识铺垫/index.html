@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="libinxu">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="MonkeyDLee">
+  <meta property="og:description" content="C/C++">
+  <meta property="og:site_name" content="MonkeyDLee">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="MonkeyDLee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>MonkeyDLee</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Untitled Post</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MonkeyDLee">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:532900395@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By libinxu</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-14</span>
+            <span class="time">23:58:14</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="C-入门知识铺垫"><a href="#C-入门知识铺垫" class="headerlink" title="C++入门知识铺垫"></a>C++入门知识铺垫</h1><h4 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h4><h5 id="命名空间的作用"><a href="#命名空间的作用" class="headerlink" title="命名空间的作用"></a>命名空间的作用</h5><p>在C/C++中，变量、函数和后面要学到的类都是大量存在的，这些变量、函数和类的名称将都存在于全局作用 域中，可能会导致很多冲突。使用命名空间的目的是对标识符的名称进行本地化，以避免命名冲突或名字污 染，namespace关键字的出现就是针对这种问题的。</p>
+<p>注意：一个命名空间就定义了一个新的作用域，命名空间中的所有内容都局限于该命名空间中</p>
+<h5 id="命名空间的定义"><a href="#命名空间的定义" class="headerlink" title="命名空间的定义:"></a>命名空间的定义:</h5><p>关键字:namespace</p>
+<p>namespace  N1{</p>
+<p>……..</p>
+<p>}</p>
+<p>1.命名空间可以嵌套</p>
+<p>2.同一个工程中允许存在多个相同名称的命名空间 ,编译器后会合成同一个命名空间中。 </p>
+<h5 id="命名空间的使用"><a href="#命名空间的使用" class="headerlink" title="命名空间的使用:"></a>命名空间的使用:</h5><p>1.完全展开:</p>
+<p>using namespace;</p>
+<p>2.部分展开</p>
+<p>using std::cout;</p>
+<p>3.不展开</p>
+<p> std :: cout&lt;&lt;”学习使我快乐”&lt;&lt; std:: end1;</p>
+<h6 id="三种使用方式的区别"><a href="#三种使用方式的区别" class="headerlink" title="三种使用方式的区别"></a>三种使用方式的区别</h6><p>完全展开使用方便,但是还是会造成命名污染,部分展开适合在工程中应用,不展开使用麻烦但是不会有命名污染</p>
+<h4 id="C-的输入和输出"><a href="#C-的输入和输出" class="headerlink" title="C++的输入和输出"></a>C++的输入和输出</h4><p>1.缺省参数</p>
+<p>缺省参数是声明或定义函数时为函数的参数指定一个默认值。在调用该函数时，如果没有指定实参则采用该默 认值，否则使用指定的实参。</p>
+<p>1.半缺省</p>
+<p>2.全缺省</p>
+<ol>
+<li><p>半缺省参数必须从右往左依次来给出，不能间隔着给 </p>
+<p>明确缺省的参数传值确定,传参是从左往右的</p>
+</li>
+<li><p>缺省参数不能在函数声明和定义中同时出现,如果生命与定义位置同时出现，恰巧两个位置提供的值不同，那编译器就无法确定到底该用那个缺省 值。 </p>
+</li>
+</ol>
+<p>2.函数重载:</p>
+<p>   是函数的一种特殊情况，C++允许在同一作用域中声明几个功能类似的同名函数，这些同名函数的形 参列表(参数个数 或 类型 或 顺序)必须不同，常用来处理实现功能类似数据类型不同的问题</p>
+<p>3.函数重载实现:</p>
+<p>命名修饰规则:</p>
+<p>和C语言不同,函数命名修饰时只是在函数名称前加了下划线,C++中还加入了参数类型的首字母这支持了函数重载</p>
+<h4 id="extern-“c”"><a href="#extern-“c”" class="headerlink" title="extern “c”"></a>extern “c”</h4><p>C++向后兼容所以在c++编译器中是可以执行编译C语言代码的但是为了支持C风格的编译加上extren “C”‘.</p>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>引用不是新定义一个变量，而是给已存在变量取了一个别名，编译器不会为引用变量开辟内存空间，它和它引 用的变量共用同一块内存空间。注意：引用类型必须和引用实体是同种类型的</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a = <span class="number">10</span><span class="comment">; </span></span><br><span class="line"></span><br><span class="line">int&amp; <span class="built_in">ra</span> = a<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h5 id="引用特性"><a href="#引用特性" class="headerlink" title="引用特性:"></a>引用特性:</h5><ol>
+<li>引用在定义时必须初始化 </li>
+<li>一个变量可以有多个引用 </li>
+<li>引用一旦引用一个实体，再不能引用其他实体</li>
+</ol>
+<h5 id="引用的使用"><a href="#引用的使用" class="headerlink" title="引用的使用:"></a>引用的使用:</h5><p>1.传参</p>
+<p>2.传返回值</p>
+<p>注意：如果函数返回时，离开函数作用域后，其栈上空间已经还给系统，因此不能用栈上的空间作为引用类型 返回。如果以引用类型返回，返回值的生命周期必须不受函数的限制(即比函数生命周期长)。</p>
+<h5 id="传值和传引用的区别"><a href="#传值和传引用的区别" class="headerlink" title="传值和传引用的区别"></a>传值和传引用的区别</h5><p> 以值作为参数或者返回值类型，在传参和返回期间，函数不会直接传递实参或者将变量本身直接返回，而是传递实 参或者返回变量的一份临时的拷贝，因此用值作为参数或者返回值类型，效率是非常低下的，尤其是当参数或者返回 值类型非常大时，效率就更低</p>
+<h5 id="引用和指针的区别"><a href="#引用和指针的区别" class="headerlink" title="引用和指针的区别"></a>引用和指针的区别</h5><h6 id="引用的特点"><a href="#引用的特点" class="headerlink" title="引用的特点:"></a>引用的特点:</h6><p>在语法概念上引用就是一个别名，没有独立空间，和其引用实体共用同一块空间。</p>
+<p>在底层实现上实际是有空间的，因为引用是按照指针方式来实现的。</p>
+<h6 id="引用和指针的不同点"><a href="#引用和指针的不同点" class="headerlink" title="引用和指针的不同点:"></a>引用和指针的不同点:</h6><ol>
+<li>引用在定义时必须初始化，指针没有要求</li>
+<li>引用在初始化时引用一个实体后，就不能再引用其他实体，而指针可以在任何时候指向任何一个同类型实 体</li>
+<li>没有NULL引用，但有NULL指针 </li>
+<li>在sizeof中含义不同：引用结果为引用类型的大小，但指针始终是地址空间所占字节个数(32位平台下占4 个字节)</li>
+<li>引用自加即引用的实体增加1，指针自加即指针向后偏移一个类型的大小 </li>
+<li>有多级指针，但是没有多级引用 </li>
+<li>访问实体方式不同，指针需要显式解引用，引用编译器自己处理</li>
+<li>引用比指针使用起来相对更安全</li>
+</ol>
+<h4 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h4><p>以inline修饰的函数叫做内联函数，编译时C++编译器会在调用内联函数的地方展开，没有函数压栈的开销， 内联函数提升程序运行的效率。(宏函数的升级)</p>
+<p>使用:</p>
+<p>函数前加inline关键字</p>
+<p>特性:</p>
+<ol>
+<li>inline是一种以空间换时间的做法，省去调用函数额开销。所以代码很长或者有循环/递归的函数不适宜使 用作为内联函数。 </li>
+<li>inline对于编译器而言只是一个建议，编译器会自动优化，如果定义为inline的函数体内有循环/递归等 等，编译器优化时会忽略掉内联。 </li>
+<li>inline不建议声明和定义分离，分离会导致链接错误。因为inline被展开，就没有函数地址了，链接就会找 不到。</li>
+</ol>
+<h5 id="宏的优缺点"><a href="#宏的优缺点" class="headerlink" title="宏的优缺点"></a>宏的优缺点</h5><h4 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h4><p>自动匹配类型值</p>
+<p>注意:</p>
+<p>auto 不能做函数参数,同一行定义多个变量时类型要相同</p>
+<h4 id="范围for"><a href="#范围for" class="headerlink" title="范围for"></a>范围for</h4><p>使用时范围确定</p>
+<h4 id="NULL和nullptr"><a href="#NULL和nullptr" class="headerlink" title="NULL和nullptr"></a>NULL和nullptr</h4><p>NULL是一个宏志为0,而nullptr是一个指针(void*)</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+

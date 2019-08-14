@@ -35,8 +35,7 @@
 </head>
 
   <body>
-    <!-- Archive Header -->
-<!-- Page Header -->
+    <!-- Page Header -->
 
 
 <header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
@@ -44,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">Blog Archives</p>
+          <p class="title">Untitled Post</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -89,113 +88,41 @@
   </div>
 </header>
 
-<!-- Archive List -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/源文件/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/应用层和HTTP协议/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/信号/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/消息队列/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/线性表相关总结/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/线程池/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/网络编程/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/设计模式/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/进程控制/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/08/14/进程间通信/" class="post-title">
-    Untitled Post
-  </a>
-  <div class="date text-muted">Posted on 2019-08-14 23:51:23</div>
-</div>
-
-      
-
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By libinxu</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-14</span>
+            <span class="time">23:58:14</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h1><p><strong>概念:左子树不为空比根小,右子树不为空比根小</strong></p>
+<h1 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h1><h2 id="AVL树的旋转规则小结"><a href="#AVL树的旋转规则小结" class="headerlink" title="AVL树的旋转规则小结"></a>AVL树的旋转规则小结</h2><p>假如以pParent为根的子树不平衡，即pParent的平衡因子为2或者-2，分以下情况考虑 </p>
+<p> 1.pParent的平衡因子为2，说明pParent的右子树高，设pParent的右子树的根为pSubR </p>
+<p>当pSubR的平衡因子为1时说明他的右子树高，执行左单旋 </p>
+<p>当pSubR的平衡因子为-1时左子树高，执行右左双旋 </p>
+<p>2.pParent的平衡因子为-2，说明pParent的左子树高，设pParent的左子树的根为pSubL </p>
+<p>当pSubL的平衡因子为-1左子树高是，执行右单旋 </p>
+<p>当pSubL的平衡因子为右子树高1时，执行左右双旋 </p>
+<p>旋转完成后，原pParent为根的子树个高度降低，已经平衡，不需要再向上更新。 </p>
+<h3 id="双旋平衡因子的更新小结"><a href="#双旋平衡因子的更新小结" class="headerlink" title="双旋平衡因子的更新小结"></a>双旋平衡因子的更新小结</h3>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<!-- Pagination -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1">
-      <ul class="pagination">
-          
-          
-            <li class="next">
-              <a href="/archives/page/2/">
-                <span>NEXT</span>
-                <span class="symbol-right">&gt;</span>
-              </a>
-            </li>
-          
-      </ul>
-    </div>
-  </div>
-</div>
+</article>
 
 
 

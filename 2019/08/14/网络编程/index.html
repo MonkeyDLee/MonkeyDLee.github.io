@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="libinxu">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="MonkeyDLee">
+  <meta property="og:description" content="C/C++">
+  <meta property="og:site_name" content="MonkeyDLee">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="MonkeyDLee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>MonkeyDLee</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Untitled Post</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MonkeyDLee">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:532900395@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By libinxu</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-14</span>
+            <span class="time">23:58:14</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h1><h2 id="socket编程：在网络的传输层编程"><a href="#socket编程：在网络的传输层编程" class="headerlink" title="socket编程：在网络的传输层编程"></a>socket编程：在网络的传输层编程</h2><h3 id="编程的基本流程"><a href="#编程的基本流程" class="headerlink" title="编程的基本流程"></a>编程的基本流程</h3><p><img src="D:\MyBlog\source\images\套接字流程.png" alt=""></p>
+<h3 id="函数接口："><a href="#函数接口：" class="headerlink" title="函数接口："></a>函数接口：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建 socket 文件描述符 (TCP/UDP, 客户端 + 服务器) </span></span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">socket</span><span class="params">(<span class="keyword">int</span> domain, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol)</span></span>;</span><br><span class="line"> 参数：</span><br><span class="line"> domain：地址域</span><br><span class="line"> AF_INET:IPV4网路协议地址域</span><br><span class="line"> type：套接字类型</span><br><span class="line"> SOCK_STREAM  流式套接字，默认协议TCP不支持UDP</span><br><span class="line"> SOCK_DGRAM   数据报套接字 默认UDP，不支持TCP</span><br><span class="line"> protocol：协议类型</span><br><span class="line"> <span class="number">0</span>：使用套接字默认协议</span><br><span class="line"> <span class="number">6</span>/IPPROTO_TCP tcp协议</span><br><span class="line"> <span class="number">17</span>/IPPROTO_TCP UDP协议</span><br><span class="line"> 返回值：</span><br><span class="line"> 套接字操作句柄文件描述符</span><br><span class="line"> 失败<span class="number">-1</span>；</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定端口号 (TCP/UDP, 服务器)      </span></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">bind</span><span class="params">(<span class="keyword">int</span> socket, <span class="keyword">const</span> struct sockaddr *address,  </span></span></span><br><span class="line"><span class="function"><span class="params">                                   <span class="keyword">socklen_t</span> address_len)</span></span>;</span><br><span class="line">  参数：</span><br><span class="line">  sockfd：   创建套接字返回的描述符</span><br><span class="line">  addr：     地址信息</span><br><span class="line">  addrlen    地址信息长度</span><br><span class="line">  返回值      失败返回<span class="number">-1</span>成功<span class="number">0</span></span><br><span class="line"> <span class="comment">//接受数据</span></span><br><span class="line">  <span class="keyword">ssize_t</span> recvfrom(<span class="keyword">int</span> sockfd, <span class="keyword">void</span> *buf, <span class="keyword">size_t</span> len, <span class="keyword">int</span> flags,</span><br><span class="line">                        struct sockaddr *src_addr, <span class="keyword">socklen_t</span> *addrlen);</span><br><span class="line">参数：</span><br><span class="line"> sockfd：   创建套接字返回的描述符</span><br><span class="line"> buf：      接收的数据</span><br><span class="line"> len：      想要接收数据的长度</span><br><span class="line"> flags		<span class="number">0</span>默认阻塞接收</span><br><span class="line"> saddr：    发送端地址信息</span><br><span class="line"> addrlen    地址信息长度（输入输出型参数）不但指定接收多长还要保存实际接受多长</span><br><span class="line"> 返回值：</span><br><span class="line"> 返回实际接受长度</span><br><span class="line"> <span class="number">-1</span> 失败</span><br><span class="line"> <span class="comment">//发送数据</span></span><br><span class="line"> <span class="keyword">ssize_t</span> sendto(<span class="keyword">int</span> sockfd, <span class="keyword">const</span> <span class="keyword">void</span> *buf, <span class="keyword">size_t</span> len, <span class="keyword">int</span> flags,</span><br><span class="line">                      <span class="keyword">const</span> struct sockaddr *dest_addr, <span class="keyword">socklen_t</span> addrlen);</span><br><span class="line">参数：</span><br><span class="line">sockfd：   创建套接字返回的描述符</span><br><span class="line"> buf：      发送的数据</span><br><span class="line"> len：      想要发送数据的长度</span><br><span class="line"> flags		<span class="number">0</span>默认阻塞发送</span><br><span class="line"> daddr：     目的端信息</span><br><span class="line"> addrlen    地址信息长度</span><br><span class="line"> 返回值：</span><br><span class="line">成功：实际发送的长度</span><br><span class="line">失败： <span class="number">-1</span></span><br><span class="line"><span class="comment">// 开始监听socket (TCP, 服务器) </span></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">listen</span><span class="params">(<span class="keyword">int</span> socket, <span class="keyword">int</span> backlog)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 接收请求 (TCP, 服务器) </span></span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">accept</span><span class="params">(<span class="keyword">int</span> socket, struct sockaddr* address,          </span></span></span><br><span class="line"><span class="function"><span class="params">                         <span class="keyword">socklen_t</span>* address_len)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 建立连接 (TCP, 客户端) </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">connect</span><span class="params">(<span class="keyword">int</span> sockfd, <span class="keyword">const</span> struct sockaddr *addr,         </span></span></span><br><span class="line"><span class="function"><span class="params">                                  <span class="keyword">socklen_t</span> addrlen)</span></span>;</span><br></pre></td></tr></table></figure>
+<h4 id="bind函数传参的选择"><a href="#bind函数传参的选择" class="headerlink" title="bind函数传参的选择"></a>bind函数传参的选择</h4><p><img src="D:\MyBlog\source\images\sockaddr.png" alt=""></p>
+<p><strong>传入sockaddr更加灵活，只用根据地址域来判断协议种类</strong></p>
+<h4 id="服务端需要bind（）绑定IP和port而客户端不需要为什么"><a href="#服务端需要bind（）绑定IP和port而客户端不需要为什么" class="headerlink" title="服务端需要bind（）绑定IP和port而客户端不需要为什么"></a>服务端需要bind（）绑定IP和port而客户端不需要为什么</h4><p>  因为服务器是时时在监听有没有客户端的连接如果服务器不绑定IP和端口的话,客户端上线的<br>时候怎么连到服务器呢,所以服务器要绑定IP和端口面客户端就不需要了,客户端上线是主动向服务器发<br>出请求的,因为服务器已经绑定了IP和端口,所以客户端上线的就向这个IP和端口发出请求,这时因为<br>客户开始发数据了(发上线请求),系统就给客户端分配一个随机端口,这个端口和客户端的IP会随着上线请求一起发给服务器,服务收到上线请求后就可以从中获起发此请求的客户的IP和端口,接下来服务器就可以利用<br>获起的IP和端口给客户端回应消息了.<strong>总之一句话,客户端是主动连接,而服务器是等待连接</strong>  </p>
+<h3 id="用C-封装UDP"><a href="#用C-封装UDP" class="headerlink" title="用C++封装UDP"></a>用C++封装UDP</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+

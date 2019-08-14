@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="libinxu">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="MonkeyDLee">
+  <meta property="og:description" content="C/C++">
+  <meta property="og:site_name" content="MonkeyDLee">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="MonkeyDLee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>MonkeyDLee</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Untitled Post</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MonkeyDLee">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:532900395@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By libinxu</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-14</span>
+            <span class="time">23:58:14</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h1><h3 id="vfork函数"><a href="#vfork函数" class="headerlink" title="vfork函数"></a>vfork函数</h3><p>vfork创建的进程子进程先运行,子进程不退出父进程不运行,因为父子进程用相同的地址空间 如果不这样会造成栈混乱(子进程excit退出或者程序替换）</p>
+<h3 id="进程终止"><a href="#进程终止" class="headerlink" title="进程终止:"></a>进程终止:</h3><p>​    main函数return’  释放资源刷新缓冲区</p>
+<p>​    exit                释放资源刷新缓冲区</p>
+<pre><code>_exit            释放资源系统调用  （用户态）
+</code></pre><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="keyword">void</span> _exit(<span class="keyword">int</span> status);</span><br><span class="line"></span><br><span class="line">参数：status 定义了进程的终止状态，父进程通过wait来获取该值</span><br><span class="line">说明：虽然status是<span class="keyword">int</span>，但是仅有低<span class="number">8</span>位可以被父进程所用。所以_exit(<span class="number">-1</span>)时，在终端执行$?发现返回值是<span class="number">255</span>。</span><br></pre></td></tr></table></figure>
+<p><img src="" alt=""></p>
+<p>进程返回值</p>
+<p>perror</p>
+<p>strerror</p>
+<h3 id="进程等待"><a href="#进程等待" class="headerlink" title="进程等待:"></a>进程等待:</h3><p><strong>概念</strong>：等待子进程退出，获取退出码，允许释放资源</p>
+<p><strong>目的</strong>：</p>
+<p>避免产生僵尸进程   </p>
+<p>父进程派给子进程的任务完成的如何，我们需要知道。子进程运行完成，结果对还是不对， 或者是否正常退出。</p>
+<p> 父进程通过进程等待的方式，回收子进程的资源</p>
+<h3 id="等待子进程退出的方法"><a href="#等待子进程退出的方法" class="headerlink" title="等待子进程退出的方法"></a>等待子进程退出的方法</h3><p>阻塞:为了完成某个功能发起调用,一直等待直到完成</p>
+<p>非阻塞:</p>
+<h4 id="wait（）"><a href="#wait（）" class="headerlink" title="wait（）"></a>wait（）</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="keyword">pid_t</span> wait(<span class="keyword">int</span>*status);</span><br><span class="line">返回值：</span><br><span class="line">成功返回被等待进程pid，失败返回<span class="number">-1</span>。</span><br><span class="line">参数：</span><br><span class="line">输出型参数，返回子进程的状态不需要可置空</span><br></pre></td></tr></table></figure>
+<p><strong>父进程不知道子进程啥时候退出,因此只wait函数是一个阻塞函数 等待子进程退出</strong></p>
+<h4 id="waitpid（）"><a href="#waitpid（）" class="headerlink" title="waitpid（）"></a>waitpid（）</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">pid_ t <span class="title">waitpid</span><span class="params">(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> *status, <span class="keyword">int</span> options)</span></span>;</span><br><span class="line">返回值：</span><br><span class="line">当正常返回的时候waitpid返回收集到的子进程的进程ID；</span><br><span class="line">如果设置了选项WNOHANG,而调用中waitpid发现没有已退出的子进程可收集,则返回<span class="number">0</span>；</span><br><span class="line">如果调用中出错,则返回<span class="number">-1</span>,这时errno会被设置成相应的值以指示错误所在；</span><br><span class="line">参数：</span><br><span class="line"> pid：</span><br><span class="line"> Pid=<span class="number">-1</span>,等待任一个子进程。与wait等效。</span><br><span class="line"> Pid&gt;<span class="number">0.</span>等待其进程ID与pid相等的子进程。</span><br><span class="line"> status:</span><br><span class="line"> WIFEXITED(status): 若为正常终止子进程返回的状态，则为真。（查看进程是否是正常退出）</span><br><span class="line"> WEXITSTATUS(status): 若WIFEXITED非零，提取子进程退出码。（查看进程的退出码）</span><br><span class="line"> options:</span><br><span class="line"> WNOHANG: 若pid指定的子进程没有结束，则waitpid()函数返回<span class="number">0</span>，不予以等待。若正常结束，则返回该子进</span><br><span class="line">程的ID</span><br></pre></td></tr></table></figure>
+<h4 id="status"><a href="#status" class="headerlink" title="status"></a>status</h4><h4 id="程序替换"><a href="#程序替换" class="headerlink" title="程序替换"></a><img src="D:\MyBlog\source\images\waitpid.png" alt="">程序替换</h4><p><strong>概念：替换进程所运行的程序让子进程完成其他功能</strong></p>
+<p><strong>原理</strong>：</p>
+<p>用fork创建子进程后执行的是和父进程相同的程序，也有可能执行不同的代码分支，子进程往往要调用一种exec函数以执行另一个程序。当进程调用一种exec函数时，该进程的用户空间代码和数据完全被新进程替换，从新程序的启动例程（main函数）开始执行。记住：调用exec并不创建新进程，所以调用exec前后该进程的id并为改变。exec只是用磁盘上的一个新程序替换了当前进程的正文段、数据段、堆段和栈段。</p>
+<p><strong>替换函数</strong></p>
+<p>execl</p>
+<p>execlp</p>
+<p>execle</p>
+<p>execv</p>
+<p>execvp</p>
+<p>execve  系统调用</p>
+<h3 id="实现mininshell"><a href="#实现mininshell" class="headerlink" title="实现mininshell"></a>实现mininshell</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> cmd[<span class="number">1024</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">char</span>* argv[<span class="number">32</span>];</span><br><span class="line"><span class="keyword">int</span> argc = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">do_face</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"[san@localhost]$ "</span>);</span><br><span class="line">  fflush(<span class="built_in">stdout</span>);</span><br><span class="line">  <span class="built_in">memset</span>(cmd, <span class="number">0x00</span>,<span class="number">1024</span>);</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">scanf</span>(<span class="string">"%[^\n]%*c"</span>,cmd) != <span class="number">1</span>)&#123;</span><br><span class="line">    getchar();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,cmd);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">do_parse</span><span class="params">()</span></span>&#123;</span><br><span class="line">  argc = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">char</span>* ptr = cmd;</span><br><span class="line">  <span class="keyword">while</span>(*ptr != <span class="string">'\0'</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">isspace</span>(*ptr))&#123;</span><br><span class="line">      argv[argc++] = ptr;</span><br><span class="line">      <span class="keyword">while</span>(!<span class="built_in">isspace</span>(*ptr)&amp;&amp;*ptr != <span class="string">'\0'</span>)&#123;</span><br><span class="line">        ptr++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">      *ptr = <span class="string">'\0'</span>;</span><br><span class="line">      ptr++;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  argv[argc] = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    do_face();</span><br><span class="line">    <span class="keyword">char</span>* ptr = cmd;</span><br><span class="line">    <span class="keyword">int</span> redirect = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span>* file = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(*ptr != <span class="string">'\0'</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>(*ptr == <span class="string">'&gt;'</span>)&#123;</span><br><span class="line">        redirect = <span class="number">1</span>;</span><br><span class="line">        *ptr++ = <span class="string">'\0'</span>;</span><br><span class="line">        <span class="keyword">if</span>(*ptr == <span class="string">'&gt;'</span>)&#123;</span><br><span class="line">          redirect = <span class="number">2</span>;</span><br><span class="line">          *ptr++ = <span class="string">'\0'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(<span class="built_in">isspace</span>(*ptr) &amp;&amp; *ptr != <span class="string">'\0'</span>)&#123;</span><br><span class="line">          ptr++;</span><br><span class="line">        &#125;</span><br><span class="line">        file = ptr;</span><br><span class="line">        <span class="keyword">while</span>(!<span class="built_in">isspace</span>(*ptr) &amp;&amp; *ptr != <span class="string">'\0'</span>)&#123;</span><br><span class="line">          ptr++;</span><br><span class="line">        &#125;</span><br><span class="line">        *ptr = <span class="string">'\0'</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      ptr++;</span><br><span class="line">    &#125;</span><br><span class="line">    do_parse();</span><br><span class="line">    <span class="keyword">pid_t</span> pid = fork();</span><br><span class="line">    <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)&#123;</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(pid == <span class="number">0</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>(redirect == <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> fd = open(file,O_CREAT|O_WRONLY|O_TRUNC,<span class="number">0664</span>);</span><br><span class="line">        dup2(fd,<span class="number">1</span>);</span><br><span class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span> (redirect == <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> fd = open(file,O_CREAT|O_WRONLY|O_APPEND,<span class="number">0644</span>);</span><br><span class="line">        dup2(fd,<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      execvp(argv[<span class="number">0</span>],argv);</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    wait(<span class="literal">NULL</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+

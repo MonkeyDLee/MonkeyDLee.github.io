@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="libinxu">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="MonkeyDLee">
+  <meta property="og:description" content="C/C++">
+  <meta property="og:site_name" content="MonkeyDLee">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="MonkeyDLee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>MonkeyDLee</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Untitled Post</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MonkeyDLee">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:532900395@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By libinxu</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-14</span>
+            <span class="time">23:58:14</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="Linux的基础学习"><a href="#Linux的基础学习" class="headerlink" title="Linux的基础学习"></a>Linux的基础学习</h1><h2 id="1-硬盘的分区"><a href="#1-硬盘的分区" class="headerlink" title="1.硬盘的分区"></a>1.硬盘的分区</h2><p>硬盘分为主分区,扩展分区,逻辑分区,在任何操作系统中只有主分区和逻辑分区可以直接使用</p>
+<p>扩展分区分区不能直接存储数据要先划分为逻辑分区才可以使用  不同系统的文件系统格式</p>
+<p>不同  Windows下常用FAT32 ,以及NTFS,Linux下常用EXT2 EXT3 NFS VFAT SWAP</p>
+<h2 id="2-基础操作"><a href="#2-基础操作" class="headerlink" title="2.基础操作"></a>2.基础操作</h2><h3 id="1-Linux和shell的关系"><a href="#1-Linux和shell的关系" class="headerlink" title="1.Linux和shell的关系"></a>1.Linux和shell的关系</h3><p>Linux操作系统有两部分组成 内核 和 系统工具 </p>
+<p>和硬件直接通信的程序一般都在内核中,用户通过shell与操作系统通信</p>
+<h3 id="2-简单命令"><a href="#2-简单命令" class="headerlink" title="2.简单命令"></a>2.简单命令</h3><p>linux基本操作：<br>    命令格式： ls cd mkdir rm echo mv cat touch cp<br>        命令名 [选项参数] [操作对象]<br>目录相关命令<br>    ls      列出当前目录下的内容<br>            一个终端打开之后，直接就会处于一个目录下<br>            目录：文件夹<br>        -a  浏览所有文件，包含隐藏文件<br>            linux下以.开头的文件是隐藏文件<br>            .   目录自身<br>            ..  目录自身的上一层路径<br>        -l  浏览文件的详细信息<br>        -t  对浏览的文件进行按时间排序<br>        -S  按时间排序<br>        -r  逆序<br>    pwd     显示当前所在路径（绝对路径）<br>        绝对路径：以根目录为起始的路径（linux的目录结构就是以根目录起始的）<br>        相对路径：以当前目录作为起始的路径<br>    mkdir   创建文件夹<br>        -p  递归多层级创建<br>    rmdir   删除空目录<br>        -p  递归多层级删除空目录<br>    rm      删除普通文件<br>        -r  删除目录（递归删除目录及内部文件）<br>        -f  忽略提示信息，直接进行操作<br>    cp      拷贝文件到指定位置<br>        -r  拷贝目录（递归拷贝目录及内部文件）<br>        -f  忽略提示信息，直接进行操作<br>    mv      将文件/目录移动到指定位置<br>        -i  增加提示信息<br>    cd      进入指定目录（改变当前所在路径为另一位置）<br>        ~   快速返回当前用户的家目录</p>
+<pre><code>-   返回上一次所在路径
+</code></pre><p>文件相关命令<br>        linux一切皆文件<br>        文件类型：linux并不以文件后缀名区分文件类型</p>
+<pre><code>    -   普通文件
+            d   目录文件
+            l   符号链接文件
+            p   管道文件
+            c   字符设备文件
+            b   块设备文件
+            s   套接字文件
+touch   若文件不存在则创建新文件，否则刷新时间属性
+            -d  使用指定时间刷新文件的时间属性
+            -r  使用指定文件的时间属性刷新另一个文件时间属性
+cat     打印文件内容到终端显示  
+            -n  显示内容行号
+tac     按行逆序打印文件内容
+more    分页显示文件内容
+            空格  向下翻页
+            b     向上翻页
+            回车  向下按行滚动
+            q     退出
+less    分页显示文件内容
+            向下翻页    空格 f PgDn
+            向上翻页    b   PgUp
+            向上滚动    ↑   k
+            向下滚动    ↓   j
+            字符串匹配功能：
+/string     向下匹配string字符串
+?string     向上匹配string字符串
+        n       找下一个匹配位置
+            q   退出
+head    默认显示文件前10行内容
+            -n  用于指定显示文件前n行内容
+tail    默认显示文件末尾10行内容
+            -n  用于指定显示文件末尾n行内容
+            -f  一直刷新文件末尾的新数据   日志
+</code></pre><p>压缩/解压缩命令：<br>            zip/unzip   zip格式的压缩/解压缩<br>            gzip/gunzip gzip格式的压缩/解压缩<br>            bzip2/bunzip2   bzip2格式的压缩/解压缩<br>            tar     打包工具<br>                        -c  打包<br>                        -x  解包<br>                        -z  打包/解包同时进行gzip格式压缩/解压缩<br>                        -j  打包/解包同时进行bzip2格式压缩/解压缩<br>                        -v  显示详细些的打包/解包信息<br>                        -f  指定压缩包名称<br>                        tar -czvf abc.tar.gz abc.txt<br>                        tar -xzvf abc.tar.gz<br>时间日期命令：<br>            cal     查看日历<br>                        -3  显示相邻三个月日历<br>                        -y  显示全年日历<br>                        -j  显示日期的时候以day of year的形式显示<br>            date    查看系统当前日期时间</p>
+<pre><code>+   用于指定显示时间的格式
+    +&quot;%Y-%m-%d %H:%M:%S&quot;
+    +&quot;%s&quot;
+        -s  设置系统时间
+</code></pre><p>匹配查找命令：<br>        grep    文件内容的字符串匹配<br>                -i  忽略大小写进行匹配<br>                -v  反向匹配（匹配不包含指定字符串的行）<br>                -R  递归对目录下所有文件进行字符串匹配<br>        find    文件的查找<br>                -name   按文件名查找<br>                -type   按文件类型查找<br>                f d l s c b p<br>                -size   按照文件大小查找<br>                +/-n[cbwkMG]<br>                -mtime -ctime -atime<br>                +/-n    按天查找<br>                -mmin   -cmin   -amin<br>                +/-n    按分钟查找<br>                -exec   连接其它命令，对找到的文件进行处理<br>            find ./ -size +5k -exec rm ‘{}’ \;<br>        tab     自动补全<br>        ctrl+c  中断当前操作</p>
+<pre><code>reboot  重启
+shutdown -h now 立即关机
+halt    立即关机
+</code></pre><p>其它命令：<br>    man     查看手册命令<br>    stat    查看文件的详细状态信息<br>    链接数<br>    |   管道符<br>        连接两个命令，将前边命令的输出结果作为后边命令的输入<br>    &gt;&gt;  重定向<br>        改变数据流向，将数据追加到文件末尾<br>    &gt;   重定向<br>        改变数据流向，先清空文件原有数据，然后写入新数据</p>
+<p>wc:计数</p>
+<p>clear:清屏</p>
+<h3 id="4-Linux系统文件的含义"><a href="#4-Linux系统文件的含义" class="headerlink" title="4. Linux系统文件的含义"></a>4. Linux系统文件的含义</h3><p>1)特定的文件格式</p>
+<p>2)按照特定格式进行格式化的存储介质</p>
+<p>3)管理文件对怎建进行操作的机制及实现</p>
+<h4 id="1-文件的含义"><a href="#1-文件的含义" class="headerlink" title="1.文件的含义"></a>1.文件的含义</h4><p>1.字符流序列</p>
+<p>2.目录:包含许多文件的目录项,目录项包含相应的文件名,i结点号.</p>
+<h4 id="2-文件的成分"><a href="#2-文件的成分" class="headerlink" title="2.文件的成分"></a>2.文件的成分</h4><p>1)索引结点</p>
+<p>2)数据</p>
+<h4 id="3-文件的命名"><a href="#3-文件的命名" class="headerlink" title="3.文件的命名"></a>3.文件的命名</h4><p>1)尽量简单反映出文件的内容</p>
+<p>2)除斜线和空字符的ASCII字符都可以使用</p>
+<p>3)尽量不要使用shell里的特殊字符</p>
+<p>4)区分大小写</p>
+<h3 id="5-Linux系统的目录结构"><a href="#5-Linux系统的目录结构" class="headerlink" title="5.Linux系统的目录结构"></a>5.Linux系统的目录结构</h3><p>1)根目录</p>
+<p>2)bin目录:命令文件目录</p>
+<p>3)boot:系统内核</p>
+<p>4)dev:设备文件目录</p>
+<p>5)etc:系统的大部配置文件和子目录</p>
+<p>6)home :用户目录</p>
+<p>7)lib:编程语言库</p>
+<p>8)lost+found</p>
+<p>9)opt</p>
+<p>10)root</p>
+<p>11)usr</p>
+<p>12)mnt</p>
+<p>13)proc</p>
+<p>14)sbin</p>
+<p>15)tmp</p>
+<p>16)var</p>
+<h2 id="Linux系统管理"><a href="#Linux系统管理" class="headerlink" title="Linux系统管理"></a>Linux系统管理</h2><h2 id="用户和组管理"><a href="#用户和组管理" class="headerlink" title="用户和组管理"></a>用户和组管理</h2><h3 id="用户和组概述"><a href="#用户和组概述" class="headerlink" title="用户和组概述"></a>用户和组概述</h3><p>Linux账户分为用户账户和组账户</p>
+<p>用户账户分为普通账户和超级账户</p>
+<p>组也分为私有组和标准组</p>
+<p>root用户的用户ID和组ID永远是0</p>
+<p>shadow passwd对任何用户均可读 用户用shadow passwords保护只能root用户读</p>
+<h3 id="软件包管理"><a href="#软件包管理" class="headerlink" title="软件包管理"></a>软件包管理</h3><p>Linux常见的几种包格式</p>
+<p>rpm</p>
+<p>rpm的好处</p>
+<p>1)提供快速的的安装减少编译安装错误</p>
+<p>2)容易维护</p>
+<p>3)可以进行软件包安装和验证工作</p>
+<p>4)不会丢失定制信息</p>
+<p>tar</p>
+<p>bz2</p>
+<p>gz</p>
+<p>deb</p>
+<p>sh</p>
+<p>src</p>
+<p>bin</p>
+<h2 id="Linux的网络服务"><a href="#Linux的网络服务" class="headerlink" title="Linux的网络服务"></a>Linux的网络服务</h2><p>1.NFS</p>
+<p>通常在局域网中使用使用户能够实现文件的共享</p>
+<p>2.NFS的特点</p>
+<p>1)不占用本地工作的磁盘空间</p>
+<p>2)通过同步写磁盘可以实现分布式处理功能</p>
+<p>3)用字符命令方式性能高可以灵活配置</p>
+<p>4)扩充新的资源或环境不需要改变现有的</p>
+<p>5)CD-ROM 和 USB 等储存设备可以在网络上被其他计算机使用</p>
+<p>3.NFS 服务器建立的工作步骤</p>
+<p>1)安装portmap,nfs-utils两个安装包</p>
+<p>2)主机对所提供文件下放权限</p>
+<p>3)客机把远程文件挂载在本地目录上</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+

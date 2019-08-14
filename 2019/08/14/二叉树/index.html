@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="libinxu">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="MonkeyDLee">
+  <meta property="og:description" content="C/C++">
+  <meta property="og:site_name" content="MonkeyDLee">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="MonkeyDLee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>MonkeyDLee</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Untitled Post</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MonkeyDLee">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:532900395@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By libinxu</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-14</span>
+            <span class="time">23:58:14</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><h2 id="1-树概念及结构"><a href="#1-树概念及结构" class="headerlink" title="1.树概念及结构"></a>1.树概念及结构</h2><p><strong>树是一种非线性的数据结构</strong>，它是由n（n&gt;=0）个有限结点组成一个具有层次关系的集合。把它叫做树是因<br>为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。它具有以下的特点：每个结点有零个或多<br>个子结点；没有父结点的结点称为根结点；每一个非根结点有且只有一个父结点；除了根结点外，每个子结<br>点可以分为多个不相交的子树</p>
+<h3 id="1-树的基本概念"><a href="#1-树的基本概念" class="headerlink" title="1.树的基本概念"></a>1.树的基本概念</h3><p><strong>节点的度</strong>：一个节点含有的子树的个数称为该节点的度;<br><strong>叶节点或终端节点</strong>：度为0的节点称为叶节点；<br><strong>非终端节点或分支节点：</strong>度不为0的节点;<br><strong>树的度</strong>：一棵树中，最大的节点的度称为树的度； 如上图：树的度为6<br><strong>节点的层次</strong>：从根开始定义起，根为第1层，根的子节点为第2层，以此类推；<br><strong>树的高度或深度</strong>：树中节点的最大层次； 如上图：树的高度为4<br><strong>森林</strong>：由m（m&gt;=0）棵互不相交的树的集合称为森林；</p>
+<p><img src="D:\MyBlog\source\images\二叉树.png" alt=""></p>
+<h3 id="2-树的表示"><a href="#2-树的表示" class="headerlink" title="2.树的表示"></a>2.树的表示</h3><p><strong>孩子兄弟表示法</strong></p>
+<p><img src="D:\MyBlog\source\images\二叉树表示.png" alt=""></p>
+<h2 id="2-二叉树"><a href="#2-二叉树" class="headerlink" title="2.二叉树"></a>2.二叉树</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1.概念:"></a>1.概念:</h3><p>   一棵二叉树是结点的一个<strong>有限集合</strong>，该集合或者为空，或者是由一个根节点加上两棵别称为左子树和右子树<br>的二叉树组成。</p>
+<h3 id="2-二叉树的特点："><a href="#2-二叉树的特点：" class="headerlink" title="2.二叉树的特点："></a>2.二叉树的特点：</h3><p>每个结点最多有两棵子树，即二叉树不存在度大于2的结点。</p>
+<p>二叉树的子树有左右之分，其子树的次序不能颠倒</p>
+<h3 id="3-几种特殊的二叉树"><a href="#3-几种特殊的二叉树" class="headerlink" title="3.几种特殊的二叉树"></a>3.几种特殊的二叉树</h3><p><strong>满二叉树</strong>：一个二叉树，如果每一个层的结点数都达到最大值，则这个二叉树就是满二叉树。也就是<br>说，如果一个二叉树的层数为K，且结点总数是(2^k) -1 ，则它就是满二叉树。</p>
+<p><strong>完全二叉树</strong>：完全二叉树是效率很高的数据结构，完全二叉树是由满二叉树而引出来的。对于深度为K<br>的，有n个结点的二叉树，当且仅当其每一个结点都与深度为K的满二叉树中编号从1至n的结点一一对<br>应时称之为完全二叉树。 要注意的是满二叉树是一种特殊的完全二叉树。</p>
+<p><img src="D:\MyBlog\source\images\特殊的二叉树.png" alt=""></p>
+<h3 id="4-二叉树的存储结构"><a href="#4-二叉树的存储结构" class="headerlink" title="4.二叉树的存储结构"></a>4.二叉树的存储结构</h3><p>二叉树一般可以使用两种结构存储，<strong>一种顺序结构</strong>，<strong>一种链式结构</strong>。</p>
+<h2 id="3-二叉树的遍历"><a href="#3-二叉树的遍历" class="headerlink" title="3.二叉树的遍历"></a>3.二叉树的遍历</h2><h4 id="1-前序遍历"><a href="#1-前序遍历" class="headerlink" title="1.前序遍历"></a>1.前序遍历</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 左子树 根 右子树</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorderTraversal</span><span class="params">(Node *root)</span> </span>&#123;</span><br><span class="line">true<span class="comment">// 空树</span></span><br><span class="line">true<span class="keyword">if</span> (root == <span class="literal">NULL</span>) &#123;</span><br><span class="line">truetrue<span class="keyword">return</span>;</span><br><span class="line">true&#125;</span><br><span class="line">trueinorderTraversal(root-&gt;left);</span><br><span class="line">true<span class="built_in">printf</span>(<span class="string">"%d "</span>, root-&gt;value);</span><br><span class="line">trueinorderTraversal(root-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-中序遍历"><a href="#2-中序遍历" class="headerlink" title="2.中序遍历"></a>2.中序遍历</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 左子树 根 右子树</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorderTraversal</span><span class="params">(Node *root)</span> </span>&#123;</span><br><span class="line">true<span class="comment">// 空树</span></span><br><span class="line">true<span class="keyword">if</span> (root == <span class="literal">NULL</span>) &#123;</span><br><span class="line">truetrue<span class="keyword">return</span>;</span><br><span class="line">true&#125;</span><br><span class="line">trueinorderTraversal(root-&gt;left);</span><br><span class="line">true<span class="built_in">printf</span>(<span class="string">"%d "</span>, root-&gt;value);</span><br><span class="line">trueinorderTraversal(root-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-后序遍历"><a href="#3-后序遍历" class="headerlink" title="3.后序遍历"></a>3.后序遍历</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 左子树 右子树 根</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorderTraversal</span><span class="params">(Node *root)</span> </span>&#123;</span><br><span class="line">true<span class="comment">// 空树</span></span><br><span class="line">true<span class="keyword">if</span> (root == <span class="literal">NULL</span>) &#123;</span><br><span class="line">truetrue<span class="keyword">return</span>;</span><br><span class="line">true&#125;</span><br><span class="line">truepostorderTraversal(root-&gt;left);</span><br><span class="line">truepostorderTraversal(root-&gt;right);</span><br><span class="line">true<span class="built_in">printf</span>(<span class="string">"%d "</span>, root-&gt;value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-层序遍历"><a href="#4-层序遍历" class="headerlink" title="4.层序遍历"></a>4.层序遍历</h4><h4 id="创建二叉树"><a href="#创建二叉树" class="headerlink" title="创建二叉树"></a>创建二叉树</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Node * CreateTree(<span class="keyword">char</span> preorder[], <span class="keyword">int</span> <span class="keyword">size</span>, <span class="keyword">int</span> *pUsed) &#123;</span><br><span class="line">true<span class="keyword">if</span> (<span class="keyword">size</span> == <span class="number">0</span>) &#123;</span><br><span class="line">truetrue*pUsed = <span class="number">0</span>;</span><br><span class="line">truetrue<span class="keyword">return</span> <span class="keyword">NULL</span>;</span><br><span class="line">true&#125;</span><br><span class="line">true<span class="keyword">else</span> <span class="keyword">if</span> (preorder[<span class="number">0</span>] == <span class="string">'#'</span>) &#123;</span><br><span class="line">truetrue*pUsed = <span class="number">1</span>;</span><br><span class="line">truetrue<span class="keyword">return</span> <span class="keyword">NULL</span>;</span><br><span class="line">true&#125;</span><br><span class="line">true<span class="keyword">else</span> &#123;</span><br><span class="line">truetrue<span class="comment">//创建根结点</span></span><br><span class="line">truetrueNode* root = CreatNode(preorder[<span class="number">0</span>]);</span><br><span class="line">truetrue<span class="keyword">int</span> leftused = <span class="number">0</span>;</span><br><span class="line">truetrue<span class="keyword">int</span> rightused = <span class="number">0</span>;</span><br><span class="line">truetrue<span class="comment">//创建左子树</span></span><br><span class="line">truetrueroot-&gt;left = CreateTree(preorder + <span class="number">1</span>, <span class="keyword">size</span> - <span class="number">1</span>, &amp;leftused);</span><br><span class="line">truetrue<span class="comment">//创建右子树</span></span><br><span class="line">truetrueroot-&gt;right = CreateTree(preorder + <span class="number">1</span> + leftused, </span><br><span class="line">truetruetrue                      <span class="keyword">size</span> - <span class="number">1</span> - leftused, &amp;rightused);</span><br><span class="line">    <span class="comment">//相当于返回值</span></span><br><span class="line">truetrue*pUsed = <span class="number">1</span> + leftused + rightused;</span><br><span class="line">truetrue<span class="keyword">return</span> root;</span><br><span class="line">true&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><h3 id="堆的概念"><a href="#堆的概念" class="headerlink" title="堆的概念:"></a>堆的概念:</h3><p>如果有一个关键码的集合K = {k0，k1， k2，…，kn-1}，把它的所有元素按完全二叉树的顺序存储方式存储<br>在一个一维数组中，并满足：Ki &lt;= K2i+1 且 Ki&lt;= K2i+2 (Ki &gt;= K2i+1 且 Ki &gt;= K2i+2) i = 0，1，2…，则称为<br>小堆(或大堆)。<strong>将根节点最大的堆叫做最大堆或大根堆，根节点最小的堆叫做最小堆或小根堆。</strong></p>
+<p>逻辑上就是完全二叉树,利用顺序存储存在数组:</p>
+<h3 id="堆的性质："><a href="#堆的性质：" class="headerlink" title="堆的性质："></a>堆的性质：</h3><p>堆中某个节点的值总是不大于或不小于其父节点的值；<br>堆总是一棵完全二叉树。</p>
+<h3 id="堆向下调整算法"><a href="#堆向下调整算法" class="headerlink" title="堆向下调整算法:"></a>堆向下调整算法:</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> AdjustDown2(<span class="keyword">int</span> tree[], <span class="keyword">int</span> <span class="built_in">size</span>, <span class="keyword">int</span> rootIdx) &#123;</span><br><span class="line">true<span class="built_in">if</span> (<span class="number">2</span> * rootIdx + <span class="number">1</span> &gt;= <span class="built_in">size</span>) &#123;</span><br><span class="line">truetrue<span class="built_in">return</span>;</span><br><span class="line">true&#125;</span><br><span class="line">true<span class="keyword">int</span> minIdx;</span><br><span class="line">true<span class="built_in">if</span> (<span class="number">2</span> * rootIdx + <span class="number">2</span> &gt;= <span class="built_in">size</span>) &#123;</span><br><span class="line">truetrueminIdx = <span class="number">2</span> * rootIdx + <span class="number">1</span>;</span><br><span class="line">true&#125;</span><br><span class="line">true<span class="built_in">else</span> <span class="built_in">if</span> (tree[<span class="number">2</span> * rootIdx + <span class="number">1</span>] &lt;= tree[<span class="number">2</span> * rootIdx + <span class="number">2</span>]) &#123;</span><br><span class="line">truetrueminIdx = <span class="number">2</span> * rootIdx + <span class="number">1</span>;</span><br><span class="line">true&#125;</span><br><span class="line">true<span class="built_in">else</span> &#123;</span><br><span class="line">truetrueminIdx = <span class="number">2</span> * rootIdx + <span class="number">2</span>;</span><br><span class="line">true&#125;</span><br><span class="line">true<span class="built_in">if</span> (tree[rootIdx] &lt;= tree[minIdx]) &#123;</span><br><span class="line">truetrue<span class="built_in">return</span>;</span><br><span class="line">true&#125;</span><br><span class="line">true<span class="built_in">else</span> &#123;</span><br><span class="line">truetrue<span class="keyword">int</span> t = tree[minIdx];</span><br><span class="line">truetruetree[minIdx] = tree[rootIdx];</span><br><span class="line">truetruetree[rootIdx] = t;</span><br><span class="line">truetrueAdjustDown2(tree, <span class="built_in">size</span>, minIdx);</span><br><span class="line">true&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="堆向上调整算法"><a href="#堆向上调整算法" class="headerlink" title="堆向上调整算法:"></a>堆向上调整算法:</h3><figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> AdjustUp(<span class="built_in">int</span> tree[], <span class="built_in">int</span> <span class="built_in">size</span>, <span class="built_in">int</span> child) &#123;</span><br><span class="line">true<span class="keyword">if</span> (child == <span class="number">0</span>) &#123;</span><br><span class="line">truetrue<span class="keyword">return</span>;</span><br><span class="line">true&#125;</span><br><span class="line"></span><br><span class="line">true<span class="built_in">int</span> <span class="built_in">parent</span> = (child - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">true<span class="keyword">if</span> (tree[child] &gt;= tree[<span class="built_in">parent</span>]) &#123;</span><br><span class="line">truetrue<span class="keyword">return</span>;</span><br><span class="line">true&#125;</span><br><span class="line"></span><br><span class="line">true<span class="built_in">int</span> t = tree[child];</span><br><span class="line">truetree[child] = tree[<span class="built_in">parent</span>];</span><br><span class="line">truetree[<span class="built_in">parent</span>] = t;</span><br><span class="line">trueAdjustUp(tree, <span class="built_in">size</span>, <span class="built_in">parent</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+

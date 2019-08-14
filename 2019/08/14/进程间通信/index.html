@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="libinxu">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="MonkeyDLee">
+  <meta property="og:description" content="C/C++">
+  <meta property="og:site_name" content="MonkeyDLee">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="MonkeyDLee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>MonkeyDLee</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Untitled Post</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MonkeyDLee">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:532900395@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By libinxu</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-14</span>
+            <span class="time">23:58:14</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h1><p><strong>基本的通信方式：</strong>管道   共享内存  消息队列  信号量</p>
+<p><strong>进程通信的目的</strong>：数据传输，数据共享，进程间的访问控制 通知事件</p>
+<p>管道—传输数据     共享内存—-共享数据    消息队列数据—-传输     信号量—-进程访问控制</p>
+<h2 id="管道："><a href="#管道：" class="headerlink" title="管道："></a>管道：</h2><p><strong>概念：</strong>进程间的数据传输  半双工​        </p>
+<h4 id="同步互斥概念"><a href="#同步互斥概念" class="headerlink" title="同步互斥概念"></a>同步互斥概念</h4><p><strong>互斥</strong>：保证对临界资源同一时间的唯一使用</p>
+<p><strong>同步</strong>：保证对临界资源的时序可控性</p>
+<h3 id="匿名管道"><a href="#匿名管道" class="headerlink" title="匿名管道"></a>匿名管道</h3><p>概念：匿名管道只能用于有亲缘关系的进程间通信</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span>  pipe（<span class="keyword">int</span> pipefd[<span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line">pipefd[<span class="number">0</span>]-----读数据</span><br><span class="line"></span><br><span class="line">pipefd[<span class="number">1</span>]----write</span><br><span class="line"></span><br><span class="line">返回值  <span class="number">0</span>，失败<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">原理：内核的缓冲区开辟空间</span><br></pre></td></tr></table></figure>
+<h3 id="匿名管道读写特性："><a href="#匿名管道读写特性：" class="headerlink" title="匿名管道读写特性："></a>匿名管道读写特性：</h3><p>若管道中没有数据，read会阻塞，直到数据返回</p>
+<p>若管道数据满了，write会阻塞直到数据读取有空闲位置，写入返回</p>
+<p>若管道所有的读端都被关闭，则write会触发异常–SIGPIPE–导致进程退出</p>
+<p>若管道所有的写端都关闭，则read读完数据，返回0</p>
+<p> 管道的生命周期伴随进程</p>
+<p> 管道自带同步互斥特性：当读写大大小小于PIPE_BUF时保证操作原子性</p>
+<h3 id="命名管道"><a href="#命名管道" class="headerlink" title="命名管道"></a>命名管道</h3><p>原理：可见于文件系统，因为创建命名管道会随之在文件系统创建一个命名管道文件mkfifo因为所有的进程都可以通过打开文件操作管道</p>
+<p><strong>程序内部创造mkfifo</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> mkfifo（<span class="keyword">const</span> <span class="keyword">char</span>*  pathname，<span class="keyword">mode_t</span> mode）</span><br><span class="line"></span><br><span class="line">pathname:管道文件名字  mode:权限</span><br><span class="line"></span><br><span class="line">返回值 </span><br><span class="line">成功返回<span class="number">0</span>，失败返回错误代码</span><br></pre></td></tr></table></figure>
+<h4 id="命名管道文件的打开特性"><a href="#命名管道文件的打开特性" class="headerlink" title="命名管道文件的打开特性:"></a>命名管道文件的打开特性:</h4><p>以只读方式打开若管道文件没有其他进程以写的方式打开则阻塞直到文件被以写的方式打开</p>
+<p>若文件以只写的方式打开,其他进程没有以读的方式打开则阻塞直到有其他文件以读的方式打开</p>
+<h4 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h4><h5 id="dup（）"><a href="#dup（）" class="headerlink" title="dup（）"></a>dup（）</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dup</span><span class="params">(<span class="keyword">int</span> oldfd)</span></span></span><br><span class="line">dup函数创建一个新的文件描述符，该新文件描述符和原有文件描述符oldfd指向相同的文件、管道或者网络连接。</span><br><span class="line">并且dup返回的文件描述符总是取系统当前可用的最小整数值</span><br><span class="line">失败时返回<span class="number">-1</span>并设置errno</span><br></pre></td></tr></table></figure>
+<h5 id="dup2（）"><a href="#dup2（）" class="headerlink" title="dup2（）"></a>dup2（）</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dup2</span><span class="params">(<span class="keyword">int</span> oldfd, <span class="keyword">int</span> newfd)</span></span>;</span><br><span class="line">过它将返回第一个不小于oldfd的整数值。</span><br><span class="line">dup2失败时返回<span class="number">-1</span>并设置errno</span><br></pre></td></tr></table></figure>
+<h3 id="共享内存"><a href="#共享内存" class="headerlink" title="共享内存"></a>共享内存</h3><p><strong>最快的进程间通信方式</strong>,因为相较于其他通信方式将数据从用户态拷贝到内核态使用时从内核态拷贝到用户态,共享内存直接将一块内存映射到用户空间,用户可以通过地址对内存进行操作,并反馈到其他进程</p>
+<h4 id="共享内存使用流程"><a href="#共享内存使用流程" class="headerlink" title="共享内存使用流程"></a>共享内存使用流程</h4><h5 id="1-创建共享内存"><a href="#1-创建共享内存" class="headerlink" title="1.创建共享内存"></a>1.创建共享内存</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">功能：用来创建共享内存</span><br><span class="line">原型</span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">shmget</span><span class="params">(<span class="keyword">key_t</span> key, <span class="keyword">size_t</span> size, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line">参数</span><br><span class="line"> key:这个共享内存段名字</span><br><span class="line"> size:共享内存大小</span><br><span class="line"> shmflg:由九个权限标志构成，它们的用法和创建文件时使用的mode模式标志是一样的</span><br><span class="line"></span><br><span class="line">    IPC_CREAT  共享内存不存在创建,存在打开</span><br><span class="line">    IPC_EXCL:存在报错不存在创建</span><br><span class="line">    mode_flags 权限</span><br><span class="line"></span><br><span class="line">返回值:成功返回一个非负数共享内存段的标识码操作句柄shmid  失败返回<span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<p><strong>共享内存段名字的获取</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">key_t</span> ftok(<span class="keyword">const</span> <span class="keyword">char</span> *pathname, <span class="keyword">int</span> proj_id);</span><br><span class="line">pathname:文件名</span><br><span class="line">proj_id:数字</span><br><span class="line">通过文件的iNode结点号和proj_id共同得出key值</span><br></pre></td></tr></table></figure>
+<p>IPS查看共享内存   ipcs -m  ipcrm  -m</p>
+<h5 id="2-将共享内存映射到虚拟地址空间"><a href="#2-将共享内存映射到虚拟地址空间" class="headerlink" title="2.将共享内存映射到虚拟地址空间"></a>2.将共享内存映射到虚拟地址空间</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">shmat</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">const</span> <span class="keyword">void</span> *shmaddr, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line">功能：将共享内存段连接到进程地址空间</span><br><span class="line">参数:</span><br><span class="line">shmid : 创建共享内存的返回的操作句柄</span><br><span class="line">shmaddr:用于指定映射在虚拟地址空间首地址:  通常置<span class="literal">NULL</span></span><br><span class="line">shmflg:  <span class="number">0</span>--可读写,它的两个可能取值是SHM_RND和SHM_RDONLY</span><br><span class="line">返回值:映射首地址(通过这个地址对共享内存进行操作)失败返回<span class="number">-1</span></span><br><span class="line">说明：</span><br><span class="line">shmaddr为<span class="literal">NULL</span>，核心自动选择一个地址</span><br><span class="line">shmaddr不为<span class="literal">NULL</span>且shmflg无SHM_RND标记，则以shmaddr为连接地址。</span><br><span class="line">shmaddr不为<span class="literal">NULL</span>且shmflg设置了SHM_RND标记，则连接的地址会自动向下调整为SHMLBA的整数倍。公式</span><br><span class="line">shmaddr - (shmaddr % SHMLBA)</span><br><span class="line">shmflg=SHM_RDONLY，表示连接操作用来只读共享内存</span><br></pre></td></tr></table></figure>
+<h5 id="3-对共享内存进行操作"><a href="#3-对共享内存进行操作" class="headerlink" title="3.对共享内存进行操作"></a>3.对共享内存进行操作</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">原型</span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">shmctl</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">int</span> cmd, struct shmid_ds *buf)</span></span>;</span><br><span class="line">功能：用于控制共享内存</span><br><span class="line">参数:</span><br><span class="line"> shmid:由shmget返回的共享内存标识码</span><br><span class="line"> cmd:将要采取的动作（有三个可取值）</span><br><span class="line"> IPC_STAT:把shmid_ds结构中的数据设置为共享内存的当前关联值</span><br><span class="line"> IPC_SRT:在有足够权限的情况下吧共享内存设置为shmid_ds数据结构中的值</span><br><span class="line"> buf:指向一个保存着共享内存的模式状态和访问权限的数据结构</span><br><span class="line">返回值：成功返回<span class="number">0</span>；失败返回<span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<h5 id="4-解除映射关系​"><a href="#4-解除映射关系​" class="headerlink" title="4.解除映射关系​"></a>4.解除映射关系​</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmdt</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *shmaddr)</span></span>;</span><br><span class="line">功能：将共享内存段与当前进程脱离</span><br><span class="line">参数:</span><br><span class="line"> shmaddr: 由shmat所返回的指针</span><br><span class="line">返回值：成功返回<span class="number">0</span>；失败返回<span class="number">-1</span></span><br><span class="line">注意：将共享内存段与当前进程脱离不等于删除共享内存段</span><br></pre></td></tr></table></figure>
+<h5 id="5-删除共享内存"><a href="#5-删除共享内存" class="headerlink" title="5.删除共享内存"></a>5.删除共享内存</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmctl</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">int</span> cmd, struct shmid_ds *buf)</span></span>;</span><br><span class="line"></span><br><span class="line">cmd:</span><br><span class="line"></span><br><span class="line"> PC_RMID  删除共享内存</span><br><span class="line"></span><br><span class="line">buf:设置获取共享内存信息,用不着置<span class="literal">NULL</span></span><br><span class="line"></span><br><span class="line">共享内存删除并不是立即删除只是聚聚后续映射链接,当共享内存映射链接数为<span class="number">0</span>时删除共享内存</span><br></pre></td></tr></table></figure>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="libinxu">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="MonkeyDLee">
+  <meta property="og:description" content="C/C++">
+  <meta property="og:site_name" content="MonkeyDLee">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="MonkeyDLee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>MonkeyDLee</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Untitled Post</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MonkeyDLee">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:532900395@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By libinxu</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-14</span>
+            <span class="time">23:58:14</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="进程概念"><a href="#进程概念" class="headerlink" title="进程概念"></a>进程概念</h1><h2 id="冯诺依曼体系结构"><a href="#冯诺依曼体系结构" class="headerlink" title="冯诺依曼体系结构:"></a>冯诺依曼体系结构:</h2><p>冯诺依曼       奠定现代计算机已经体系结构,二进制存储</p>
+<h3 id="现代计算机五大硬件单元"><a href="#现代计算机五大硬件单元" class="headerlink" title="现代计算机五大硬件单元:"></a>现代计算机五大硬件单元:</h3><p>输入设备:键盘      输出设备:显示器       存储器:    内存      运算器:CPU    控制器:</p>
+<p><img src="D:\MyBlog\source\images\进程概念.png" alt=""></p>
+<h2 id="辨析内存-主存-寄存器-指令计数器"><a href="#辨析内存-主存-寄存器-指令计数器" class="headerlink" title="辨析内存/主存  寄存器  指令计数器"></a>辨析内存/主存  寄存器  指令计数器</h2><p>主存:临时存储设备,在处理器执行程序时用来存放程序和处理的数据,在物理结构上来说主存是由一组动态随机存储器构成(DRAM)组成</p>
+<p>寄存器：CPU的组成部分</p>
+<p>指令计数器：指令计数器，即程序计数器。它是计算机处理器中的寄存器，它包含当前正在执行的指令的地址（位置）。当每个指令被获取，指令计数器的存储地址加一。在每个指令被获取之后，程序计数器指向顺序中的下一个指令。当计算机重启或复位时，程序计数器通常恢复到零。</p>
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统:"></a>操作系统:</h2><p><strong>功能:</strong>统筹管理计算机资源;对下管理软硬件资源,对上提供良好的执行环境</p>
+<p><strong>管理:</strong>先描述再组织</p>
+<p><strong>库函数和系统调用关系</strong>:上下级调用关系,库函数就是对系统调用接口的一层封装</p>
+<p><img src="D:\MyBlog\source\images\操作系统与应用程序.png" alt=""></p>
+<h2 id="进程概念-1"><a href="#进程概念-1" class="headerlink" title="进程概念"></a>进程概念</h2><p><strong>进程:</strong>正在运行的程序的抽象</p>
+<p><strong>程序:</strong>可执行的的代码存放在硬盘 运行的时候加载到内存中</p>
+<p><strong>操作系统管理进程</strong>:描述进程 PCB 操作系统通过PCB管理运行中的程序 </p>
+<p><strong>task_struct</strong>-PCB的一种在Linux中描述进程的结构体叫做task_struct。<br>task_struct是Linux内核的一种数据结构，它会被装载到RAM(内存)里并且包含着进程的信息</p>
+<p><strong>描述信息:</strong> 进程标识符(PID),进程状态,优先级,程序计数器,上下文数据,记账信息,内存指针,I/O状态信息</p>
+<p><img src="D:\MyBlog\source\images\进程概念2.png" alt=""></p>
+<p><strong>进程查看:</strong></p>
+<p>​    通过查看/proc文件夹</p>
+<p>​    指令查看进程状态 ps -ef ：   ps -aux：</p>
+<p>​        系统函数：getpid() 获取调用进程的的ID</p>
+<h2 id="进程创建"><a href="#进程创建" class="headerlink" title="进程创建"></a>进程创建</h2><p>fork的使用</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NAME</span><br><span class="line">       fork - create a child process</span><br><span class="line"></span><br><span class="line">SYNOPSIS</span><br><span class="line">   <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">pid_t</span> fork(<span class="keyword">void</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>原理:</strong>通过复制调用进程创建子进程子进程复制父进程的PCB(代码共享 子进程不是从头开始的,数据独有)</p>
+<p><img src="D:\MyBlog\source\images\Linuxpcb&#39;.png" alt=""></p>
+<p><strong>返回值:</strong>父进程返回的是子进程的pid,子进程返回的是0,通过fork()的返回值判断父子进程</p>
+<p><strong>创建子进程的意义:</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*fork的使用</span></span><br><span class="line"><span class="comment">    * 通过复制调用进程,创建一个新的进程</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">     <span class="comment">//pid_t fork(void)</span></span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"parent pid:%d\n"</span>,getpid());</span><br><span class="line">   <span class="keyword">pid_t</span> pid =  fork();</span><br><span class="line">  <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"child\n child:%d a:%d"</span>,getpid(),a+<span class="number">10</span>);                                                   </span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"parent\n child_pid:%d\n pid:%d a:%d"</span>,pid,getpid(),a);</span><br><span class="line">  &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"hehehhe\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="进程状态"><a href="#进程状态" class="headerlink" title="进程状态"></a>进程状态</h2><p><strong>一般操作系统大致可分为这三种状态:就绪 ,阻塞,运行</strong></p>
+<h3 id="Linux下进程的状态"><a href="#Linux下进程的状态" class="headerlink" title="Linux下进程的状态:"></a>Linux下进程的状态:</h3><p><strong>R运行状态（running）:</strong> 并不意味着进程一定在运行中，它表明进程要么是在运行中要么在运行队列里。<br><strong>S睡眠状态（sleeping):</strong> 意味着进程在等待事件完成（这里的睡眠有时候也叫做可中断睡眠（interruptiblesleep)<br><strong>D磁盘休眠状态（Disk sleep）</strong>有时候也叫不可中断睡眠状态（uninterruptible sleep），在这个状态的进程通常会等待IO的结束。<br><strong>T停止状态（stopped）：</strong> 可以通过发送 SIGSTOP 信号给进程来停止（T）进程。这个被暂停的进程可以通过发送 SIGCONT 信号让进程继续运行。<br><strong>X死亡状态（dead）：</strong>这个状态只是一个返回状态，你不会在任务列表里看到这个状态<br><strong>僵死状态（Zombies）</strong>是一个比较特殊的状态。当进程退出并且父进程（使用wait()系统调用,后面讲）没有读取到子进程退出的返回代码时就会产生僵死(尸)进程,僵死进程会以终止状态保持在进程表中，并且会一直在等待父进程读取退出状态代码。所以，只要子进程退出，父进程还在运行，但父进程没有读取子进程状态，子进程进入Z状态<br>来一个创建维持30秒的僵死进程例子：</p>
+<h4 id="僵尸进程-处于僵死状态的进程"><a href="#僵尸进程-处于僵死状态的进程" class="headerlink" title="僵尸进程:处于僵死状态的进程"></a>僵尸进程:处于僵死状态的进程</h4><p>产生原因:1.子进程先于父进程退出,操作系统检测到进程的退出</p>
+<p>危害:资源泄露</p>
+<p>处理:关闭父进程</p>
+<h4 id="孤儿进程"><a href="#孤儿进程" class="headerlink" title="孤儿进程:"></a>孤儿进程:</h4><p>父进程先于子进程退出,子进程成为后台进程,父进程成为1号进程</p>
+<h2 id="进程优先级"><a href="#进程优先级" class="headerlink" title="进程优先级"></a>进程优先级</h2><p>交互式进程    批处理进程</p>
+<p>设置:ps  -efl</p>
+<p>PRI 优先级 NI nice值:PRI无法直接操作设置,但是可以通过设置NI值,进而调整PRI值</p>
+<p>PIR=PIR+NI   nice其取值范围是-20至19</p>
+<p>renice -n  size -p pid</p>
+<h2 id="其他概念："><a href="#其他概念：" class="headerlink" title="其他概念："></a>其他概念：</h2><p>I/O密集型程序：数据密集型程序：</p>
+<p>竞争性: 系统进程数目众多，而CPU资源只有少量，甚至1个，所以进程之间是具有竞争属性的。为了高 </p>
+<p>效完成任务，更合理竞争相关资源，便具有了优先级 </p>
+<p>独立性: 多进程运行，需要独享各种资源，多进程运行期间互不干扰 </p>
+<p>并行: 多个进程在多个CPU下分别，同时进行运行，这称之为并行 </p>
+<p>并发: 多个进程在一个CPU下采用进程切换的方式，在一段时间之内，让多个进程都得以推进。</p>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量:"></a>环境变量:</h3><p><strong>概念</strong>：环境变量(environment variables)一般是指在操作系统中用来指定操作系统运行环境的一些参数环境变量通常具有某些特殊用途，还有在系统当中通常具有全局特性</p>
+<p>查看环境变量:查看 evn（显示所有环境变量）set（显示本地的环境变量和shell变量）echo</p>
+<p>设置环境变量:export unset（删除）</p>
+<p><strong>常见环境变量</strong>：</p>
+<p>PATH : 指定命令的搜索路径 </p>
+<p>HOME : 指定用户的主工作目录(即用户登陆到Linux系统中时,默认的目录) </p>
+<p>SHELL : 当前Shell,它的值通常是/bin/bash。</p>
+<p><strong>环境变量的继承特性</strong>:子进程获取父进程的环境变量</p>
+<p><img src="D:\MyBlog\source\images\环境变量的的继承.png" alt=""></p>
+<h4 id="获取全局变量"><a href="#获取全局变量" class="headerlink" title="获取全局变量:"></a>获取全局变量:</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">main(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[], <span class="keyword">char</span>* env)</span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">char</span>** environ;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">getenv</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="虚拟地址空间："><a href="#虚拟地址空间：" class="headerlink" title="虚拟地址空间："></a>虚拟地址空间：</h2><p>对物理地址空间的一个抽象，而是每个进程都有自己独立的一个虚拟地址空间，与其它进程保持独立性，并且虚拟地址空间通过页表与物理地址映射可以增加内存访问控制空能，虚拟地址空间通过页表与物理地址空间建立映射。</p>
+<p> <img src="D:\MyBlog\source\images\程序地址空间.png" alt=""><strong>写时拷贝技术当父子进程都没对数据操作时共享资源否则各自拷贝一份资源</strong></p>
+<p><img src="D:\MyBlog\source\images\共享内存.png" alt=""></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
