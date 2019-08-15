@@ -358,10 +358,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p><excerpt in="" index="" |="" 首页摘要=""><br>+
+              <p>每个信号表示一种事件，位图注册信号表示进程发生了这个事件，sigqueue节点添加一个表示这个事件发生了一次。</p>
+<p>信号是进程之间时间异步通知的方式，属于软中断</p>
+<p>信号阻塞是阻止信号被递达（暂时不处理信号）在进程pcb中标记 那些信号来了不处理 在进程pcb中有个信号阻塞集，阻塞信号就是在这个集合做标记，当信号需要被处理时进行（pending&amp;~block）操作来判定这个信号需要阻塞还是递达。</p>
           
       
-    </excerpt></p></div>
+    </div>
     
     <div class="article-info article-info-index">
       
