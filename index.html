@@ -195,7 +195,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言总结/">C语言总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言总结/">C语言总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
                     </div>
                 </section>
                 
@@ -278,7 +278,7 @@
   
     <div class="article-meta">
       <a href="/2019/08/15/C-类和对象/" class="article-date">
-      <time datetime="2019-08-15T02:37:10.000Z" itemprop="datePublished">2019-08-15</time>
+      <time datetime="2019-08-15T05:50:46.000Z" itemprop="datePublished">2019-08-15</time>
 </a>
 
 
@@ -303,7 +303,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+              <p>   C++编译器不允许对象为零长度。试想一个长度为0的对象在内存中怎么存放？怎么获取它的地址？为了避免这种情况，C++强制给这种类插入一个缺省成员，长度为1。如果有自定义的变量，变量将取代这个缺省成员。</p>
+          
       
     </div>
     
@@ -312,6 +313,14 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/08/15/C-类和对象/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -358,8 +367,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>每个信号表示一种事件，位图注册信号表示进程发生了这个事件，sigqueue节点添加一个表示这个事件发生了一次。</p>
-<p>信号是进程之间时间异步通知的方式，属于软中断</p>
+              <p>信号是进程之间时间异步通知的方式，属于软中断，信号是一个标记每个信号表示一种事件，位图注册信号表示进程发生了这个事件，sigqueue节点添加一个表示这个事件发生了一次。</p>
 <p>信号阻塞是阻止信号被递达（暂时不处理信号）在进程pcb中标记 那些信号来了不处理 在进程pcb中有个信号阻塞集，阻塞信号就是在这个集合做标记，当信号需要被处理时进行（pending&amp;~block）操作来判定这个信号需要阻塞还是递达。</p>
           
       
@@ -424,15 +432,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><p><strong>1.算数操作符:+,-,/,*,%</strong><br>这部分只需注意/,%的除数不可以为零,模运算只能是整型<br><strong>2.移位操作符:&lt;&lt;,&gt;&gt;</strong><br>移位的规则:左移操作:左边抛弃右边补零<br>                   右移操作:逻辑右移:左边用0填充,右边丢弃<br>                                  算数右移:左边用符号位填充,右边丢弃<br> 这里还需要注意位移操作符的对象是整型,进行操作时要考虑是否越界,移位的值必须非负,                               <img src="https://img-blog.csdnimg.cn/20190122155923779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODMzMjU3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<blockquote>
-<p>标准说明无符号值进行所有移位操作都是逻辑移位,有符号值取决于编译器</p>
-</blockquote>
-<p>所以不建议使用移位操作这样程序的可移植性差<br><strong>位操作:&amp;,|,^</strong><br>操作数必须为整数<br>下面是常见的的使用场景:<br>1)给指定位赋1或0<br>2)一个数中1的个数<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> GetoneCount(<span class="built_in">int</span> <span class="keyword">number</span>) &#123;</span><br><span class="line">true<span class="built_in">int</span> <span class="built_in">count</span> = <span class="number">0</span>;</span><br><span class="line">truefor (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">32</span>; ++i) &#123;</span><br><span class="line">truetrue<span class="keyword">if</span> (<span class="keyword">number</span>&amp;(<span class="number">1</span> &lt;&lt; i))</span><br><span class="line">truetruetrue<span class="built_in">count</span>++;</span><br><span class="line">true&#125;</span><br><span class="line">true<span class="keyword">return</span> <span class="built_in">count</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>求补和逗号操作符</strong><br>1.逗号表达式的值为从左到右最后一个<br> <strong>关系操作符</strong><br> 1.其结果值得类型为整型<br> 2.=,==是不同的<br> 在C语言中=为赋值 ==为比较<br> <strong>逻辑操作符</strong><br> 1.短路求值先左再右<br> 2.&amp;,&amp;&amp;,|,||的区别<br> 逻辑操作用于测试0值和非0值而位操作用于比较操作数中对应的位<br><strong>左值和右值</strong><br>左值标识了一个储存结果值的地点,标识了一个特定的位置,字面值常量也都不是左值<br>这个地址指的是程序员可以获得的<br><strong>操作符的优先级和求值顺序</strong><br> 同一优先级的运算符，结合次序由结合方向所决定。<br>简单记就是：！ &gt; 算术运算符 &gt; 关系运算符 &gt; &amp;&amp; &gt; || &gt; 赋值运算符</p>
-
+              <p>同一优先级的运算符，结合次序由结合方向所决定。<br>简单记就是：！ &gt; 算术运算符 &gt; 关系运算符 &gt; &amp;&amp; &gt; || &gt; 赋值运算符<br>
+          
       
-    </div>
+    </p></div>
     
     <div class="article-info article-info-index">
       
@@ -443,6 +446,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言总结/">C语言总结</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/01/22/操作符总结/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
