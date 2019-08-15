@@ -100,7 +100,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2019-01-22</span>
-            <span class="time">00:46:53</span>
+            <span class="time">10:52:41</span>
           </span>
           
         </div>
@@ -116,7 +116,7 @@
         
         <!-- Post Main Content -->
         <div class="post-content">
-          <p>同一优先级的运算符，结合次序由结合方向所决定。<br>简单记就是：！ &gt; 算术运算符 &gt; 关系运算符 &gt; &amp;&amp; &gt; || &gt; 赋值运算符</p>
+          <p>同一优先级的运算符，结合次序由结合方向所决定。<br>简单记就是：！ &gt; 算术运算符 &gt; 关系运算符 &gt; &amp;&amp; &gt; || &gt; 赋值运算符<br><a id="more"></a></p>
 <h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><p><strong>1.算数操作符:+,-,/,*,%</strong><br>这部分只需注意/,%的除数不可以为零,模运算只能是整型<br><strong>2.移位操作符:&lt;&lt;,&gt;&gt;</strong><br>移位的规则:左移操作:左边抛弃右边补零<br>                   右移操作:逻辑右移:左边用0填充,右边丢弃<br>                                  算数右移:左边用符号位填充,右边丢弃<br> 这里还需要注意位移操作符的对象是整型,进行操作时要考虑是否越界,移位的值必须非负,                               <img src="https://img-blog.csdnimg.cn/20190122155923779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODMzMjU3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <blockquote>
 <p>标准说明无符号值进行所有移位操作都是逻辑移位,有符号值取决于编译器</p>
