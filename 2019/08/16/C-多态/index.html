@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="libinxu">
+
+
+
+<meta name="description" content="C++多态概念:多态的概念：通俗来说，就是多种形态，具体点就是去完成某个行为，当不同的对象去完成时会产生出不同  的状态。举个栗子：比如买票这个行为，当普通人买票时，是全价买票；学生买票时，是半价买票；军人买票时是优 先买票。">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++多态">
+<meta property="og:url" content="http://yoursite.com/2019/08/16/C-多态/index.html">
+<meta property="og:site_name" content="MonkeyDLee">
+<meta property="og:description" content="C++多态概念:多态的概念：通俗来说，就是多种形态，具体点就是去完成某个行为，当不同的对象去完成时会产生出不同  的状态。举个栗子：比如买票这个行为，当普通人买票时，是全价买票；学生买票时，是半价买票；军人买票时是优 先买票。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="d:/MyBlog/source/images/多态.png">
+<meta property="og:image" content="d:/MyBlog/source/images/隐藏重写重载.png">
+<meta property="og:image" content="d:/MyBlog/source/images/虚表指针.png">
+<meta property="og:image" content="d:/MyBlog/source/images/虚表指针内容.png">
+<meta property="og:updated_time" content="2019-08-16T15:11:11.572Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++多态">
+<meta name="twitter:description" content="C++多态概念:多态的概念：通俗来说，就是多种形态，具体点就是去完成某个行为，当不同的对象去完成时会产生出不同  的状态。举个栗子：比如买票这个行为，当普通人买票时，是全价买票；学生买票时，是半价买票；军人买票时是优 先买票。">
+<meta name="twitter:image" content="d:/MyBlog/source/images/多态.png">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="MonkeyDLee" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>C++多态 | MonkeyDLee</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">libinxu</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Nothing  OR  the Best</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:532900395@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="#" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言总结/">C语言总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注C++</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">libinxu</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">libinxu</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Nothing  OR  the Best</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:532900395@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="#" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="w-C-多态" class="article article-type-w" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/16/C-多态/" class="article-date">
+      <time datetime="2019-08-16T14:08:48.000Z" itemprop="datePublished">2019-08-16</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++多态
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="C-多态"><a href="#C-多态" class="headerlink" title="C++多态"></a>C++多态</h1><p><strong>概念</strong>:多态的概念：通俗来说，就是多种形态，<strong>具体点就是去完成某个行为，当不同的对象去完成时会产生出不同</strong> </p>
+<p><strong>的状态</strong>。举个栗子：比如<strong>买票这个行为</strong>，当<strong>普通人</strong>买票时，是全价买票；<strong>学生</strong>买票时，是半价买票；<strong>军人</strong>买票时是优 先买票。 </p>
+<a id="more"></a>
+<h4 id="多态的定义和实现"><a href="#多态的定义和实现" class="headerlink" title="多态的定义和实现"></a>多态的定义和实现</h4><h5 id="多态的构成条件"><a href="#多态的构成条件" class="headerlink" title="多态的构成条件:"></a>多态的构成条件:</h5><p>不同对象调用同一函数产生了不同的行为。那么在继承中要<strong>构成多态还有两个条件</strong>： </p>
+<ol>
+<li><p>必须通过基类的指针或者引用调用虚函数 （基类指针引用指向派生类对象才是安全的）</p>
+</li>
+<li><p>被调用的函数必须是虚函数，且派生类必须对基类的虚函数进行重写 </p>
+</li>
+</ol>
+<p><img src="D:\MyBlog\source\images\多态.png" alt=""></p>
+<h5 id="虚函数：即被vitrual修饰的成员函数我们称之为虚函数。"><a href="#虚函数：即被vitrual修饰的成员函数我们称之为虚函数。" class="headerlink" title="虚函数：即被vitrual修饰的成员函数我们称之为虚函数。"></a>虚函数：即被vitrual修饰的成员函数我们称之为虚函数。</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line">true<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">BuyTicket</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">truetrue<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"success"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">true&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="虚函数的重写"><a href="#虚函数的重写" class="headerlink" title="虚函数的重写"></a>虚函数的重写</h5><p>虚函数的重写(覆盖)：<strong>派生类中有一个跟基类完全相同的虚函数</strong>（即派生类虚函数与基类虚函数的返回值类型、函数名字、参数列表完全相同)，称子类的虚函数重写了基类的虚函数。</p>
+<p>注意：</p>
+<pre><code>在重写基类虚函数时，派生类的虚函数在不加virtual关键字时，虽然也可以构成重写(因为继承后基类的虚函数被继承下来了在派生类依旧保持虚函数属性),但是该种写法不是很规范，不建议这样使用
+</code></pre><h5 id="虚函数重写的两个例外："><a href="#虚函数重写的两个例外：" class="headerlink" title="虚函数重写的两个例外："></a>虚函数重写的两个例外：</h5><h6 id="1-协变"><a href="#1-协变" class="headerlink" title="1.协变"></a>1.协变</h6><p>派生类重写基类虚函数时，与基类虚函数返回值类型不同。即基类虚函数返回基类对象的指针或者引 </p>
+<p>用，派生类虚函数返回派生类对象的指针或引用时称为协变</p>
+<h6 id="2-析构函数的重写（基类与派生类析构函数的名字不同"><a href="#2-析构函数的重写（基类与派生类析构函数的名字不同" class="headerlink" title="2. 析构函数的重写（基类与派生类析构函数的名字不同)"></a>2. 析构函数的重写（基类与派生类析构函数的名字不同)</h6><p>如果基类的析构函数为虚函数，此时派生类析构函数只要定义，<strong>无论是否加virtual关键字，都与基类的</strong> </p>
+<p><strong>析构函数构成重写</strong>，虽然基类与派生类析构函数名字不同。虽然函数名不相同，看起来违背了重写的规 </p>
+<p>则，其实不然，这里可以理解为编译器对析构函数的名称做了特殊处理，<strong>编译后析构函数的名称统一</strong>处 </p>
+<p>理成<strong>destructor</strong>。 </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">virtual</span> ~Person() &#123;<span class="built_in">cout</span> &lt;&lt; <span class="string">"~Person()"</span> &lt;&lt; <span class="built_in">endl</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> :</span> <span class="keyword">public</span> Person &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">virtual</span> ~Student() &#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"~Student()"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">Person* p1 = <span class="keyword">new</span> Person;</span><br><span class="line">Person* p2 = <span class="keyword">new</span> Student;</span><br><span class="line"><span class="keyword">delete</span> p1;</span><br><span class="line"><span class="keyword">delete</span> p2;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong></p>
+<p>只有派生类Student的析构函数重写了Person的析构函数，下面的delete对象调用析构函数，才能构成 </p>
+<p>多态，才能保证p1和p2指向的对象正确的调用析构函数。</p>
+<h5 id="C-11-override和-final"><a href="#C-11-override和-final" class="headerlink" title="C++11 override和 final"></a>C++11 override和 final</h5><ol>
+<li><strong>final：修饰虚函数，表示该虚函数不能再被继承</strong></li>
+<li><strong>override:</strong> <strong>检查派生类虚函数是否重写了基类某个虚函数，如果没有重写编译报错。</strong></li>
+</ol>
+<h5 id="重载，覆盖（重写），隐藏（重定义）的区别"><a href="#重载，覆盖（重写），隐藏（重定义）的区别" class="headerlink" title="重载，覆盖（重写），隐藏（重定义）的区别"></a>重载，覆盖（重写），隐藏（重定义）的区别</h5><p><img src="D:\MyBlog\source\images\隐藏重写重载.png" alt=""></p>
+<h4 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h4><p>在虚函数的后面写上 =0 ，则这个函数为纯虚函数。<strong>包含纯虚函数的类叫做抽象类（也叫接口类），抽象类</strong> </p>
+<p><strong>不能实例化出对象</strong>。派生类继承后也不能实例化出对象，只有重写纯虚函数，派生类才能实例化出对象。纯 </p>
+<p>虚函数规范了派生类必须重写，另外纯虚函数更体现出了接口继承。</p>
+<p><strong>接口继承和现实继承</strong>：</p>
+<p>普通函数的继承是一种实现继承，<strong>派生类继承了基类函数，可以使用函数，继承的是函数的实现</strong>。虚函数的 </p>
+<p>继承是一种接口继承，派生类继承的是基类虚函数的接口，目的是为了重写，达成多态，继承的是接口。所 </p>
+<p>以如果不实现多态，不要把函数定义成虚函数。</p>
+<h4 id="多态实现的原理"><a href="#多态实现的原理" class="headerlink" title="多态实现的原理"></a>多态实现的原理</h4><h5 id="虚函数表"><a href="#虚函数表" class="headerlink" title="虚函数表"></a>虚函数表</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span> &#123;</span></span><br><span class="line">true<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">size</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">truetrue<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"haa"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">true&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">true<span class="keyword">int</span> _test;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>通过观察测试我们发现test类是8bytes，除了成员变量_test，还多一个vfptr放在对象的前面(注意有些平台可能会放到对象的最后面，这个跟平台有关),对象中的这个指针我们叫做虚函数表指针(v代表virtual，f代表function)。一个含有虚函数的类中都至少都有一个虚函数表指针，因为虚函数的地址要被放到虚函数表中， 虚函数表也简称虚表。</p>
+<p><img src="D:\MyBlog\source\images\虚表指针.png" alt=""></p>
+<p><strong>补充</strong>：</p>
+<p>1.虚函数表本质是一个存<strong>虚函数指针的指针数组</strong>，这个数组最后面放了一个nullptr。</p>
+<p>2.派生类的虚表生成：</p>
+<p>a.先将基类中的虚表内容拷贝一份到派生类虚表中</p>
+<p> b.如果派生类重写了基类中某个虚函数，用派生类自己的虚函数覆盖虚表中基类的虚函数 </p>
+<p> c.派生类自己新增加的虚函数按其在派生类中的声明次序增加到派生类虚表的最后。</p>
+<p><img src="D:\MyBlog\source\images\虚表指针内容.png" alt=""></p>
+<p><strong>注意</strong></p>
+<p><strong>虚表存的是虚函数指针，不是虚函数</strong>，虚函数和普通函数一样的，都是存在<strong>代码段的</strong>，只是他的指针又存到了虚表中。另外 对象中存的不是虚表，存的是虚表指针。</p>
+<h5 id="多态实现的原理-1"><a href="#多态实现的原理-1" class="headerlink" title="多态实现的原理"></a>多态实现的原理</h5><ol>
+<li>基类对象和派生类对象调用虚函数时在虚表中找的函数是不一样的。</li>
+<li>这样就实现出了不同对象去完成同一行为时，展现出不同的形态。 </li>
+<li>反过来思考我们要达到多态，有两个条件，一个是虚函数覆盖，一个是基类对象的指针或引用调用虚函数。 反思一下为什么？因为基类指针指向派生类对象是安全的 而派生类指向基类的地址是放大了范围是不安全的。</li>
+<li><strong>满足多态以后的函数调用，不是在编译时确定的，是运行起来以后到对象的中取找的。不满足多态的函数调  用时编译时确认好的</strong></li>
+</ol>
+<h5 id="动态绑定与静态绑定"><a href="#动态绑定与静态绑定" class="headerlink" title="动态绑定与静态绑定"></a>动态绑定与静态绑定</h5><ol>
+<li><p>静态绑定又称为前期绑定(早绑定 )，<strong>在程序编译期间确定了程序的行为</strong>，<strong>也称为静态多态</strong>，比如：函数重载 </p>
+</li>
+<li><p>动态绑定又称后期绑定(晚绑定)，是在程序运行期间，根据具体拿到的类型确定程序的具体行为，调用 具体的函数，<strong>也称为动态多态</strong>。  </p>
+</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/08/16/C-多态/">C++多态</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">libinxu</a></p>
+        <p><span>发布时间:</span>2019-08-16, 23:08:48</p>
+        <p><span>最后更新:</span>2019-08-16, 23:11:11</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/16/C-多态/" title="C++多态">http://yoursite.com/2019/08/16/C-多态/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/16/C-多态/　　作者: libinxu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/08/15/C-类和对象/">
+                    C++类和对象
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-多态"><span class="toc-number">1.</span> <span class="toc-text">C++多态</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#多态的定义和实现"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">多态的定义和实现</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#多态的构成条件"><span class="toc-number">1.0.0.1.1.</span> <span class="toc-text">多态的构成条件:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#虚函数：即被vitrual修饰的成员函数我们称之为虚函数。"><span class="toc-number">1.0.0.1.2.</span> <span class="toc-text">虚函数：即被vitrual修饰的成员函数我们称之为虚函数。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#虚函数的重写"><span class="toc-number">1.0.0.1.3.</span> <span class="toc-text">虚函数的重写</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#虚函数重写的两个例外："><span class="toc-number">1.0.0.1.4.</span> <span class="toc-text">虚函数重写的两个例外：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-协变"><span class="toc-number">1.0.0.1.4.1.</span> <span class="toc-text">1.协变</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-析构函数的重写（基类与派生类析构函数的名字不同"><span class="toc-number">1.0.0.1.4.2.</span> <span class="toc-text">2. 析构函数的重写（基类与派生类析构函数的名字不同)</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#C-11-override和-final"><span class="toc-number">1.0.0.1.5.</span> <span class="toc-text">C++11 override和 final</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#重载，覆盖（重写），隐藏（重定义）的区别"><span class="toc-number">1.0.0.1.6.</span> <span class="toc-text">重载，覆盖（重写），隐藏（重定义）的区别</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#抽象类"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">抽象类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多态实现的原理"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">多态实现的原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#虚函数表"><span class="toc-number">1.0.0.3.1.</span> <span class="toc-text">虚函数表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#多态实现的原理-1"><span class="toc-number">1.0.0.3.2.</span> <span class="toc-text">多态实现的原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态绑定与静态绑定"><span class="toc-number">1.0.0.3.3.</span> <span class="toc-text">动态绑定与静态绑定</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"C++多态　| MonkeyDLee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/08/15/C-类和对象/" title="下一篇: C++类和对象">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/C-多态/">C++多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/C-类和对象/">C++类和对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/信号量/">信号量</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/16/Http应用层协议/">Http应用层协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/22/操作符总结/">操作符总结</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 libinxu
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
