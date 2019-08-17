@@ -274,6 +274,125 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-应用层" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/17/应用层/" class="article-date">
+      <time datetime="2019-08-17T03:19:10.000Z" itemprop="datePublished">2019-08-17</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/17/应用层/">应用层</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="w-DNS系统" class="article article-type-w" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/17/DNS系统/" class="article-date">
+      <time datetime="2019-08-17T02:31:28.000Z" itemprop="datePublished">2019-08-17</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/17/DNS系统/">DNS系统</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="DNS系统"><a href="#DNS系统" class="headerlink" title="DNS系统"></a>DNS系统</h3><p>TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序. 但是IP地址不方便记忆。于是人们发明了一种叫主机名的东西, 是一个字符串, 并且使用hosts文件来描述主机名和IP地址的关系。最初, 通过互连网信息中心(SRI-NIC)来管理这个hosts文件的。如果一个新计算机要接入网络, 或者某个计算机IP变更, 都需要到信息中心申请变更hosts文件.。其他计算机也需要定期下载更新新版本的hosts文件才能正确上网。 为了方便使用以及管理，构建了DNS系统，一个组织的系统管理机构, 维护系统内的每个主机的IP和主机名的对应关系. 如果新计算机接入网络, 将这个信息注册到数据库中; 用户输入域名的时候, 会自动查询DNS服务器, 由DNS服务器检索数据库, 得到对应的IP地址。DNS是一整套从域名映射到IP的系统。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/08/17/DNS系统/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="w-C-多态" class="article article-type-w" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -497,11 +616,102 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="应用层和HTTP协议"><a href="#应用层和HTTP协议" class="headerlink" title="应用层和HTTP协议"></a>应用层和HTTP协议</h1><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p><strong>序列化</strong>:将数据持久化存储或网络数据传输格式进行排布</p>
-<p><strong>反序列化</strong>:对数据一指定协议进行解析</p>
-<p><strong>序列化的几种方式</strong>：</p>
-<p><strong>协议</strong>：一种约定分类有知名协议和自定制协议</p>
-          
+        <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h3 id="URL-统一资源定位符"><a href="#URL-统一资源定位符" class="headerlink" title="URL:统一资源定位符"></a>URL:统一资源定位符</h3><p>协议名称://用户名:密码@服务器地址:服务器端口/资源路径?查询字符串#片段标识符</p>
+<p><img src="D:\MyBlog\source\images\url格式图.png" alt=""></p>
+<h3 id="URL编码-解码"><a href="#URL编码-解码" class="headerlink" title="URL编码/解码"></a>URL编码/解码</h3><p>查询字符串:urlencode/urldecode,因为HTTP中参数出以&lt;key,val&gt;组成键值对,以&amp;连接</p>
+<p>像 / ? : 等这样的字符, 已经被url当做特殊意义理解了. 因此这些字符不能随意出现. 比如, 某个参数中需要带有这些特殊字符, 就必须先对特殊字符进行转义.<br>转义的规则如下:  将需要转码的字符转为16进制，然后从右到左，取4位(不足4位直接处理)，每2位做一位，前面加上%，编码成%XY 格式</p>
+<p>课后调研实现urlencode/urldecode</p>
+<h3 id="HTPP协议格式"><a href="#HTPP协议格式" class="headerlink" title="HTPP协议格式"></a>HTPP协议格式</h3><h4 id="HTTP的三大部分-首行-头部-正文"><a href="#HTTP的三大部分-首行-头部-正文" class="headerlink" title="HTTP的三大部分:首行,头部,正文"></a>HTTP的三大部分:首行,头部,正文</h4><h5 id="请求消息格式"><a href="#请求消息格式" class="headerlink" title="请求消息格式"></a>请求消息格式</h5><p><img src="D:\MyBlog\source\images\http协议格式.webp" alt=""></p>
+<h5 id="首行-请求首行-相应首行"><a href="#首行-请求首行-相应首行" class="headerlink" title="首行:请求首行,相应首行"></a>首行:请求首行,相应首行</h5><h5 id="请求首行-请求方法-GET-POST-HEAD-PUT-DELETE-HTTP协议版本-0-9-1-0-1-1-2"><a href="#请求首行-请求方法-GET-POST-HEAD-PUT-DELETE-HTTP协议版本-0-9-1-0-1-1-2" class="headerlink" title="请求首行:请求方法(GET/POST/HEAD/PUT/DELETE) HTTP协议版本(0.9/1.0/1.1/2)"></a>请求首行:请求方法(GET/POST/HEAD/PUT/DELETE) HTTP协议版本(0.9/1.0/1.1/2)</h5><h5 id="头部-一-请求的属性-冒号分割的键值对-每组属性之间使用-n分隔-遇到空行表示Header部分结束"><a href="#头部-一-请求的属性-冒号分割的键值对-每组属性之间使用-n分隔-遇到空行表示Header部分结束" class="headerlink" title="头部:一 请求的属性, 冒号分割的键值对;每组属性之间使用\n分隔;遇到空行表示Header部分结束"></a>头部:一 请求的属性, 冒号分割的键值对;每组属性之间使用\n分隔;遇到空行表示Header部分结束</h5><p>key: val\r\n key: val\r\n</p>
+<p><strong>常见的请求方法 </strong></p>
+<ul>
+<li><p>GET方法:请求指定的页面信息，并返回实体主体</p>
+</li>
+<li><p>POST方法:向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST 请求可能会导致新的资源的建立和/或已有资源的修改。</p>
+</li>
+<li><p>PUT:从客户端向服务器传送的数据取代指定的文档的内容</p>
+</li>
+</ul>
+<h4 id="GET-POST区别-get无正文-post有正文"><a href="#GET-POST区别-get无正文-post有正文" class="headerlink" title="GET/POST区别:get无正文 post有正文"></a><strong>GET/POST区别:get无正文 post有正文</strong></h4><p>1.请求参数的区别</p>
+<p><code>GET</code>请求会把请求的参数拼接在<code>URL</code>后面，以<code>?</code>分隔，多个参数之间用<code>&amp;</code>连接；如果是英文或数字，原样发送，如果是空格或中文，则用<a href="https://link.jianshu.com?t=https://segmentfault.com/a/1190000004533485?_ea=657625" target="_blank" rel="noopener">Base64</a>编码</p>
+<p><code>POST</code>请求会把提交的数据放在请求体中，不会在<code>URL</code>中显示出来</p>
+<p>2.传输数据的大小</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET`: 浏览器和服务器会限制`URL`的长度，所以传输的数据有限，一般是<span class="number">2</span>K</span><br></pre></td></tr></table></figure>
+<p><code>POST</code>: 由于数据不是通过<code>URL</code>传递，所以一般可以传输较大量的数据</p>
+<p>3.数据解析</p>
+<p><code>GET</code>: 通过<code>Request.QueryString</code>获取变量的值</p>
+<p><code>POST</code>: 通过<code>Request.form</code>获取变量的值</p>
+<p>4.安全性</p>
+<p><code>GET</code>: 请求参数在<code>URL</code>后面，可以直接看到，尤其是登录时，如果登录界面被浏览器缓存，其他人就可以通过查看历史记录，拿到账户和密码</p>
+<p><code>POST</code>: 请求参数在请求体里面传输，无法直接拿到，相对<code>GET</code>安全性较高；但是通过抓包工具，还是可以看到请求参数的</p>
+<h4 id="HTTP-0-9-1-0-1-1-2-0区别"><a href="#HTTP-0-9-1-0-1-1-2-0区别" class="headerlink" title="HTTP 0.9/1.0/1.1/2.0区别"></a>HTTP 0.9/1.0/1.1/2.0区别</h4><p><strong>HTTP 0.9 ：</strong></p>
+<ul>
+<li>只接受GET一种请求方法，没有在通信中指定版本号，且不支持请求头；</li>
+<li>此外该版本也不支持POST方法，因此客户端无法向服务器传递太多信息；</li>
+<li>短连接</li>
+</ul>
+<p><strong>HTTP 1.0：</strong></p>
+<ul>
+<li>支持POST、GET、HEAD三种方法；</li>
+<li>规定浏览器与服务器之间只保持短暂的连接，浏览器的每次请求都需要与服务器建立一个TCP连接，服务器完成请求处理后立即断开TCP连接，服务器不跟踪每个客户也不记录过去的请求；</li>
+</ul>
+<p><strong>HTTP 1.1：</strong></p>
+<ul>
+<li><p>新增了五种请求方法：PUT、DELETE、CONNECT、TRACE、OPTIONS；</p>
+</li>
+<li><p>HTTP 1.1 在Request消息头里头多了一个Host域，便于一台WEB服务器上可以在同一个IP地址和端口号上使用不同的主机名来创建多个虚拟WEB站点；</p>
+</li>
+<li>在HTTP/1.1中新增了24个状态响应码：<br>100-199 用于指定客户端应相应的某些动作。<br>200-299 用于表示请求成功。<br>300-399 用于已经移动的文件并且常被包含在定位头信息中指定新的地址信息。<br>400-499 用于指出客户端的错误。<br>500-599 用于支持服务器错误。</li>
+</ul>
+<p><strong>HTTP2.0：</strong></p>
+<ul>
+<li><p>HTTP2.0使用多路复用技术(Multiplexing),多路复用允许同时通过单一的 HTTP/2 连接发起多重的请求-响应消息。”HTTP1.1在同一时间对于同一个域名的请求数量有限制，超过限制就会阻塞请求”。多路复用底层采用”增加二进制分帧层”的方法，使得不改变原来的语义、首部字段的情况下提高传输性能，降低延迟。二进制分帧将所有传输信息分割为更小的帧，用二进制进行编码，多个请求都在同一个TCP连接上完成，可以承载任意数量的双向数据流。HTTP/2更有效的使用TCP连接，得到性能上的提升</p>
+<p><strong>详解：</strong></p>
+<p>[<a href="https://www.jianshu.com/p/ac628fda40f2?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation]" target="_blank" rel="noopener">https://www.jianshu.com/p/ac628fda40f2?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation]</a>: </p>
+</li>
+</ul>
+<h5 id="正文"><a href="#正文" class="headerlink" title="正文:"></a>正文:</h5><p>空行后面的内容都是Body. Body允许为空字符串. 如果Body存在, 则在Header中会有一个 </p>
+<p>Content-Length属性来标识Body的长度;</p>
+<h5 id="响应消息格式"><a href="#响应消息格式" class="headerlink" title="响应消息格式"></a>响应消息格式</h5><p>响应首行: [版本号] + [状态码] + [状态码解释] </p>
+<p>Header: 请求的属性, 冒号分割的键值对;每组属性之间使用\n分隔;遇到空行表示Header部分结束 </p>
+<p>Body: 空行后面的内容都是Body. Body允许为空字符串. 如果Body存在, 则在Header中会有一个 </p>
+<p>Content-Length属性来标识Body的长度; 如果服务器返回了一个html页面, 那么html页面内容就是在 </p>
+<p>body中.  </p>
+<h5 id="常见响应头"><a href="#常见响应头" class="headerlink" title="常见响应头"></a>常见响应头</h5><p>Content-Type: 数据类型(text/html等) </p>
+<p>Content-Length: Body的长度 </p>
+<p>Host: 客户端告知服务器, 所请求的资源是在哪个主机的哪个端口上; </p>
+<p>User-Agent: 声明用户的操作系统和浏览器版本信息; </p>
+<p>referer: 当前页面是从哪个页面跳转过来的; </p>
+<p>location: 搭配3xx状态码使用, 告诉客户端接下来要去哪里访问; </p>
+<p>Cookie: 用于在客户端存储少量信息. 通常用于实现会话(session)的功能;  </p>
+<h5 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h5><p>HTTP协议的状态码由3位数字组成，第一个数字定义了响应的类别，共有5中类别：</p>
+<ul>
+<li>1xx: 指示信息–表示请求已接收，继续处理</li>
+<li>2xx: 成功–表示请求已被成功接收、理解、接受</li>
+<li>3xx: 重定向–要完成请求必须进行更进一步的操作</li>
+<li>4xx: 客户端错误–请求有语法错误或请求无法实现</li>
+<li>5xx: 服务器端错误–服务器未能实现合法的请求</li>
+</ul>
+<p>常见状态码:</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">200 </span>OK                        //客户端请求成功</span><br><span class="line"><span class="symbol">400 </span>Bad Request               //客户端请求有语法错误，不能被服务器所理解</span><br><span class="line"><span class="symbol">401 </span>Unauthorized              //请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用 </span><br><span class="line"><span class="symbol">403 </span>Forbidden                 //服务器收到请求，但是拒绝提供服务</span><br><span class="line"><span class="symbol">404 </span><span class="keyword">Not</span> Found                 //请求资源不存在，eg：输入了错误的URL</span><br><span class="line"><span class="symbol">500 </span>Internal Server <span class="keyword">Error</span>     //服务器发生不可预期的错误</span><br><span class="line"><span class="symbol">503 </span>Server Unavailable        //服务器当前不能处理客户端的请求，一段时间后可能恢复正常</span><br></pre></td></tr></table></figure>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p><code>HTTP</code>协议采用请求/响应模式，客户端向服务器发送一个请求报文，然后服务器响应请求。下面介绍一下一次<code>HTTP</code>请求的过程：</p>
+<ol>
+<li>在浏览器中输入<code>URL</code>，并按下回车键</li>
+<li>浏览器向<code>DNS</code>服务器请求解析该<code>URL</code>中的域名对应的<code>IP</code>地址(如果是<code>IP</code>请求，则不需要该步骤)</li>
+<li>解析出<code>IP</code>后，根据<code>IP</code>和端口号，和服务器建立<a href="https://www.jianshu.com/p/ef892323e68f" target="_blank" rel="noopener">TCP</a>连接</li>
+<li>浏览器向服务器发送请求，该请求报文作为<code>TCP</code>三次握手的第三个报文发送给服务器</li>
+<li>服务器做出响应，把数据发送给浏览器</li>
+<li>通信完成，断开<code>TCP</code>连接</li>
+<li>浏览器解析收到的数据并显示</li>
+</ol>
+<h3 id="HTTP和HTTPS的区别"><a href="#HTTP和HTTPS的区别" class="headerlink" title="HTTP和HTTPS的区别"></a>HTTP和HTTPS的区别</h3><p><code>HTTPS</code>是安全的<code>HTTP</code>通道，即在HTTP通信中加入了<code>SSL</code>层（当前版本是<code>TLS1.2</code>），通信的数据被加密了，防止被窃取，具体的通信流程如下：</p>
+<p><img src="D:\MyBlog\source\images\HTTPS.png" alt=""></p>
+<p>HTTPS使用的加密方式结合了对称加密和不对称加密的特点，在保证安全的情况下，又提高了传输效率。HTTP和HTTPS的区别如下：</p>
+<p>1.https协议需要到ca申请证书，一般免费证书很少，需要交费。</p>
+<p>2.http的信息是明文传输，https 则是具有安全性的ssl加密传输协议。</p>
+<p>3.http和https用的端口不一样，前者是80，后者是443。</p>
+<p>4.http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全</p>
+
       
     </div>
     
@@ -514,10 +724,6 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
     </div>
 
-      
-        <p class="article-more-link">
-          <a href="/2019/06/16/Http应用层协议/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
