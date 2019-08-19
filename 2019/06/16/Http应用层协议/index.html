@@ -26,7 +26,7 @@
 <meta property="og:image" content="d:/MyBlog/source/images/url格式图.png">
 <meta property="og:image" content="d:/MyBlog/source/images/http协议格式.webp">
 <meta property="og:image" content="d:/MyBlog/source/images/HTTPS.png">
-<meta property="og:updated_time" content="2019-08-17T04:18:16.861Z">
+<meta property="og:updated_time" content="2019-08-19T08:55:46.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Http应用层协议">
 <meta name="twitter:description" content="HTTP协议URL:统一资源定位符协议名称://用户名:密码@服务器地址:服务器端口/资源路径?查询字符串#片段标识符  URL编码/解码查询字符串:urlencode/urldecode,因为HTTP中参数出以&amp;lt;key,val&amp;gt;组成键值对,以&amp;amp;连接 像 / ? : 等这样的字符, 已经被url当做特殊意义理解了. 因此这些字符不能随意出现. 比如, 某个参数中需要带有这些特殊">
@@ -318,6 +318,7 @@
 <h3 id="URL编码-解码"><a href="#URL编码-解码" class="headerlink" title="URL编码/解码"></a>URL编码/解码</h3><p>查询字符串:urlencode/urldecode,因为HTTP中参数出以&lt;key,val&gt;组成键值对,以&amp;连接</p>
 <p>像 / ? : 等这样的字符, 已经被url当做特殊意义理解了. 因此这些字符不能随意出现. 比如, 某个参数中需要带有这些特殊字符, 就必须先对特殊字符进行转义.<br>转义的规则如下:  将需要转码的字符转为16进制，然后从右到左，取4位(不足4位直接处理)，每2位做一位，前面加上%，编码成%XY 格式</p>
 <p>课后调研实现urlencode/urldecode</p>
+<a id="more"></a>
 <h3 id="HTPP协议格式"><a href="#HTPP协议格式" class="headerlink" title="HTPP协议格式"></a>HTPP协议格式</h3><h4 id="HTTP的三大部分-首行-头部-正文"><a href="#HTTP的三大部分-首行-头部-正文" class="headerlink" title="HTTP的三大部分:首行,头部,正文"></a>HTTP的三大部分:首行,头部,正文</h4><h5 id="请求消息格式"><a href="#请求消息格式" class="headerlink" title="请求消息格式"></a>请求消息格式</h5><p><img src="D:\MyBlog\source\images\http协议格式.webp" alt=""></p>
 <h5 id="首行-请求首行-相应首行"><a href="#首行-请求首行-相应首行" class="headerlink" title="首行:请求首行,相应首行"></a>首行:请求首行,相应首行</h5><h5 id="请求首行-请求方法-GET-POST-HEAD-PUT-DELETE-HTTP协议版本-0-9-1-0-1-1-2"><a href="#请求首行-请求方法-GET-POST-HEAD-PUT-DELETE-HTTP协议版本-0-9-1-0-1-1-2" class="headerlink" title="请求首行:请求方法(GET/POST/HEAD/PUT/DELETE) HTTP协议版本(0.9/1.0/1.1/2)"></a>请求首行:请求方法(GET/POST/HEAD/PUT/DELETE) HTTP协议版本(0.9/1.0/1.1/2)</h5><h5 id="头部-一-请求的属性-冒号分割的键值对-每组属性之间使用-n分隔-遇到空行表示Header部分结束"><a href="#头部-一-请求的属性-冒号分割的键值对-每组属性之间使用-n分隔-遇到空行表示Header部分结束" class="headerlink" title="头部:一 请求的属性, 冒号分割的键值对;每组属性之间使用\n分隔;遇到空行表示Header部分结束"></a>头部:一 请求的属性, 冒号分割的键值对;每组属性之间使用\n分隔;遇到空行表示Header部分结束</h5><p>key: val\r\n key: val\r\n</p>
 <p><strong>常见的请求方法 </strong></p>
@@ -419,7 +420,7 @@
         <p><span>本文标题:</span><a href="/2019/06/16/Http应用层协议/">Http应用层协议</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">libinxu</a></p>
         <p><span>发布时间:</span>2019-06-16, 19:18:36</p>
-        <p><span>最后更新:</span>2019-08-17, 12:18:16</p>
+        <p><span>最后更新:</span>2019-08-19, 16:55:46</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/06/16/Http应用层协议/" title="Http应用层协议">http://yoursite.com/2019/06/16/Http应用层协议/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/06/16/Http应用层协议/　　作者: libinxu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -435,8 +436,8 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/15/信号量/">
-                    信号量
+                <a href="/2019/07/19/socket编程-TCP/">
+                    socket编程--TCP
                 </a>
             </div>
         
@@ -511,7 +512,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/15/信号量/" title="上一篇: 信号量">
+            <a href="/2019/07/19/socket编程-TCP/" title="上一篇: socket编程--TCP">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -525,7 +526,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/应用层/">应用层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/DNS系统/">DNS系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/C-多态/">C++多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/C-类和对象/">C++类和对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/信号量/">信号量</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/16/Http应用层协议/">Http应用层协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/22/操作符总结/">操作符总结</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/socket-UDP/">socket-UDP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/应用层/">应用层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/DNS系统/">DNS系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/C-多态/">C++多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/C-类和对象/">C++类和对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/信号量/">信号量</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/socket编程-TCP/">socket编程--TCP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/16/Http应用层协议/">Http应用层协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/22/操作符总结/">操作符总结</a></li></ul>
 
 
 
