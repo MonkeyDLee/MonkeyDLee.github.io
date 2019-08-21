@@ -274,6 +274,89 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-传输层" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/20/传输层/" class="article-date">
+      <time datetime="2019-08-20T06:36:37.000Z" itemprop="datePublished">2019-08-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/20/传输层/">传输层</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h1><p><strong>只有主机才有的层次</strong></p>
+<h3 id="传输层的功能："><a href="#传输层的功能：" class="headerlink" title="传输层的功能："></a>传输层的功能：</h3><ul>
+<li>传输层提供进程和进程的逻辑通信。</li>
+<li>复用（应用层所有数据都可以通过传输层传再传输到网络层）和分用（收到数据交付给指定进程）；</li>
+<li>传输层（TCP）对收到的报文进行差错检测（传输层和网络层实现可靠传输）</li>
+</ul>
+<h3 id="传输层的寻址与端口"><a href="#传输层的寻址与端口" class="headerlink" title="传输层的寻址与端口"></a>传输层的寻址与端口</h3><p>端口（逻辑端口）：传输层的SAP（服务访问点）标识主机中的进程，只有本地意义</p>
+<p>端口号：16bit，标识65535个端口号。</p>
+<p><strong>端口号范围</strong>:  0~65535    0~1023不推荐使用,在一台主机上唯一标识一个进程</p>
+<p><strong>0~1023被知名协议使用:</strong></p>
+<ol>
+<li>ssh服务器, 使用22端口</li>
+<li>ftp服务器, 使用21端口 </li>
+<li>telnet服务器, 使用23端口 </li>
+<li>http服务器, 使用80端口 </li>
+<li>https服务器, 使用443</li>
+</ol>
+<p><strong>功能</strong>: 操作系统使用网卡接收数据,通过端口号就可以知道将数据放到那个socket缓冲区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个端口号只能有一个进程使用,一个进程可以使用多个端口号</span><br></pre></td></tr></table></figure>
+<p><strong>五元组</strong>:一条网络数据包含的五条信息:源IP+源端口+目的IP+目的端口+协议</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/08/20/传输层/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-socket-UDP" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">

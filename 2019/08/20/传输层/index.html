@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="libinxu">
+
+
+
+<meta name="description" content="传输层只有主机才有的层次 传输层的功能： 传输层提供进程和进程的逻辑通信。 复用（应用层所有数据都可以通过传输层传再传输到网络层）和分用（收到数据交付给指定进程）； 传输层（TCP）对收到的报文进行差错检测（传输层和网络层实现可靠传输）  传输层的寻址与端口端口（逻辑端口）：传输层的SAP（服务访问点）标识主机中的进程，只有本地意义 端口号：16bit，标识65535个端口号。 端口号范围:  0">
+<meta name="keywords" content="Linux网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="传输层">
+<meta property="og:url" content="http://yoursite.com/2019/08/20/传输层/index.html">
+<meta property="og:site_name" content="MonkeyDLee">
+<meta property="og:description" content="传输层只有主机才有的层次 传输层的功能： 传输层提供进程和进程的逻辑通信。 复用（应用层所有数据都可以通过传输层传再传输到网络层）和分用（收到数据交付给指定进程）； 传输层（TCP）对收到的报文进行差错检测（传输层和网络层实现可靠传输）  传输层的寻址与端口端口（逻辑端口）：传输层的SAP（服务访问点）标识主机中的进程，只有本地意义 端口号：16bit，标识65535个端口号。 端口号范围:  0">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="d:/MyBlog/source/images/udp面向报文.png">
+<meta property="og:image" content="d:/MyBlog/source/images/UDP首部格式.jpg">
+<meta property="og:image" content="d:/MyBlog/source/images/UDP格式.png">
+<meta property="og:image" content="d:/MyBlog/source/images/udp.jpg">
+<meta property="og:image" content="d:/MyBlog/source/images/udp校验.png">
+<meta property="og:image" content="d:/MyBlog/source/images/TCP.jpg">
+<meta property="og:image" content="d:/MyBlog/source/images/TCP连接建立.png">
+<meta property="og:image" content="d:/MyBlog/source/images/TCP连接释放png.png">
+<meta property="og:image" content="d:/MyBlog/source/images/tcp连接管理.png">
+<meta property="og:updated_time" content="2019-08-21T07:47:24.076Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="传输层">
+<meta name="twitter:description" content="传输层只有主机才有的层次 传输层的功能： 传输层提供进程和进程的逻辑通信。 复用（应用层所有数据都可以通过传输层传再传输到网络层）和分用（收到数据交付给指定进程）； 传输层（TCP）对收到的报文进行差错检测（传输层和网络层实现可靠传输）  传输层的寻址与端口端口（逻辑端口）：传输层的SAP（服务访问点）标识主机中的进程，只有本地意义 端口号：16bit，标识65535个端口号。 端口号范围:  0">
+<meta name="twitter:image" content="d:/MyBlog/source/images/udp面向报文.png">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="MonkeyDLee" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>传输层 | MonkeyDLee</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">libinxu</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Nothing  OR  the Best</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:532900395@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="#" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言总结/">C语言总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注C++</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">libinxu</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">libinxu</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Nothing  OR  the Best</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:532900395@qq.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="#" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-传输层" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/20/传输层/" class="article-date">
+      <time datetime="2019-08-20T06:36:37.000Z" itemprop="datePublished">2019-08-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      传输层
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h1><p><strong>只有主机才有的层次</strong></p>
+<h3 id="传输层的功能："><a href="#传输层的功能：" class="headerlink" title="传输层的功能："></a>传输层的功能：</h3><ul>
+<li>传输层提供进程和进程的逻辑通信。</li>
+<li>复用（应用层所有数据都可以通过传输层传再传输到网络层）和分用（收到数据交付给指定进程）；</li>
+<li>传输层（TCP）对收到的报文进行差错检测（传输层和网络层实现可靠传输）</li>
+</ul>
+<h3 id="传输层的寻址与端口"><a href="#传输层的寻址与端口" class="headerlink" title="传输层的寻址与端口"></a>传输层的寻址与端口</h3><p>端口（逻辑端口）：传输层的SAP（服务访问点）标识主机中的进程，只有本地意义</p>
+<p>端口号：16bit，标识65535个端口号。</p>
+<p><strong>端口号范围</strong>:  0~65535    0~1023不推荐使用,在一台主机上唯一标识一个进程</p>
+<p><strong>0~1023被知名协议使用:</strong></p>
+<ol>
+<li>ssh服务器, 使用22端口</li>
+<li>ftp服务器, 使用21端口 </li>
+<li>telnet服务器, 使用23端口 </li>
+<li>http服务器, 使用80端口 </li>
+<li>https服务器, 使用443</li>
+</ol>
+<p><strong>功能</strong>: 操作系统使用网卡接收数据,通过端口号就可以知道将数据放到那个socket缓冲区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个端口号只能有一个进程使用,一个进程可以使用多个端口号</span><br></pre></td></tr></table></figure>
+<p><strong>五元组</strong>:一条网络数据包含的五条信息:源IP+源端口+目的IP+目的端口+协议</p>
+<a id="more"></a>
+<h3 id="主机上网络状态的查看"><a href="#主机上网络状态的查看" class="headerlink" title="主机上网络状态的查看"></a>主机上网络状态的查看</h3><p><strong>netstat</strong>:查看网络状态 </p>
+<p><strong>常用选项</strong></p>
+<ul>
+<li>n 拒绝显示别名，能显示数字的全部转化成数字</li>
+<li>l 仅列出有在 Listen (监听) 的服務状态 </li>
+<li>p 显示建立相关链接的程序名 </li>
+<li>t (tcp)仅显示tcp相关选项 </li>
+<li>u (udp)仅显示udp相关选项 </li>
+<li>a (all)显示所有选项，默认不显示LISTEN相关 </li>
+</ul>
+<h3 id="UDP（用户数据报）"><a href="#UDP（用户数据报）" class="headerlink" title="UDP（用户数据报）"></a>UDP（用户数据报）</h3><h2 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h2><h4 id="特点-无连接-不可靠-面向数据报"><a href="#特点-无连接-不可靠-面向数据报" class="headerlink" title="特点:无连接,不可靠,面向数据报"></a><strong>特点:</strong>无连接,不可靠,面向数据报</h4><p><strong>UDP只在IP数据报上添加了很少的功能，复用分用差错检测</strong></p>
+<ul>
+<li>无连接: 知道对端的IP和端口号就直接进行传输, 不需要建立连接; </li>
+<li>不可靠: 没有确认机制, 没有重传机制; 如果因为网络故障该段无法发到对方, UDP协议层也不会给应用层 返回任何错误信息; </li>
+<li>面向数据报: 不能够灵活的控制读写数据的次数和数量数据整条收发,灵活性低,不会产生黏包</li>
+</ul>
+<p><img src="D:\MyBlog\source\images\udp面向报文.png" alt=""></p>
+<h3 id="UDP协议格式"><a href="#UDP协议格式" class="headerlink" title="UDP协议格式"></a>UDP协议格式</h3><p><img src="D:\MyBlog\source\images\UDP首部格式.jpg" alt=""></p>
+<p>源端口号：不需要收到回复则不需要</p>
+<p>UDP校验和：如果出错则丢弃，分用时找不到端口对应的进程就丢弃报文发送ICMP（端口不可达）差错报告报文</p>
+<p><strong>udp协议包含字段</strong></p>
+<p><img src="D:\MyBlog\source\images\UDP格式.png" alt=""></p>
+<h4 id="udp检验和原理"><a href="#udp检验和原理" class="headerlink" title="udp检验和原理"></a>udp检验和原理</h4><p><img src="D:\MyBlog\source\images\udp.jpg" alt=""></p>
+<p><strong>伪首部</strong>：（伪IP首部）IP数据包数据首部协议字段+源IP地址+目的IP地址，只在计算校验和时出现。</p>
+<p><img src="D:\MyBlog\source\images\udp校验.png" alt=""></p>
+<h4 id="UDP的缓冲区"><a href="#UDP的缓冲区" class="headerlink" title="UDP的缓冲区"></a>UDP的缓冲区</h4><p>UDP没有真正意义上的 发送缓冲区. 调用sendto会直接交给内核, 由内核将数据传给网络层协议进行后续的传输动作; UDP具有接收缓冲区. 但是这个接收缓冲区不能保证收到的UDP报的顺序和发送UDP报的顺序一致; 如果 缓冲区满了, 再到达的UDP数据就会被丢弃; UDP的socket既能读, 也能写, 这个概念叫做 全双工</p>
+<h2 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h2><h4 id="TCP特点"><a href="#TCP特点" class="headerlink" title="TCP特点:"></a>TCP特点:</h4><p>面向连接（虚连接），面向字节流，可靠传输，全双工通信</p>
+<h4 id="TCP报文首部格式："><a href="#TCP报文首部格式：" class="headerlink" title="TCP报文首部格式："></a>TCP报文首部格式：</h4><p><img src="D:\MyBlog\source\images\TCP.jpg" alt=""></p>
+<p>1.源端口和目的端口，各占2个字节。</p>
+<p>2.序号位：占4个字节，序号范围为0到2的32次方-1，序号增加到2的32次方-1之后，下一个序号变为0，在一个TCP连接中传送的字节流中的每一个字节都按顺序编号。首部中的序号字段值指的是本报文段所发送的数据的第一个字节的序号。可对4GB的数据进行编号。在一般情况下可保证当序号重复使用时，旧序号的数据早已通过网络到达终点了。</p>
+<p>3.确认号：占4字节，是期望收到对方下一个报文段的第一个数据字节的序号。记住：若确认号是N，则表明：到序号N-1为止的所有数据都已正确收到。</p>
+<p>4.数据偏移：占4位，它指出TCP报文段的数据起始处距离TCP报文段的起始处有多远，这个字段实际上是指出TCP报文段的首部长度。</p>
+<p>6.保留：占6位。保留为今后使用，目前置为0</p>
+<p>7.选项：长度可变，最长可达40字节，当没有选项时，TCP的首部长度是20字节。</p>
+<p>8.最大报文段长度MSS，MSS是指每一个TCP报文段中的数据字段的最大长度。</p>
+<p>9.窗口，占2个字节，窗口指的是发送本报文段的一方的接收窗口，不是自己的发送窗口，告诉对方：从本报文段      首部中的确认号算起，接收方目前允许对方发送的数据量。窗口值作为接受方让发送方设置其发送窗口的依据。</p>
+<p>10.校验和，占2字节。校验和字段检验的范围包括首部和数据这两部分。</p>
+<p>11.紧急指针：占2个字节，紧急指针仅在URG=1时才有意义，它指出本报文段中的紧急数据的字节数。当所有紧急数据处理完毕时，TCP就告诉应用程序恢复到正常操作。值得注意的是，即使窗口为0时也可发送紧急数据。</p>
+<p><strong>控制位</strong>：</p>
+<ul>
+<li>紧急URG（URGent）：当URG=1时，表明紧急字段有效，告诉系统此报文中有紧急数据，应尽快传送。于是发送方TCP就把紧急数据插入到本报文段数据的最前面，而在紧急数据后面的数据仍是普通数据。这时要与首部中紧急指针字段配合使用。</li>
+<li>确认ACK（ACKnowlegment）仅当ACK=1时确认号字段才有效，TCP规定，连接建立后所有传送的报文段都必须把ACK置1.</li>
+<li>推送PUSH（PUSH）：当两个应用进程进行交互式的通信时，有时在一端的应用进程希望在键入一个命令后立即就能收到对方的响应。在这种情况下，TCP就可以使用推送操作。</li>
+<li>复位RST（RESET）:当RST=1时，表明TCP连接中出现严重错误，必须释放连接，然后再重新建立运输连接。拒绝非法报文段，拒绝连接。</li>
+<li>同步SYN，在连接建立时用来同步序号，当SYN=1而ACK=0时，表明这是一个连接请求报文段。对方若同意时，则应在响应的报文段中使SYN=1和ACK=1，因此，SYN置1就表示这是一个连接请求或连接接受报文。</li>
+<li>终止FIN，用来释放一个连接，当FIN=1时，表示此报文段的发送方的数据已发送完毕，并要求释放运输连接。</li>
+</ul>
+<h4 id="连接管理"><a href="#连接管理" class="headerlink" title="连接管理:"></a>连接管理:</h4><h5 id="TCP连接建立"><a href="#TCP连接建立" class="headerlink" title="TCP连接建立"></a>TCP连接建立</h5><p><img src="D:\MyBlog\source\images\TCP连接建立.png" alt=""></p>
+<h5 id="TCP连接释放："><a href="#TCP连接释放：" class="headerlink" title="TCP连接释放："></a>TCP连接释放：</h5><p><img src="D:\MyBlog\source\images\TCP连接释放png.png" alt=""></p>
+<p><img src="D:\MyBlog\source\images\tcp连接管理.png" alt=""></p>
+<h4 id="TIME-WAIT"><a href="#TIME-WAIT" class="headerlink" title="TIME_WAIT"></a>TIME_WAIT</h4><ul>
+<li>TCP协议规定,主动关闭连接的一方要处于TIME_ WAIT状态,等待两个MSL(maximum segment lifetime) 的时间后才能回到CLOSED状态. 。</li>
+<li>MSL在RFC1122中规定为两分钟,但是各操作系统的实现不同, 在Centos7上默认配置的值是60s; </li>
+<li>可以通过 cat /proc/sys/net/ipv4/tcp_fin_timeout 查看msl的值; </li>
+</ul>
+<h4 id="TIME-WAIT的必要性"><a href="#TIME-WAIT的必要性" class="headerlink" title="TIME_WAIT的必要性:"></a>TIME_WAIT的必要性:</h4><ol>
+<li>如果没有TIME_WAIT,最后一个ack丢失，被动关闭方重发FIN， 主动关闭方没有等待直接关闭，假如启动服务又使用相同的端口，有可能收到上一个连接重发的FIN，对新连接造成影响。</li>
+<li>若新的客户端使用相同的端口信息，向服务端发送SYN请求但是服务端没有收到SYN最后一个ACK处于LAST_ACK状态，收到SYN判定状态错误，回复RST报文重置连接，对新连接造成影响所以主动关闭方发送最后一个ack之后需要等待：两个MSL</li>
+</ol>
+<h5 id="等待时间是2MSL的原因"><a href="#等待时间是2MSL的原因" class="headerlink" title="等待时间是2MSL的原因"></a>等待时间是2MSL的原因</h5><ul>
+<li>等待ack丢失导致对端重传的FIN包</li>
+<li>等待网络中所有双方延迟的报文消失</li>
+</ul>
+<p>MSL是TCP报文的最大生存时间, 因此TIME_WAIT持续存在2MSL的话 就能保证在两个传输方向上的尚未被接收或迟到的报文段都已经消失(否则服务器立刻重启, 可能会收到 来自上一个进程的迟到的数据, 但是这种数据很可能是错误的); 同时也是在理论上保证最后一个报文可靠到达(假设最后一个ACK丢失, 那么服务器会再重发一个FIN. 这   时虽然客户端的进程不在了, 但是TCP连接还在, 仍然可以重发LAST_ACK); </p>
+<h4 id="可靠传输："><a href="#可靠传输：" class="headerlink" title="可靠传输："></a>可靠传输：</h4><p><strong>确认和重传 拥塞控制，流量控制，数据校验，和数据合理的分片，连接管理</strong>保证了可靠传输。</p>
+<p>有序：协议字段中的确认序号和序号，    </p>
+<h4 id="确认："><a href="#确认：" class="headerlink" title="确认："></a>确认：</h4><p><strong>确认应答</strong>：每一个ACK都带有对应的确认序列号, 告诉发送者, 我已经收到了哪些数据; 下一次你从哪里开发送</p>
+<p>刚才我们讨论了确认应答策略, 对每一个发送的数据段, 都要给一个ACK确认应答. 收到ACK后再发送下一个数据段. </p>
+<p>这样做有一个比较大的缺点, 就是性能较差. 尤其是数据往返的时间较长的时候</p>
+<h4 id="重传："><a href="#重传：" class="headerlink" title="重传："></a>重传：</h4><h5 id="超时重传：RTTs（加权平均往返时间）"><a href="#超时重传：RTTs（加权平均往返时间）" class="headerlink" title="超时重传：RTTs（加权平均往返时间）"></a>超时重传：RTTs（加权平均往返时间）</h5><h5 id="快速重传：冗余ACK"><a href="#快速重传：冗余ACK" class="headerlink" title="快速重传：冗余ACK"></a>快速重传：冗余ACK</h5><p>接收端每条数据都要回复，要按序回复，即使后一条到了但是前一条没有到达也不回复后到的数据的ACK，只有上一条回复之后才回复，所以如果发送端收到了第二条的回复说明第一条数据一定到了，即使第一条的回复丢失了也不会重传，当数据连续发送，数据丢失时，接收端连续发送三次（防止网络时延）重传请求，当发送端接收到了第三次重传请求，则会对这条数据重传</p>
+<h4 id="流量控制："><a href="#流量控制：" class="headerlink" title="流量控制："></a>流量控制：</h4><p>接收端处理数据的速度是有限的. 如果发送端发的太快, 导致接收端的缓冲区被打满, 这个时候如果发送端继续发送, 就会造成丢包, 继而引起丢包重传等等一系列连锁反应.  因此TCP支持根据接收端的处理能力, 来决定发送端的发送速度. 这个机制就叫流量控制; 接收端将自己可以接收的缓冲区大小放入 TCP 首部中的 “窗口大小” 字段, 通过ACK端通知发送端; 窗口大小字段越大, 说明网络的吞吐量越高; 接收端一旦发现自己的缓冲区快满了, 就会将窗口大小设置成一个更小的值通知给发送端; 发送端接受到这个窗口之后, 就会减慢自己的发送速度; 如果接收端缓冲区满了, 就会将窗口置为0; 这时发送方不再发送数据, 但是需要定期发送一个窗口探测数 据段, 使接收端把窗口大小告诉发送端。</p>
+<p><strong>因为可靠传输，牺牲了部分新能；因此引入了几种机制提高性能</strong></p>
+<h5 id="滑动窗口机制：连续发送多条数据等待回复"><a href="#滑动窗口机制：连续发送多条数据等待回复" class="headerlink" title="滑动窗口机制：连续发送多条数据等待回复"></a>滑动窗口机制：连续发送多条数据等待回复</h5><p>通信双方通过协议中的窗口字段，来协商能够一次发送的最多数据，然后连续发送多条数据；在socket当中使用两个指针维护窗口后沿(起始位置)和前沿(发送的结束位置)。</p>
+<pre><code>发送端：若窗口中后沿数据没有接收到ack确认，后沿就不能向前移动，数据就不能从缓冲区移除，接收到ack确认后窗口，前后沿向后移动。
+
+接收端：当接收数据的时候，如果没有接收到第一条数据，则后沿不能移动，只有接收到数据之后，后沿才会向前移动
+</code></pre><h5 id="拥塞窗口机制：慢启动，快增长。"><a href="#拥塞窗口机制：慢启动，快增长。" class="headerlink" title="拥塞窗口机制：慢启动，快增长。"></a>拥塞窗口机制：慢启动，快增长。</h5><h5 id="延迟应答机制：尽可能保持窗口大小，保持网络吞吐率"><a href="#延迟应答机制：尽可能保持窗口大小，保持网络吞吐率" class="headerlink" title="延迟应答机制：尽可能保持窗口大小，保持网络吞吐率"></a>延迟应答机制：尽可能保持窗口大小，保持网络吞吐率</h5><p>接收方接收数据后不立刻进行确认回复，而是等待一段时间，因为这段延迟的时间内，有可能用户recv将缓冲区中的数据取走，窗口就尽可能地保证最大窗口，保证传输地吞吐量。尽可能地保证滑动窗口地性能。</p>
+<h5 id="捎带应答机制：尽量减少不必要的确认应答包"><a href="#捎带应答机制：尽量减少不必要的确认应答包" class="headerlink" title="捎带应答机制：尽量减少不必要的确认应答包"></a>捎带应答机制：尽量减少不必要的确认应答包</h5><p>接收方对每一条数据地确认回复都需要发送一个TCP数据报；但是空报头地传输会降低性能因此会考虑在即将要发送地数据报中包含有确认信息(可以少发一个确认的空报头)</p>
+<h4 id="面向字节流"><a href="#面向字节流" class="headerlink" title="面向字节流"></a>面向字节流</h4><p>创建一个TCP的socket, 同时在内核中创建一个 <strong>发送缓冲区</strong> 和一个 <strong>接收缓冲区</strong>; </p>
+<ul>
+<li>调用write时, 数据会先写入发送缓冲区中; </li>
+<li>如果发送的字节数太长, 会被拆分成多个TCP的数据包发出; </li>
+<li>如果发送的字节数太短, 就会先在缓冲区里等待, 等到缓冲区长度差不多了, 或者其他合适的时机发送出 去; </li>
+<li>接收数据的时候, 数据也是从网卡驱动程序到达内核的接收缓冲区; </li>
+<li>然后应用程序可以调用read从接收缓冲区拿数据; </li>
+<li>另一方面, TCP的一个连接, 既有发送缓冲区, 也有接收缓冲区, 那么对于这一个连接, 既可以读数据, 也可 </li>
+</ul>
+<p>​       以写数据. 这个概念叫做 <strong>全双工</strong> </p>
+<p>由于缓冲区的存在, TCP程序的读和写不需要一一匹配, 例如: </p>
+<ul>
+<li>写100个字节数据时, 可以调用一次write写100个字节, 也可以调用100次write, 每次写一个字节; </li>
+<li>读100个字节数据时, 也完全不需要考虑写的时候是怎么写的, 既可以一次read 100个字节, 也可以一次 </li>
+</ul>
+<p>​        read一个字节, 重复100次;</p>
+<p><strong>TCP的粘包问题：</strong>数据没有边界</p>
+<h4 id="TCP异常情况"><a href="#TCP异常情况" class="headerlink" title="TCP异常情况"></a>TCP异常情况</h4><ul>
+<li>进程终止: 进程终止会释放文件描述符, 仍然可以发送FIN. 和正常关闭没有什么区别. </li>
+<li>机器重启: 和进程终止的情况相同. </li>
+<li>机器掉电/网线断开: 接收端认为连接还在, 一旦接收端有写入操作, 接收端发现连接已经不在了, 就会进行reset. 即 使没有写入操作, TCP自己也内置了一个保活定时器, 会定期询问对方是否还在. 如果对方不在, 也会把连接释放. 另外, 应用层的某些协议, 也有一些这样的检测机制. 例如HTTP长连接中, 也会定期检测对方的状态. 例如QQ, 在QQ 断线之后, 也会定期尝试重新连接。</li>
+</ul>
+<h5 id="为什么握手是三次，挥手是四次？"><a href="#为什么握手是三次，挥手是四次？" class="headerlink" title="为什么握手是三次，挥手是四次？"></a>为什么握手是三次，挥手是四次？</h5><p><strong>在握手过程中，为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误。</strong></p>
+<p>当客户端发出的第一个连接请求报文段并没有丢失，而是在网络结点长时间的滞留了，以致延误到连接释放以后的某个时间才到达服务端。本来这是一个早已失效的报文段。但是服务端收到此失效的连接请求报文段之后，就误认为是客户端再次发出的一个新的连接请求。于是就向客户端发出确认报文段，同意建立连接。假设我们不采用“三次握手”，那么服务端发出确认，新的连接就建立成功了。由于现在client并没有发出建立连接的请求，因此不会理睬服务端的确认，也不会像服务端发送数据。但是服务端却以为新的建立已经完成，一直等待消息发送到来。这样，服务端的数据很多数据被白白浪费了。采用“三次握手”可以有效的避免这种情况。客户端不会向服务端的确认发出确认，服务端由于收不到确认，就认为客户端没有建立连接。</p>
+<p>所以，三次握手也可以看作为了防止服务端的一直等待而浪费资源。</p>
+<p>挥手过程是一个相互的确认过程，首先我们都已知TCP的连接是全双工的，既可以发送也可以接收。那么当双方都确认自己没有数据可以发送，并且都互相表示双方知道对方没有数据之后，那么连接也就断开了。</p>
+<p>假设挥手在第三次结束。客户端发送了一个FIN就打算断开连接。那么客户端又如何知道服务端想要断开连接？有可能客户端刚发送完了数据，但是服务端并没有。服务端打算发完了剩下的数据在跟客户端”拜拜“。</p>
+<p>此时就出现了矛盾。所以挥手有第四次来进行双发的确认。确认双方的工作都做完了。</p>
+<h5 id="SYN泛洪攻击"><a href="#SYN泛洪攻击" class="headerlink" title="SYN泛洪攻击"></a>SYN泛洪攻击</h5><p>SYN泛洪攻击利用TCP三次握手协议的缺陷，向目标主机发送大量的伪造源地址的SYN连接请求，使得被攻击方资源耗尽，从而不能够为正常用户提供服务。</p>
+<p>在TCP协议中被称为三次握手（Three-way Handshake）的连接过程中，如果一个用户向服务器发送了SYN报文，服务器又发出 SYN+ACK 应答报文后<strong>未收到客户端的 ACK 报文</strong>，这种情况下服务器端会再次发送SYN+ACK给客户端，并等待一段时间后丢弃这个未完成的连接，这段时间的长度称为<strong>SYN Timeout</strong>，一般来说这个时间是分钟的数量级。</p>
+<p>SYN 泛洪攻击所做的就是利用这个SYN Timeout和TCP/IP协议族中的另一个漏洞: 报文传输过程中对报文的源 IP 地址完全信任进行攻击。SYN 泛洪攻击通过发送大量的伪造 TCP 链接报文而造成大量的 TCP 半连接,服务器端将为了维护这样一个庞大的半连接列表而消耗非常多的资源。这样服务器端将忙于处理攻击者伪造的TCP连接请求而无法处理正常连接请求,甚至会导致堆栈的溢出崩溃</p>
+<p>造成SYN洪泛攻击最主要的原因是TCP/IP协议的脆弱性。TCP/IP是一个开放的协议平台，它将越来越多的网络连接在一起，它基于的对象是可信用户群，所以缺少一些必要的安全机制，带来很大的安全威胁。例如常见的IP欺骗、TCP连接的建立、ICMP数据包的发送都存在巨大的安全隐患，给SYN洪泛攻击带来可乘之机。</p>
+<h6 id="防范方法"><a href="#防范方法" class="headerlink" title="防范方法"></a>防范方法</h6><p>1、<strong>缩短SYN Timeout时间</strong>，短时间内收不到客户端的ACK回复报文直接丢弃，防止被攻击</p>
+<p>2、<strong>设置SYN cookie</strong>，给每一个请求连接的IP地址分配一个cookie，如果短时间内连续受到某个IP的重复SYN文，认定是受到了攻击，以后从这个IP地址来的包会被丢弃。</p>
+<p>3、<strong>设置SYN可疑队列</strong></p>
+<p>4、<strong>使用防火墙</strong></p>
+<p>推荐博客链接：<a href="https://blog.csdn.net/justenjoyitpy/article/details/78151239" target="_blank" rel="noopener">https://blog.csdn.net/justenjoyitpy/article/details/78151239</a></p>
+<h5 id="若服务端出现了大量的TIME-WAIT连接，为什么？如何解决？"><a href="#若服务端出现了大量的TIME-WAIT连接，为什么？如何解决？" class="headerlink" title="若服务端出现了大量的TIME_WAIT连接，为什么？如何解决？"></a>若服务端出现了大量的TIME_WAIT连接，为什么？如何解决？</h5><p>这种情况比较常见，一些爬虫服务器或者WEB服务器（如果网管在安装的时候没有做内核参数优化的话）上经常会遇到这个问题，在四次的挥手过程中我们已经可以了解TIME_WAIT状态的出现情况。</p>
+<p>1、防止上一次连接的包迷路后重新出现，影响新连接，所以等待被动方发来的FIN包</p>
+<p>2、可靠的关闭TCP连接。在主动方发送的最后一个ACK，有可能丢失，这时被动方会重新发FIN包，如果这时主动方处于CLOSED状态，就会响应RST而不是ACK。所以主动方要处于TIME_WAIT，而不能是CLOSED。</p>
+<p><strong>解决的方案就是让服务器能够快速回收和重用那些TIME_WAIT资源</strong></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/08/20/传输层/">传输层</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">libinxu</a></p>
+        <p><span>发布时间:</span>2019-08-20, 15:36:37</p>
+        <p><span>最后更新:</span>2019-08-21, 15:47:24</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/20/传输层/" title="传输层">http://yoursite.com/2019/08/20/传输层/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/20/传输层/　　作者: libinxu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/08/19/socket-UDP/">
+                    socket-UDP
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#传输层"><span class="toc-number">1.</span> <span class="toc-text">传输层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传输层的功能："><span class="toc-number">1.0.1.</span> <span class="toc-text">传输层的功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传输层的寻址与端口"><span class="toc-number">1.0.2.</span> <span class="toc-text">传输层的寻址与端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主机上网络状态的查看"><span class="toc-number">1.0.3.</span> <span class="toc-text">主机上网络状态的查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP（用户数据报）"><span class="toc-number">1.0.4.</span> <span class="toc-text">UDP（用户数据报）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP协议"><span class="toc-number">1.1.</span> <span class="toc-text">UDP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特点-无连接-不可靠-面向数据报"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">特点:无连接,不可靠,面向数据报</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP协议格式"><span class="toc-number">1.1.1.</span> <span class="toc-text">UDP协议格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#udp检验和原理"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">udp检验和原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UDP的缓冲区"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">UDP的缓冲区</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP协议"><span class="toc-number">1.2.</span> <span class="toc-text">TCP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP特点"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">TCP特点:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP报文首部格式："><span class="toc-number">1.2.0.2.</span> <span class="toc-text">TCP报文首部格式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#连接管理"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">连接管理:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#TCP连接建立"><span class="toc-number">1.2.0.3.1.</span> <span class="toc-text">TCP连接建立</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TCP连接释放："><span class="toc-number">1.2.0.3.2.</span> <span class="toc-text">TCP连接释放：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TIME-WAIT"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">TIME_WAIT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TIME-WAIT的必要性"><span class="toc-number">1.2.0.5.</span> <span class="toc-text">TIME_WAIT的必要性:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#等待时间是2MSL的原因"><span class="toc-number">1.2.0.5.1.</span> <span class="toc-text">等待时间是2MSL的原因</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可靠传输："><span class="toc-number">1.2.0.6.</span> <span class="toc-text">可靠传输：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#确认："><span class="toc-number">1.2.0.7.</span> <span class="toc-text">确认：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重传："><span class="toc-number">1.2.0.8.</span> <span class="toc-text">重传：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#超时重传：RTTs（加权平均往返时间）"><span class="toc-number">1.2.0.8.1.</span> <span class="toc-text">超时重传：RTTs（加权平均往返时间）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#快速重传：冗余ACK"><span class="toc-number">1.2.0.8.2.</span> <span class="toc-text">快速重传：冗余ACK</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#流量控制："><span class="toc-number">1.2.0.9.</span> <span class="toc-text">流量控制：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#滑动窗口机制：连续发送多条数据等待回复"><span class="toc-number">1.2.0.9.1.</span> <span class="toc-text">滑动窗口机制：连续发送多条数据等待回复</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#拥塞窗口机制：慢启动，快增长。"><span class="toc-number">1.2.0.9.2.</span> <span class="toc-text">拥塞窗口机制：慢启动，快增长。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#延迟应答机制：尽可能保持窗口大小，保持网络吞吐率"><span class="toc-number">1.2.0.9.3.</span> <span class="toc-text">延迟应答机制：尽可能保持窗口大小，保持网络吞吐率</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#捎带应答机制：尽量减少不必要的确认应答包"><span class="toc-number">1.2.0.9.4.</span> <span class="toc-text">捎带应答机制：尽量减少不必要的确认应答包</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#面向字节流"><span class="toc-number">1.2.0.10.</span> <span class="toc-text">面向字节流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP异常情况"><span class="toc-number">1.2.0.11.</span> <span class="toc-text">TCP异常情况</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#为什么握手是三次，挥手是四次？"><span class="toc-number">1.2.0.11.1.</span> <span class="toc-text">为什么握手是三次，挥手是四次？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SYN泛洪攻击"><span class="toc-number">1.2.0.11.2.</span> <span class="toc-text">SYN泛洪攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#防范方法"><span class="toc-number">1.2.0.11.2.1.</span> <span class="toc-text">防范方法</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#若服务端出现了大量的TIME-WAIT连接，为什么？如何解决？"><span class="toc-number">1.2.0.11.3.</span> <span class="toc-text">若服务端出现了大量的TIME_WAIT连接，为什么？如何解决？</span></a></li></ol></li></ol></li>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"传输层　| MonkeyDLee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/08/19/socket-UDP/" title="下一篇: socket-UDP">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/20/传输层/">传输层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/socket-UDP/">socket-UDP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/应用层/">应用层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/DNS系统/">DNS系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/C-多态/">C++多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/C-类和对象/">C++类和对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/信号量/">信号量</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/socket编程-TCP/">socket编程--TCP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/16/Http应用层协议/">Http应用层协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/22/操作符总结/">操作符总结</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 libinxu
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
