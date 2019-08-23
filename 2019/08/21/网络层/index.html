@@ -15,20 +15,25 @@
 
 
 
-<meta name="description" content="同一优先级的运算符，结合次序由结合方向所决定。简单记就是：！ &amp;gt; 算术运算符 &amp;gt; 关系运算符 &amp;gt; &amp;amp;&amp;amp; &amp;gt; || &amp;gt; 赋值运算符">
-<meta name="keywords" content="C语言总结">
+<meta name="description" content="网络层网络层功能：路由选择与分组转发：找到传输最佳路径 异构网络互联：组织各种网络形成英特网 拥塞控制：若所有结点都来不及接受分组，而要丢弃大量分组的话，网络就处于拥塞状态。 解决办法WAY1：开环控制（静）WAY2：闭环控制（动态） 数据交换方式电路交换：报文交换：分组交换：IP数据报格式 字段解释： 首部长度：单位是4B，最小为5； 区分服务：指示期望获得那种类型的服务 总长度：首部+数据，单">
+<meta name="keywords" content="Linux网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="操作符总结">
-<meta property="og:url" content="http://yoursite.com/2019/01/22/操作符总结/index.html">
+<meta property="og:title" content="网络层">
+<meta property="og:url" content="http://yoursite.com/2019/08/21/网络层/index.html">
 <meta property="og:site_name" content="MonkeyDLee">
-<meta property="og:description" content="同一优先级的运算符，结合次序由结合方向所决定。简单记就是：！ &amp;gt; 算术运算符 &amp;gt; 关系运算符 &amp;gt; &amp;amp;&amp;amp; &amp;gt; || &amp;gt; 赋值运算符">
+<meta property="og:description" content="网络层网络层功能：路由选择与分组转发：找到传输最佳路径 异构网络互联：组织各种网络形成英特网 拥塞控制：若所有结点都来不及接受分组，而要丢弃大量分组的话，网络就处于拥塞状态。 解决办法WAY1：开环控制（静）WAY2：闭环控制（动态） 数据交换方式电路交换：报文交换：分组交换：IP数据报格式 字段解释： 首部长度：单位是4B，最小为5； 区分服务：指示期望获得那种类型的服务 总长度：首部+数据，单">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190122155923779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODMzMjU3,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-08-15T06:10:31.122Z">
+<meta property="og:image" content="d:/MyBlog/source/images/IP数据报格式.jpg">
+<meta property="og:image" content="d:/MyBlog/source/images/IP数据报分片.png">
+<meta property="og:image" content="d:/MyBlog/source/images/IP地址分类.png">
+<meta property="og:image" content="d:/MyBlog/source/images/NAT转换表.png">
+<meta property="og:image" content="d:/MyBlog/source/images/ARP.png">
+<meta property="og:image" content="d:/MyBlog/source/images/ARP应用场景.png">
+<meta property="og:updated_time" content="2019-08-21T10:33:20.251Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="操作符总结">
-<meta name="twitter:description" content="同一优先级的运算符，结合次序由结合方向所决定。简单记就是：！ &amp;gt; 算术运算符 &amp;gt; 关系运算符 &amp;gt; &amp;amp;&amp;amp; &amp;gt; || &amp;gt; 赋值运算符">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190122155923779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODMzMjU3,size_16,color_FFFFFF,t_70">
+<meta name="twitter:title" content="网络层">
+<meta name="twitter:description" content="网络层网络层功能：路由选择与分组转发：找到传输最佳路径 异构网络互联：组织各种网络形成英特网 拥塞控制：若所有结点都来不及接受分组，而要丢弃大量分组的话，网络就处于拥塞状态。 解决办法WAY1：开环控制（静）WAY2：闭环控制（动态） 数据交换方式电路交换：报文交换：分组交换：IP数据报格式 字段解释： 首部长度：单位是4B，最小为5； 区分服务：指示期望获得那种类型的服务 总长度：首部+数据，单">
+<meta name="twitter:image" content="d:/MyBlog/source/images/IP数据报格式.jpg">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -60,7 +65,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>操作符总结 | MonkeyDLee</title>
+<title>网络层 | MonkeyDLee</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -271,11 +276,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-操作符总结" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-网络层" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/01/22/操作符总结/" class="article-date">
-      <time datetime="2019-01-22T01:36:21.000Z" itemprop="datePublished">2019-01-22</time>
+      <a href="/2019/08/21/网络层/" class="article-date">
+      <time datetime="2019-08-21T06:50:23.000Z" itemprop="datePublished">2019-08-21</time>
 </a>
 
 
@@ -290,7 +295,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      操作符总结
+      网络层
     </h1>
   
 
@@ -301,7 +306,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言总结/">C语言总结</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -311,13 +316,76 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>同一优先级的运算符，结合次序由结合方向所决定。<br>简单记就是：！ &gt; 算术运算符 &gt; 关系运算符 &gt; &amp;&amp; &gt; || &gt; 赋值运算符<br><a id="more"></a></p>
-<h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><p><strong>1.算数操作符:+,-,/,*,%</strong><br>这部分只需注意/,%的除数不可以为零,模运算只能是整型<br><strong>2.移位操作符:&lt;&lt;,&gt;&gt;</strong><br>移位的规则:左移操作:左边抛弃右边补零<br>                   右移操作:逻辑右移:左边用0填充,右边丢弃<br>                                  算数右移:左边用符号位填充,右边丢弃<br> 这里还需要注意位移操作符的对象是整型,进行操作时要考虑是否越界,移位的值必须非负,                               <img src="https://img-blog.csdnimg.cn/20190122155923779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4ODMzMjU3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<blockquote>
-<p>标准说明无符号值进行所有移位操作都是逻辑移位,有符号值取决于编译器</p>
-</blockquote>
-<p>所以不建议使用移位操作这样程序的可移植性差<br><strong>位操作:&amp;,|,^</strong><br>操作数必须为整数<br>下面是常见的的使用场景:<br>1)给指定位赋1或0<br>2)一个数中1的个数<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> GetoneCount(<span class="built_in">int</span> <span class="keyword">number</span>) &#123;</span><br><span class="line">true<span class="built_in">int</span> <span class="built_in">count</span> = <span class="number">0</span>;</span><br><span class="line">truefor (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">32</span>; ++i) &#123;</span><br><span class="line">truetrue<span class="keyword">if</span> (<span class="keyword">number</span>&amp;(<span class="number">1</span> &lt;&lt; i))</span><br><span class="line">truetruetrue<span class="built_in">count</span>++;</span><br><span class="line">true&#125;</span><br><span class="line">true<span class="keyword">return</span> <span class="built_in">count</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>求补和逗号操作符</strong><br>1.逗号表达式的值为从左到右最后一个<br> <strong>关系操作符</strong><br> 1.其结果值得类型为整型<br> 2.=,==是不同的<br> 在C语言中=为赋值 ==为比较<br> <strong>逻辑操作符</strong><br> 1.短路求值先左再右<br> 2.&amp;,&amp;&amp;,|,||的区别<br> 逻辑操作用于测试0值和非0值而位操作用于比较操作数中对应的位<br><strong>左值和右值</strong><br>左值标识了一个储存结果值的地点,标识了一个特定的位置,字面值常量也都不是左值<br>这个地址指的是程序员可以获得的<br><strong>操作符的优先级和求值顺序</strong><br> 同一优先级的运算符，结合次序由结合方向所决定。<br>简单记就是：！ &gt; 算术运算符 &gt; 关系运算符 &gt; &amp;&amp; &gt; || &gt; 赋值运算符</p>
+        <h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="网络层功能："><a href="#网络层功能：" class="headerlink" title="网络层功能："></a>网络层功能：</h3><p><strong>路由选择与分组转发</strong>：找到传输最佳路径</p>
+<p><strong>异构网络互联</strong>：组织各种网络形成英特网</p>
+<p><strong>拥塞控制</strong>：若所有结点都来不及接受分组，而要丢弃大量分组的话，网络就处于拥塞状态。</p>
+<p>解决办法WAY1：开环控制（静）WAY2：闭环控制（动态）</p>
+<h3 id="数据交换方式"><a href="#数据交换方式" class="headerlink" title="数据交换方式"></a>数据交换方式</h3><h5 id="电路交换："><a href="#电路交换：" class="headerlink" title="电路交换："></a>电路交换：</h5><h5 id="报文交换："><a href="#报文交换：" class="headerlink" title="报文交换："></a>报文交换：</h5><h5 id="分组交换："><a href="#分组交换：" class="headerlink" title="分组交换："></a>分组交换：</h5><h3 id="IP数据报格式"><a href="#IP数据报格式" class="headerlink" title="IP数据报格式"></a>IP数据报格式</h3><p><img src="D:\MyBlog\source\images\IP数据报格式.jpg" alt=""></p>
+<p>字段解释：</p>
+<p>首部长度：单位是4B，最小为5；</p>
+<p>区分服务：指示期望获得那种类型的服务</p>
+<p>总长度：首部+数据，单位是1B</p>
+<p>生存时间（TTL）：IP分组的保质期，经过一个路由器计数-1，为0则丢弃。</p>
+<p>协议：传输层协议对应字段，TCP（6），UDP（17）</p>
+<p>首部检验和：只检验首部</p>
+<p>可选字段：0~40B，用来支持排错测量以及其他安全功能</p>
+<p>填充字段：全0，数据报补成4B的整数倍</p>
+<h4 id="IP数据报的分片："><a href="#IP数据报的分片：" class="headerlink" title="IP数据报的分片："></a>IP数据报的分片：</h4><p>MTU：链路层数据帧可以封装的上限以太网为1500字节，如果传输的数据大于MTU值，就要分片</p>
+<p><img src="D:\MyBlog\source\images\IP数据报分片.png" alt=""></p>
+<h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><p>IP地址分为两个部分： 网络号 + 主机号 </p>
+<p>网络号: 保证相互连接的两个网段具有不同的标识; </p>
+<p>主机号: 同一网段内, 主机之间具有相同的网络号, 但是必须有不同的主机号; </p>
+<p>不同的子网其实就是把网络号相同的主机放到一起。如果在子网中新增一台主机, 则这台主机的网络号和这个子网的网络号一致, 但是主机号必须不能和子网中的其他主机重复. </p>
+<p>通过合理设置主机号和网络号, 就可以保证在相互连接的网络中, 每台主机的IP地址都不相同. 手动管理子网内的IP, 是一个相当麻烦的事情. 有一种技术叫做<strong>DHCP</strong>, 能够自动的给子网内新增主机节点分配IP地址, 避免了手动管理IP的不便. 一般的路由器都带有DHCP功能. 因此路由器也可以看做一个DHCP服务器.  </p>
+<h4 id="IP地址划分"><a href="#IP地址划分" class="headerlink" title="IP地址划分"></a>IP地址划分</h4><p>过去曾经提出一种划分网络号和主机号的方案, 把所有IP 地址分为五类</p>
+<p>A类 0.0.0.0到127.255.255.255  </p>
+<p>B类 128.0.0.0到191.255.255.255  </p>
+<p>C类 192.0.0.0到223.255.255.255  </p>
+<p>D类 224.0.0.0到239.255.255.255  </p>
+<p>E类 240.0.0.0到247.255.255.255 </p>
+<p><img src="D:\MyBlog\source\images\IP地址分类.png" alt=""></p>
+<p>随着Internet的飞速发展,这种划分方案的局限性很快显现出来,大多数组织都申请B类网络地址, 导致B类地址很快就 分配完了, 而A类却浪费了大量地址; 例如, 申请了一个B类地址, 理论上一个子网内能允许6万5千多个主机. A类地址的子网内的主机数更多.  然而实际网络架设中, 不会存在一个子网内有这么多的情况. 因此大量的IP地址都被浪费掉了.  针对这种情况提出了新的划分方案, 称为<strong>CIDR</strong>(Classless Interdomain Routing): 引入一个额外的子网掩码(subnet mask)来区分网络号和主机号; </p>
+<ul>
+<li><p>子网掩码也是一个32位的正整数. 通常用一串 “0” 来结尾; <strong>子网掩码就是网络号全为1，主机号全0</strong>；</p>
+</li>
+<li><p>将IP地址和子网掩码进行 “按位与” 操作, 得到的结果就是网络号; </p>
+</li>
+<li>网络号和主机号的划分与这个IP地址是A类、B类还是C类无关;</li>
+</ul>
+<h4 id="CIDR技术"><a href="#CIDR技术" class="headerlink" title="CIDR技术"></a>CIDR技术</h4><ul>
+<li>CIDR 消除了传统的 A 类、B 类和 C 类地址以及划分子网的概念，因而可以更加有效地分配 IPv4 的地址间。</li>
+<li>CIDR使用各种长度的“网络前缀”(network-prefix)来代替分类地址中的网络号和子网号。</li>
+<li>IP 地址从三级编址（使用子网掩码）又回到了两级编址。</li>
+<li>128.14.32.0/20表示的地址块共有212个地址，因为斜线后面的20是网络前缀的比特数，所以主机号的比特12</li>
+</ul>
+<h4 id="路由聚合"><a href="#路由聚合" class="headerlink" title="路由聚合"></a>路由聚合</h4><ul>
+<li>一个 CIDR 地址块可以表示很多地址，这种地址的聚合常称为路由聚合/超网(supernetting)。它使得路由表中的一个项目可以表示很多个原来传统分类地址的路由。</li>
+<li>路由聚合也称为CIDR，虽然不使用子网了，但仍然使用“掩码”这一名词（但不叫子网掩码）。</li>
+</ul>
+<h4 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h4><ul>
+<li>为了获得子网标识，需要从主机位中借出若干位，指定作为子网络标识。</li>
+<li>必须为主机位中的高n位。 </li>
+<li>从主机位中所借的子网位的位数n取决于子网络的规模。</li>
+<li>n 的最小值为 2（为什么不是1？）</li>
+<li>n的最大值是多少？只要能保证有2位的主机标识位</li>
+</ul>
+<p><strong>主机号全0：为本机，主机号全1：为广播</strong>。</p>
+<h4 id="网络地址转换NAT技术"><a href="#网络地址转换NAT技术" class="headerlink" title="网络地址转换NAT技术"></a>网络地址转换NAT技术</h4><p>网络地址转换NAT：在专用网连接到因特网的路由器上安装NAT，安装了NAT软件的路由器叫NAT路由器，他至少有一个有效的外部全球外部IP地址。</p>
+<h5 id="NAT转换表："><a href="#NAT转换表：" class="headerlink" title="NAT转换表："></a>NAT转换表：</h5><p><img src="D:\MyBlog\source\images\NAT转换表.png" alt=""></p>
+<h4 id="路由器转发分组的算法：最长前缀"><a href="#路由器转发分组的算法：最长前缀" class="headerlink" title="路由器转发分组的算法：最长前缀"></a>路由器转发分组的算法：最长前缀</h4><p><strong>路由表</strong>：目的网络的地址，目的网络子网掩码，下一跳地址。</p>
+<ol>
+<li>提取目的IP地址</li>
+<li>是不是可以之间交付</li>
+<li>特定主机路由</li>
+<li>检测路由表有没有合适路径</li>
+<li>默认路由0.0.0.0</li>
+<li>丢弃，报告转发分组出错</li>
+</ol>
+<h5 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h5><p>ARP协议：完成主机或路由器IP地址到MAC地址的映射。（解决下一跳）</p>
+<p>ARP协议使用过程：</p>
+<p><img src="D:\MyBlog\source\images\ARP.png" alt=""></p>
+<p>ARP协议四个场景：</p>
+<p><img src="D:\MyBlog\source\images\ARP应用场景.png" alt=""></p>
 
       
     </div>
@@ -326,13 +394,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/01/22/操作符总结/">操作符总结</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/21/网络层/">网络层</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">libinxu</a></p>
-        <p><span>发布时间:</span>2019-01-22, 10:36:21</p>
-        <p><span>最后更新:</span>2019-08-15, 14:10:31</p>
+        <p><span>发布时间:</span>2019-08-21, 15:50:23</p>
+        <p><span>最后更新:</span>2019-08-21, 18:33:20</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/01/22/操作符总结/" title="操作符总结">http://yoursite.com/2019/01/22/操作符总结/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/22/操作符总结/　　作者: libinxu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/21/网络层/" title="网络层">http://yoursite.com/2019/08/21/网络层/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/21/网络层/　　作者: libinxu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,11 +413,17 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/06/16/Http应用层协议/">
-                    Http应用层协议
+                <a href="/2019/08/23/顺序表小结/">
+                    顺序表小结
                 </a>
             </div>
         
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/08/20/传输层/">
+                    传输层
+                </a>
+            </div>
         
     </nav>
 
@@ -359,7 +433,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#操作符"><span class="toc-number">1.</span> <span class="toc-text">操作符</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#网络层"><span class="toc-number">1.</span> <span class="toc-text">网络层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络层功能："><span class="toc-number">1.1.</span> <span class="toc-text">网络层功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据交换方式"><span class="toc-number">1.2.</span> <span class="toc-text">数据交换方式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#电路交换："><span class="toc-number">1.2.0.1.</span> <span class="toc-text">电路交换：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#报文交换："><span class="toc-number">1.2.0.2.</span> <span class="toc-text">报文交换：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分组交换："><span class="toc-number">1.2.0.3.</span> <span class="toc-text">分组交换：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP数据报格式"><span class="toc-number">1.3.</span> <span class="toc-text">IP数据报格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IP数据报的分片："><span class="toc-number">1.3.1.</span> <span class="toc-text">IP数据报的分片：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP地址"><span class="toc-number">1.4.</span> <span class="toc-text">IP地址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IP地址划分"><span class="toc-number">1.4.1.</span> <span class="toc-text">IP地址划分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CIDR技术"><span class="toc-number">1.4.2.</span> <span class="toc-text">CIDR技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#路由聚合"><span class="toc-number">1.4.3.</span> <span class="toc-text">路由聚合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#子网划分"><span class="toc-number">1.4.4.</span> <span class="toc-text">子网划分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网络地址转换NAT技术"><span class="toc-number">1.4.5.</span> <span class="toc-text">网络地址转换NAT技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#NAT转换表："><span class="toc-number">1.4.5.1.</span> <span class="toc-text">NAT转换表：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#路由器转发分组的算法：最长前缀"><span class="toc-number">1.4.6.</span> <span class="toc-text">路由器转发分组的算法：最长前缀</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ARP协议"><span class="toc-number">1.4.6.1.</span> <span class="toc-text">ARP协议</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -395,7 +469,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"操作符总结　| MonkeyDLee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"网络层　| MonkeyDLee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -415,7 +489,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/06/16/Http应用层协议/" title="上一篇: Http应用层协议">
+            <a href="/2019/08/23/顺序表小结/" title="上一篇: 顺序表小结">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -423,7 +497,9 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/08/20/传输层/" title="下一篇: 传输层">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 

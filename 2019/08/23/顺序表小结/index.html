@@ -14,20 +14,24 @@
 <meta name="author" content="libinxu">
 
 
-    
-    
 
-
-<meta name="description" content="C/C++">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MonkeyDLee">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="线性表相关总结顺序表1.存储方式存在一段连续的空间 2.存储特点:逻辑关系相邻的两个结点在物理上也相邻 3.优点是可以随机访问 缺点是插入和删除不方便 顺序表的结构: 相关操作:头插1234567891011void PushFront(SeqList* seqlist, int val) &amp;#123;true//检验数据合法性trueassert(seqlist != NULL);true//判">
+<meta name="keywords" content="基础数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="顺序表小结">
+<meta property="og:url" content="http://yoursite.com/2019/08/23/顺序表小结/index.html">
 <meta property="og:site_name" content="MonkeyDLee">
-<meta property="og:description" content="C/C++">
+<meta property="og:description" content="线性表相关总结顺序表1.存储方式存在一段连续的空间 2.存储特点:逻辑关系相邻的两个结点在物理上也相邻 3.优点是可以随机访问 缺点是插入和删除不方便 顺序表的结构: 相关操作:头插1234567891011void PushFront(SeqList* seqlist, int val) &amp;#123;true//检验数据合法性trueassert(seqlist != NULL);true//判">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="c:/Users/VSAS/Desktop/数据结构/顺序表.png">
+<meta property="og:image" content="c:/Users/VSAS/Desktop/数据结构/顺序表1.png">
+<meta property="og:image" content="c:/Users/VSAS/Desktop/数据结构/顺序表2.bmp">
+<meta property="og:image" content="d:/MyBlog/source/images/链表逆置.png">
+<meta property="og:updated_time" content="2019-08-23T02:03:49.390Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MonkeyDLee">
-<meta name="twitter:description" content="C/C++">
+<meta name="twitter:title" content="顺序表小结">
+<meta name="twitter:description" content="线性表相关总结顺序表1.存储方式存在一段连续的空间 2.存储特点:逻辑关系相邻的两个结点在物理上也相邻 3.优点是可以随机访问 缺点是插入和删除不方便 顺序表的结构: 相关操作:头插1234567891011void PushFront(SeqList* seqlist, int val) &amp;#123;true//检验数据合法性trueassert(seqlist != NULL);true//判">
+<meta name="twitter:image" content="c:/Users/VSAS/Desktop/数据结构/顺序表.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -55,13 +59,11 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
-    <style> .article { opacity: 0;} </style>
-
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>MonkeyDLee</title>
+<title>顺序表小结 | MonkeyDLee</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -70,8 +72,8 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: true,
-        isPost: false,
+        isHome: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -272,9 +274,7 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-顺序表小结" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-顺序表小结" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2019/08/23/顺序表小结/" class="article-date">
@@ -292,12 +292,23 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/23/顺序表小结/">顺序表小结</a>
+    <h1 class="article-title" itemprop="name">
+      顺序表小结
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础数据结构/">基础数据结构</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -349,690 +360,119 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础数据结构/">基础数据结构</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-网络层" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/21/网络层/" class="article-date">
-      <time datetime="2019-08-21T06:50:23.000Z" itemprop="datePublished">2019-08-21</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/21/网络层/">网络层</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="网络层功能："><a href="#网络层功能：" class="headerlink" title="网络层功能："></a>网络层功能：</h3><p><strong>路由选择与分组转发</strong>：找到传输最佳路径</p>
-<p><strong>异构网络互联</strong>：组织各种网络形成英特网</p>
-<p><strong>拥塞控制</strong>：若所有结点都来不及接受分组，而要丢弃大量分组的话，网络就处于拥塞状态。</p>
-<p>解决办法WAY1：开环控制（静）WAY2：闭环控制（动态）</p>
-<h3 id="数据交换方式"><a href="#数据交换方式" class="headerlink" title="数据交换方式"></a>数据交换方式</h3><h5 id="电路交换："><a href="#电路交换：" class="headerlink" title="电路交换："></a>电路交换：</h5><h5 id="报文交换："><a href="#报文交换：" class="headerlink" title="报文交换："></a>报文交换：</h5><h5 id="分组交换："><a href="#分组交换：" class="headerlink" title="分组交换："></a>分组交换：</h5><h3 id="IP数据报格式"><a href="#IP数据报格式" class="headerlink" title="IP数据报格式"></a>IP数据报格式</h3><p><img src="D:\MyBlog\source\images\IP数据报格式.jpg" alt=""></p>
-<p>字段解释：</p>
-<p>首部长度：单位是4B，最小为5；</p>
-<p>区分服务：指示期望获得那种类型的服务</p>
-<p>总长度：首部+数据，单位是1B</p>
-<p>生存时间（TTL）：IP分组的保质期，经过一个路由器计数-1，为0则丢弃。</p>
-<p>协议：传输层协议对应字段，TCP（6），UDP（17）</p>
-<p>首部检验和：只检验首部</p>
-<p>可选字段：0~40B，用来支持排错测量以及其他安全功能</p>
-<p>填充字段：全0，数据报补成4B的整数倍</p>
-<h4 id="IP数据报的分片："><a href="#IP数据报的分片：" class="headerlink" title="IP数据报的分片："></a>IP数据报的分片：</h4><p>MTU：链路层数据帧可以封装的上限以太网为1500字节，如果传输的数据大于MTU值，就要分片</p>
-<p><img src="D:\MyBlog\source\images\IP数据报分片.png" alt=""></p>
-<h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><p>IP地址分为两个部分： 网络号 + 主机号 </p>
-<p>网络号: 保证相互连接的两个网段具有不同的标识; </p>
-<p>主机号: 同一网段内, 主机之间具有相同的网络号, 但是必须有不同的主机号; </p>
-<p>不同的子网其实就是把网络号相同的主机放到一起。如果在子网中新增一台主机, 则这台主机的网络号和这个子网的网络号一致, 但是主机号必须不能和子网中的其他主机重复. </p>
-<p>通过合理设置主机号和网络号, 就可以保证在相互连接的网络中, 每台主机的IP地址都不相同. 手动管理子网内的IP, 是一个相当麻烦的事情. 有一种技术叫做<strong>DHCP</strong>, 能够自动的给子网内新增主机节点分配IP地址, 避免了手动管理IP的不便. 一般的路由器都带有DHCP功能. 因此路由器也可以看做一个DHCP服务器.  </p>
-<h4 id="IP地址划分"><a href="#IP地址划分" class="headerlink" title="IP地址划分"></a>IP地址划分</h4><p>过去曾经提出一种划分网络号和主机号的方案, 把所有IP 地址分为五类</p>
-<p>A类 0.0.0.0到127.255.255.255  </p>
-<p>B类 128.0.0.0到191.255.255.255  </p>
-<p>C类 192.0.0.0到223.255.255.255  </p>
-<p>D类 224.0.0.0到239.255.255.255  </p>
-<p>E类 240.0.0.0到247.255.255.255 </p>
-<p><img src="D:\MyBlog\source\images\IP地址分类.png" alt=""></p>
-<p>随着Internet的飞速发展,这种划分方案的局限性很快显现出来,大多数组织都申请B类网络地址, 导致B类地址很快就 分配完了, 而A类却浪费了大量地址; 例如, 申请了一个B类地址, 理论上一个子网内能允许6万5千多个主机. A类地址的子网内的主机数更多.  然而实际网络架设中, 不会存在一个子网内有这么多的情况. 因此大量的IP地址都被浪费掉了.  针对这种情况提出了新的划分方案, 称为<strong>CIDR</strong>(Classless Interdomain Routing): 引入一个额外的子网掩码(subnet mask)来区分网络号和主机号; </p>
-<ul>
-<li><p>子网掩码也是一个32位的正整数. 通常用一串 “0” 来结尾; <strong>子网掩码就是网络号全为1，主机号全0</strong>；</p>
-</li>
-<li><p>将IP地址和子网掩码进行 “按位与” 操作, 得到的结果就是网络号; </p>
-</li>
-<li>网络号和主机号的划分与这个IP地址是A类、B类还是C类无关;</li>
-</ul>
-<h4 id="CIDR技术"><a href="#CIDR技术" class="headerlink" title="CIDR技术"></a>CIDR技术</h4><ul>
-<li>CIDR 消除了传统的 A 类、B 类和 C 类地址以及划分子网的概念，因而可以更加有效地分配 IPv4 的地址间。</li>
-<li>CIDR使用各种长度的“网络前缀”(network-prefix)来代替分类地址中的网络号和子网号。</li>
-<li>IP 地址从三级编址（使用子网掩码）又回到了两级编址。</li>
-<li>128.14.32.0/20表示的地址块共有212个地址，因为斜线后面的20是网络前缀的比特数，所以主机号的比特12</li>
-</ul>
-<h4 id="路由聚合"><a href="#路由聚合" class="headerlink" title="路由聚合"></a>路由聚合</h4><ul>
-<li>一个 CIDR 地址块可以表示很多地址，这种地址的聚合常称为路由聚合/超网(supernetting)。它使得路由表中的一个项目可以表示很多个原来传统分类地址的路由。</li>
-<li>路由聚合也称为CIDR，虽然不使用子网了，但仍然使用“掩码”这一名词（但不叫子网掩码）。</li>
-</ul>
-<h4 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h4><ul>
-<li>为了获得子网标识，需要从主机位中借出若干位，指定作为子网络标识。</li>
-<li>必须为主机位中的高n位。 </li>
-<li>从主机位中所借的子网位的位数n取决于子网络的规模。</li>
-<li>n 的最小值为 2（为什么不是1？）</li>
-<li>n的最大值是多少？只要能保证有2位的主机标识位</li>
-</ul>
-<p><strong>主机号全0：为本机，主机号全1：为广播</strong>。</p>
-<h4 id="网络地址转换NAT技术"><a href="#网络地址转换NAT技术" class="headerlink" title="网络地址转换NAT技术"></a>网络地址转换NAT技术</h4><p>网络地址转换NAT：在专用网连接到因特网的路由器上安装NAT，安装了NAT软件的路由器叫NAT路由器，他至少有一个有效的外部全球外部IP地址。</p>
-<h5 id="NAT转换表："><a href="#NAT转换表：" class="headerlink" title="NAT转换表："></a>NAT转换表：</h5><p><img src="D:\MyBlog\source\images\NAT转换表.png" alt=""></p>
-<h4 id="路由器转发分组的算法：最长前缀"><a href="#路由器转发分组的算法：最长前缀" class="headerlink" title="路由器转发分组的算法：最长前缀"></a>路由器转发分组的算法：最长前缀</h4><p><strong>路由表</strong>：目的网络的地址，目的网络子网掩码，下一跳地址。</p>
-<ol>
-<li>提取目的IP地址</li>
-<li>是不是可以之间交付</li>
-<li>特定主机路由</li>
-<li>检测路由表有没有合适路径</li>
-<li>默认路由0.0.0.0</li>
-<li>丢弃，报告转发分组出错</li>
-</ol>
-<h5 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h5><p>ARP协议：完成主机或路由器IP地址到MAC地址的映射。（解决下一跳）</p>
-<p>ARP协议使用过程：</p>
-<p><img src="D:\MyBlog\source\images\ARP.png" alt=""></p>
-<p>ARP协议四个场景：</p>
-<p><img src="D:\MyBlog\source\images\ARP应用场景.png" alt=""></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-传输层" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/20/传输层/" class="article-date">
-      <time datetime="2019-08-20T06:36:37.000Z" itemprop="datePublished">2019-08-20</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/20/传输层/">传输层</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h1><p><strong>只有主机才有的层次</strong></p>
-<h3 id="传输层的功能："><a href="#传输层的功能：" class="headerlink" title="传输层的功能："></a>传输层的功能：</h3><ul>
-<li>传输层提供进程和进程的逻辑通信。</li>
-<li>复用（应用层所有数据都可以通过传输层传再传输到网络层）和分用（收到数据交付给指定进程）；</li>
-<li>传输层（TCP）对收到的报文进行差错检测（传输层和网络层实现可靠传输）</li>
-</ul>
-<h3 id="传输层的寻址与端口"><a href="#传输层的寻址与端口" class="headerlink" title="传输层的寻址与端口"></a>传输层的寻址与端口</h3><p>端口（逻辑端口）：传输层的SAP（服务访问点）标识主机中的进程，只有本地意义</p>
-<p>端口号：16bit，标识65535个端口号。</p>
-<p><strong>端口号范围</strong>:  0~65535    0~1023不推荐使用,在一台主机上唯一标识一个进程</p>
-<p><strong>0~1023被知名协议使用:</strong></p>
-<ol>
-<li>ssh服务器, 使用22端口</li>
-<li>ftp服务器, 使用21端口 </li>
-<li>telnet服务器, 使用23端口 </li>
-<li>http服务器, 使用80端口 </li>
-<li>https服务器, 使用443</li>
-</ol>
-<p><strong>功能</strong>: 操作系统使用网卡接收数据,通过端口号就可以知道将数据放到那个socket缓冲区</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个端口号只能有一个进程使用,一个进程可以使用多个端口号</span><br></pre></td></tr></table></figure>
-<p><strong>五元组</strong>:一条网络数据包含的五条信息:源IP+源端口+目的IP+目的端口+协议</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/08/20/传输层/#more">more >></a>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/08/23/顺序表小结/">顺序表小结</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">libinxu</a></p>
+        <p><span>发布时间:</span>2019-08-23, 10:01:08</p>
+        <p><span>最后更新:</span>2019-08-23, 10:03:49</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/23/顺序表小结/" title="顺序表小结">http://yoursite.com/2019/08/23/顺序表小结/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/23/顺序表小结/　　作者: libinxu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-socket-UDP" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/19/socket-UDP/" class="article-date">
-      <time datetime="2019-08-19T07:18:51.000Z" itemprop="datePublished">2019-08-19</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/19/socket-UDP/">socket-UDP</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Socket网络编程—-UDP"><a href="#Socket网络编程—-UDP" class="headerlink" title="Socket网络编程—-UDP"></a>Socket网络编程—-UDP</h1><h2 id="socket编程：在网络的传输层编程"><a href="#socket编程：在网络的传输层编程" class="headerlink" title="socket编程：在网络的传输层编程"></a>socket编程：在网络的传输层编程</h2><h3 id="UDP编程的基本流程"><a href="#UDP编程的基本流程" class="headerlink" title="UDP编程的基本流程"></a>UDP编程的基本流程</h3><p><img src="D:\MyBlog\source\images\套接字流程.png" alt=""></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/08/19/socket-UDP/#more">more >></a>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
-      
-      <div class="clearfix"></div>
     </div>
-    
-  </div>
-  
-</article>
 
 
 
-
-
-
-
-
-
-  
-    <article id="post-应用层" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/17/应用层/" class="article-date">
-      <time datetime="2019-08-17T03:19:10.000Z" itemprop="datePublished">2019-08-17</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
+    <nav id="article-nav">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/17/应用层/">应用层</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
         
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="w-DNS系统" class="article article-type-w" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/17/DNS系统/" class="article-date">
-      <time datetime="2019-08-17T02:31:28.000Z" itemprop="datePublished">2019-08-17</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/08/21/网络层/">
+                    网络层
+                </a>
+            </div>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/17/DNS系统/">DNS系统</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="DNS系统"><a href="#DNS系统" class="headerlink" title="DNS系统"></a>DNS系统</h3><p>TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序. 但是IP地址不方便记忆。于是人们发明了一种叫主机名的东西, 是一个字符串, 并且使用hosts文件来描述主机名和IP地址的关系。最初, 通过互连网信息中心(SRI-NIC)来管理这个hosts文件的。如果一个新计算机要接入网络, 或者某个计算机IP变更, 都需要到信息中心申请变更hosts文件.。其他计算机也需要定期下载更新新版本的hosts文件才能正确上网。 为了方便使用以及管理，构建了DNS系统，一个组织的系统管理机构, 维护系统内的每个主机的IP和主机名的对应关系. 如果新计算机接入网络, 将这个信息注册到数据库中; 用户输入域名的时候, 会自动查询DNS服务器, 由DNS服务器检索数据库, 得到对应的IP地址。DNS是一整套从域名映射到IP的系统。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/08/17/DNS系统/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="w-C-多态" class="article article-type-w" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/16/C-多态/" class="article-date">
-      <time datetime="2019-08-16T14:08:48.000Z" itemprop="datePublished">2019-08-16</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/16/C-多态/">C++多态</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="C-多态"><a href="#C-多态" class="headerlink" title="C++多态"></a>C++多态</h1><p><strong>概念</strong>:多态的概念：通俗来说，就是多种形态，<strong>具体点就是去完成某个行为，当不同的对象去完成时会产生出不同</strong> </p>
-<p><strong>的状态</strong>。举个栗子：比如<strong>买票这个行为</strong>，当<strong>普通人</strong>买票时，是全价买票；<strong>学生</strong>买票时，是半价买票；<strong>军人</strong>买票时是优 先买票。 </p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/08/16/C-多态/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C-类和对象" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/15/C-类和对象/" class="article-date">
-      <time datetime="2019-08-15T05:50:46.000Z" itemprop="datePublished">2019-08-15</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/15/C-类和对象/">C++类和对象</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>   C++编译器不允许对象为零长度。试想一个长度为0的对象在内存中怎么存放？怎么获取它的地址？为了避免这种情况，C++强制给这种类插入一个缺省成员，长度为1。如果有自定义的变量，变量将取代这个缺省成员。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/08/15/C-类和对象/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-信号量" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/15/信号量/" class="article-date">
-      <time datetime="2019-08-15T01:53:26.000Z" itemprop="datePublished">2019-08-15</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/15/信号量/">信号量</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>信号是进程之间时间异步通知的方式，属于软中断，信号是一个标记每个信号表示一种事件，位图注册信号表示进程发生了这个事件，sigqueue节点添加一个表示这个事件发生了一次。</p>
-<p>信号阻塞是阻止信号被递达（暂时不处理信号）在进程pcb中标记 那些信号来了不处理 在进程pcb中有个信号阻塞集，阻塞信号就是在这个集合做标记，当信号需要被处理时进行（pending&amp;~block）操作来判定这个信号需要阻塞还是递达。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/08/15/信号量/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-socket编程-TCP" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/07/19/socket编程-TCP/" class="article-date">
-      <time datetime="2019-07-19T05:48:20.000Z" itemprop="datePublished">2019-07-19</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/19/socket编程-TCP/">socket编程--TCP</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="TCP网络编程"><a href="#TCP网络编程" class="headerlink" title="TCP网络编程"></a>TCP网络编程</h2><h4 id="TCP网络编程流程"><a href="#TCP网络编程流程" class="headerlink" title="TCP网络编程流程"></a>TCP网络编程流程</h4><p><img src="D:\MyBlog\source\images\tcp流程.png" alt=""></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/07/19/socket编程-TCP/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
+
   
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#线性表相关总结"><span class="toc-number">1.</span> <span class="toc-text">线性表相关总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#顺序表"><span class="toc-number">1.1.</span> <span class="toc-text">顺序表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#顺序表的结构"><span class="toc-number">1.1.1.</span> <span class="toc-text">顺序表的结构:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关操作"><span class="toc-number">1.2.</span> <span class="toc-text">相关操作:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#头插"><span class="toc-number">1.2.1.</span> <span class="toc-text">头插</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#尾插"><span class="toc-number">1.2.2.</span> <span class="toc-text">尾插</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#头删"><span class="toc-number">1.2.3.</span> <span class="toc-text">头删</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#尾删"><span class="toc-number">1.2.4.</span> <span class="toc-text">尾删</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任意位置插入"><span class="toc-number">1.2.5.</span> <span class="toc-text">任意位置插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任意位置删除"><span class="toc-number">1.2.6.</span> <span class="toc-text">任意位置删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表"><span class="toc-number">1.3.</span> <span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#链表的分类"><span class="toc-number">1.3.1.</span> <span class="toc-text">链表的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#头插-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">头插</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#尾插-1"><span class="toc-number">1.3.3.</span> <span class="toc-text">尾插</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#头删-1"><span class="toc-number">1.3.4.</span> <span class="toc-text">头删</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#尾删-1"><span class="toc-number">1.3.5.</span> <span class="toc-text">尾删</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相关总结"><span class="toc-number">1.3.6.</span> <span class="toc-text">相关总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常见对链表的操作"><span class="toc-number">1.3.6.1.</span> <span class="toc-text">常见对链表的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-逆转链表"><span class="toc-number">1.3.6.1.1.</span> <span class="toc-text">1.逆转链表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-删除遇到的所有值"><span class="toc-number">1.3.6.1.2.</span> <span class="toc-text">2.删除遇到的所有值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-给定一个带有头结点-head-的非空单链表，返回链表的中间结点。如果有两个中间结点，则返回第二个中间结点。"><span class="toc-number">1.3.6.1.3.</span> <span class="toc-text">3.给定一个带有头结点 head 的非空单链表，返回链表的中间结点。如果有两个中间结点，则返回第二个中间结点。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。"><span class="toc-number">1.3.6.1.4.</span> <span class="toc-text">4.将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-输入一个链表，输出该链表中倒数第k个结点。"><span class="toc-number">1.3.6.1.5.</span> <span class="toc-text">5.输入一个链表，输出该链表中倒数第k个结点。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#编写代码，以给定值x为基准将链表分割成两部分，所有小于x的结点排在大于或等于x的结点之前"><span class="toc-number">1.3.6.1.6.</span> <span class="toc-text">编写代码，以给定值x为基准将链表分割成两部分，所有小于x的结点排在大于或等于x的结点之前</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。"><span class="toc-number">1.3.6.1.7.</span> <span class="toc-text">6.在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。要求返回这个链表的深度拷贝。"><span class="toc-number">1.3.6.1.8.</span> <span class="toc-text">给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。要求返回这个链表的深度拷贝。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#辨析辨析循环终止条件cur-NULL-cur-gt-next-NULL"><span class="toc-number">1.3.6.2.</span> <span class="toc-text">辨析辨析循环终止条件cur != NULL,cur-&gt;next != NULL</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"顺序表小结　| MonkeyDLee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/08/21/网络层/" title="下一篇: 网络层">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/23/顺序表小结/">顺序表小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/网络层/">网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/20/传输层/">传输层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/socket-UDP/">socket-UDP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/应用层/">应用层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/DNS系统/">DNS系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/C-多态/">C++多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/C-类和对象/">C++类和对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/信号量/">信号量</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/socket编程-TCP/">socket编程--TCP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/16/Http应用层协议/">Http应用层协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/22/操作符总结/">操作符总结</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
