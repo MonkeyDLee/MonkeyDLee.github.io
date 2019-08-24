@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="C++入门知识铺垫命名空间命名空间的作用在C/C++中，变量、函数和后面要学到的类都是大量存在的，这些变量、函数和类的名称将都存在于全局作用 域中，可能会导致很多冲突。使用命名空间的目的是对标识符的名称进行本地化，以避免命名冲突或名字污 染，namespace关键字的出现就是针对这种问题的。 注意：一个命名空间就定义了一个新的作用域，命名空间中的所有内容都局限于该命名空间中">
+<meta name="description" content="C++模板泛型编程作为C++支持泛型的重要武器,模板被引入作为泛型编程的基础: 泛型编程：编写与类型无关的通用代码，是代码复用的一种手段。模板是泛型编程的基础。">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++入门知识">
-<meta property="og:url" content="http://yoursite.com/2019/08/24/C-入门知识/index.html">
+<meta property="og:title" content="C++模板">
+<meta property="og:url" content="http://yoursite.com/2019/08/24/C-模板/index.html">
 <meta property="og:site_name" content="MonkeyDLee">
-<meta property="og:description" content="C++入门知识铺垫命名空间命名空间的作用在C/C++中，变量、函数和后面要学到的类都是大量存在的，这些变量、函数和类的名称将都存在于全局作用 域中，可能会导致很多冲突。使用命名空间的目的是对标识符的名称进行本地化，以避免命名冲突或名字污 染，namespace关键字的出现就是针对这种问题的。 注意：一个命名空间就定义了一个新的作用域，命名空间中的所有内容都局限于该命名空间中">
+<meta property="og:description" content="C++模板泛型编程作为C++支持泛型的重要武器,模板被引入作为泛型编程的基础: 泛型编程：编写与类型无关的通用代码，是代码复用的一种手段。模板是泛型编程的基础。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-24T07:30:48.052Z">
+<meta property="og:updated_time" content="2019-08-24T07:35:39.950Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++入门知识">
-<meta name="twitter:description" content="C++入门知识铺垫命名空间命名空间的作用在C/C++中，变量、函数和后面要学到的类都是大量存在的，这些变量、函数和类的名称将都存在于全局作用 域中，可能会导致很多冲突。使用命名空间的目的是对标识符的名称进行本地化，以避免命名冲突或名字污 染，namespace关键字的出现就是针对这种问题的。 注意：一个命名空间就定义了一个新的作用域，命名空间中的所有内容都局限于该命名空间中">
+<meta name="twitter:title" content="C++模板">
+<meta name="twitter:description" content="C++模板泛型编程作为C++支持泛型的重要武器,模板被引入作为泛型编程的基础: 泛型编程：编写与类型无关的通用代码，是代码复用的一种手段。模板是泛型编程的基础。">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>C++入门知识 | MonkeyDLee</title>
+<title>C++模板 | MonkeyDLee</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -269,11 +269,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-C-入门知识" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C-模板" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/24/C-入门知识/" class="article-date">
-      <time datetime="2019-08-24T06:27:06.000Z" itemprop="datePublished">2019-08-24</time>
+      <a href="/2019/08/24/C-模板/" class="article-date">
+      <time datetime="2019-08-24T06:32:00.000Z" itemprop="datePublished">2019-08-24</time>
 </a>
 
 
@@ -288,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      C++入门知识
+      C++模板
     </h1>
   
 
@@ -309,91 +309,54 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="C-入门知识铺垫"><a href="#C-入门知识铺垫" class="headerlink" title="C++入门知识铺垫"></a>C++入门知识铺垫</h1><h4 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h4><h5 id="命名空间的作用"><a href="#命名空间的作用" class="headerlink" title="命名空间的作用"></a>命名空间的作用</h5><p>在C/C++中，变量、函数和后面要学到的类都是大量存在的，这些变量、函数和类的名称将都存在于全局作用 域中，可能会导致很多冲突。使用命名空间的目的是对标识符的名称进行本地化，以避免命名冲突或名字污 染，namespace关键字的出现就是针对这种问题的。</p>
-<p>注意：一个命名空间就定义了一个新的作用域，命名空间中的所有内容都局限于该命名空间中</p>
+        <h1 id="C-模板"><a href="#C-模板" class="headerlink" title="C++模板"></a>C++模板</h1><h3 id="泛型编程"><a href="#泛型编程" class="headerlink" title="泛型编程"></a>泛型编程</h3><p><strong>作为C++支持泛型的重要武器,模板被引入作为泛型编程的基础:</strong></p>
+<p><strong>泛型编程：编写与类型无关的通用代码，是代码复用的一种手段。模板是泛型编程的基础。</strong></p>
 <a id="more"></a>
-<h5 id="命名空间的定义"><a href="#命名空间的定义" class="headerlink" title="命名空间的定义:"></a>命名空间的定义:</h5><p>关键字:namespace</p>
-<p>namespace  N1{</p>
-<p>……..</p>
-<p>}</p>
-<p>1.命名空间可以嵌套</p>
-<p>2.同一个工程中允许存在多个相同名称的命名空间 ,编译器后会合成同一个命名空间中。 </p>
-<h5 id="命名空间的使用"><a href="#命名空间的使用" class="headerlink" title="命名空间的使用:"></a>命名空间的使用:</h5><p>1.完全展开:</p>
-<p>using namespace;</p>
-<p>2.部分展开</p>
-<p>using std::cout;</p>
-<p>3.不展开</p>
-<p> std :: cout&lt;&lt;”学习使我快乐”&lt;&lt; std:: end1;</p>
-<h6 id="三种使用方式的区别"><a href="#三种使用方式的区别" class="headerlink" title="三种使用方式的区别"></a>三种使用方式的区别</h6><p>完全展开使用方便,但是还是会造成命名污染,部分展开适合在工程中应用,不展开使用麻烦但是不会有命名污染</p>
-<h4 id="C-的输入和输出"><a href="#C-的输入和输出" class="headerlink" title="C++的输入和输出"></a>C++的输入和输出</h4><p>1.缺省参数</p>
-<p>缺省参数是声明或定义函数时为函数的参数指定一个默认值。在调用该函数时，如果没有指定实参则采用该默 认值，否则使用指定的实参。</p>
-<p>1.半缺省</p>
-<p>2.全缺省</p>
-<ol>
-<li><p>半缺省参数必须从右往左依次来给出，不能间隔着给 </p>
-<p>明确缺省的参数传值确定,传参是从左往右的</p>
-</li>
-<li><p>缺省参数不能在函数声明和定义中同时出现,如果生命与定义位置同时出现，恰巧两个位置提供的值不同，那编译器就无法确定到底该用那个缺省值。 </p>
-</li>
-</ol>
-<p>2.函数重载:</p>
-<p>   是函数的一种特殊情况，C++允许在同一作用域中声明几个功能类似的同名函数，这些同名函数的形 参列表(参数个数 或 类型 或 顺序)必须不同，常用来处理实现功能类似数据类型不同的问题</p>
-<p>3.函数重载实现:</p>
-<p>命名修饰规则:</p>
-<p>和C语言不同,函数命名修饰时只是在函数名称前加了下划线,C++中还加入了参数类型的首字母这支持了函数重载</p>
-<h4 id="extern-“c”"><a href="#extern-“c”" class="headerlink" title="extern “c”"></a>extern “c”</h4><p>C++向后兼容所以在c++编译器中是可以执行编译C语言代码的但是为了支持C风格的编译加上extren “C”‘.</p>
-<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>引用不是新定义一个变量，而是给已存在变量取了一个别名，编译器不会为引用变量开辟内存空间，它和它引 用的变量共用同一块内存空间。注意：引用类型必须和引用实体是同种类型的</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a = <span class="number">10</span><span class="comment">; </span></span><br><span class="line"></span><br><span class="line">int&amp; <span class="built_in">ra</span> = a<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<h5 id="引用特性"><a href="#引用特性" class="headerlink" title="引用特性:"></a>引用特性:</h5><ol>
-<li>引用在定义时必须初始化 </li>
-<li>一个变量可以有多个引用 </li>
-<li>引用一旦引用一个实体，再不能引用其他实体</li>
-</ol>
-<h5 id="引用的使用"><a href="#引用的使用" class="headerlink" title="引用的使用:"></a>引用的使用:</h5><p>1.传参，2.传返回值</p>
-<p>注意：如果函数返回时，离开函数作用域后，其栈上空间已经还给系统，因此不能用栈上的空间作为引用类型 返回。如果以引用类型返回，返回值的生命周期必须不受函数的限制(即比函数生命周期长)。</p>
-<h5 id="传值和传引用的区别"><a href="#传值和传引用的区别" class="headerlink" title="传值和传引用的区别"></a>传值和传引用的区别</h5><p> 以值作为参数或者返回值类型，在传参和返回期间，函数不会直接传递实参或者将变量本身直接返回，而是传递实 参或者返回变量的一份临时的拷贝，因此用值作为参数或者返回值类型，效率是非常低下的，尤其是当参数或者返回 值类型非常大时，效率就更低</p>
-<h5 id="引用和指针的区别"><a href="#引用和指针的区别" class="headerlink" title="引用和指针的区别"></a>引用和指针的区别</h5><h6 id="引用的特点"><a href="#引用的特点" class="headerlink" title="引用的特点:"></a>引用的特点:</h6><p>在语法概念上引用就是一个别名，没有独立空间，和其引用实体共用同一块空间。</p>
-<p>在底层实现上实际是有空间的，因为引用是按照指针方式来实现的。</p>
-<h6 id="引用和指针的不同点"><a href="#引用和指针的不同点" class="headerlink" title="引用和指针的不同点:"></a>引用和指针的不同点:</h6><ol>
-<li>引用在定义时必须初始化，指针没有要求</li>
-<li>引用在初始化时引用一个实体后，就不能再引用其他实体，而指针可以在任何时候指向任何一个同类型实 体</li>
-<li>没有NULL引用，但有NULL指针 </li>
-<li>在sizeof中含义不同：引用结果为引用类型的大小，但指针始终是地址空间所占字节个数(32位平台下占4 个字节)</li>
-<li>引用自加即引用的实体增加1，指针自加即指针向后偏移一个类型的大小 </li>
-<li>有多级指针，但是没有多级引用 </li>
-<li>访问实体方式不同，指针需要显式解引用，引用编译器自己处理</li>
-<li>引用比指针使用起来相对更安全</li>
-</ol>
-<p><strong>引用的原理</strong>：</p>
-<p>程序在编译时分别将指 针和引用添加到<strong>符号表</strong>上，符号表上记录的是变量名及变量所对应地址。指针变量在符号表上对应的地址值为指针变量的地址值，而引用在符号表上对应的地址值为 引用对象的地址值。符号表生成后就不会再改，因此指针可以改变其指向的对象（指针变量中的值可以改），而引用对象则不能修改。</p>
-<h4 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h4><p>以inline修饰的函数叫做内联函数，编译时C++编译器会在调用内联函数的地方展开，没有函数压栈的开销， 内联函数提升程序运行的效率。(宏函数的升级)</p>
-<p>使用:</p>
-<p>函数前加inline关键字</p>
-<p>特性:</p>
-<ol>
-<li>inline是一种以空间换时间的做法，省去调用函数额开销。所以代码很长或者有循环/递归的函数不适宜使 用作为内联函数。 </li>
-<li>inline对于编译器而言只是一个建议，编译器会自动优化，如果定义为inline的函数体内有循环/递归等 等，编译器优化时会忽略掉内联。 </li>
-<li>inline不建议声明和定义分离，分离会导致链接错误。因为inline被展开，就没有函数地址了，链接就会找 不到。</li>
-</ol>
-<h5 id="宏的优缺点"><a href="#宏的优缺点" class="headerlink" title="宏的优缺点"></a>宏的优缺点</h5><p>优点：</p>
-<ul>
-<li>提高了程序的可读性，同时也方便进行修改；</li>
-<li>提高程序的运行效率：使用带参的宏定义既可完成函数调用的功能，又能避免函数的出栈与入栈操作，减少系统开销，提高运行效率；</li>
-<li>宏是由预处理器处理的，通过字符串操作可以完成很多编译器无法实现的功能。比如##连接符。</li>
+<p><strong>模板又分为函数模板和类模板</strong></p>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><h3 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h3><h4 id="定义格式"><a href="#定义格式" class="headerlink" title="定义格式"></a>定义格式</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2,......,<span class="keyword">typename</span> Tn&gt;</span><br><span class="line">返回值类型 函数名(参数列表)&#123;&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Swap</span><span class="params">( T&amp; left, T&amp; right)</span> </span>&#123; T temp = left;</span><br><span class="line">left = right;</span><br><span class="line">right = temp; &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><p>编译器用使用方式产生特定具体类型函数的模具。所以其实模板 是将本来应该我们做的重复的事情交给了编译器</p>
+<p><strong>在编译器编译阶段</strong>，对于模板函数的使用，<strong>编译器需要根据传入的实参类型来推演生成对应类型的函数</strong>以供 </p>
+<p>调用。</p>
+<h5 id="函数模板实例化"><a href="#函数模板实例化" class="headerlink" title="函数模板实例化:"></a>函数模板实例化:</h5><ul>
+<li>隐式实例化：让编译器根据实参推演模板参数的实际类型，参数的类型要一致，要不需要显示实例化，或者参数列表添加参数</li>
+<li>显式实例化：在函数名后的&lt;&gt;中指定模板参数的实际类型,如果类型不匹配，编译器会尝试进行隐式类型转换，如果无法转换成功编译器将会报错。</li>
 </ul>
-<p>缺点：</p>
-<ul>
-<li>由于是直接嵌入的，所以代码可能相对多一点；</li>
-<li>嵌套定义过多可能会影响程序的可读性，而且很容易出错；</li>
-<li>对带参的宏而言，由于是直接替换，并不会检查参数是否合法，存在安全隐患。</li>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Add&lt;<span class="keyword">int</span>&gt; v;</span><br></pre></td></tr></table></figure>
+<h5 id="模板参数匹配规则"><a href="#模板参数匹配规则" class="headerlink" title="模板参数匹配规则"></a>模板参数匹配规则</h5><ul>
+<li>一个非模板函数可以和一个同名的函数模板同时存在，而且该函数模板还可以被实例化为这个非模板函数</li>
+<li>对于非板函数和同名函数模板，如果其他条件都相同，在调动时会优先调用非模板函数而不会从该模板产生出一个实例。如果模板可以产生一个具有更好匹配的函数,那么将选择模板</li>
+<li>模板函数不允许自动类型转换，但普通函数可以进行自动类型转换</li>
 </ul>
-<p>补充：预编译语句仅仅是简单的值代替，缺乏类型的检测机制。这样预处理语句就不能享受C++严格的类型检查的好处，从而可能成为引发一系列错误的隐患。的确，宏定义给我们带来很多方便之处，但是必须正确使用，否则，可能会出现一些意想不到的问题。</p>
-<p><strong>最后，引用《C 陷进与缺陷》的一句话，对其进行总结：宏并不是函数, 宏并不是语句, 宏并不是类型定义</strong></p>
-<h4 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h4><p>自动匹配类型值</p>
-<p>注意:</p>
-<p>auto 不能做函数参数,同一行定义多个变量时类型要相同</p>
-<h4 id="范围for"><a href="#范围for" class="headerlink" title="范围for"></a>范围for</h4><p>使用时范围确定</p>
-<h4 id="NULL和nullptr"><a href="#NULL和nullptr" class="headerlink" title="NULL和nullptr"></a>NULL和nullptr</h4><p>NULL是一个宏志为0,而nullptr是一个指针(void*)</p>
+<h3 id="类模板"><a href="#类模板" class="headerlink" title="类模板"></a>类模板</h3><h4 id="模板类的定义"><a href="#模板类的定义" class="headerlink" title="模板类的定义"></a>模板类的定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T1</span>, <span class="title">class</span> <span class="title">T2</span>, ..., <span class="title">class</span> <span class="title">Tn</span>&gt; </span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">class</span> 类模板名 </span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">&#123;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">// 类内成员定义 </span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：类模板中函数放在类外进行定义时，需要加模板参数列表</strong></p>
+<h5 id="类模板的实例化"><a href="#类模板的实例化" class="headerlink" title="类模板的实例化"></a>类模板的实例化</h5><p>类模板实例化与函数模板实例化不同，类模板实例化需要在类模板名字后跟<strong>&lt;&gt;</strong>，然后将实例化的类型放在&lt;&gt;</p>
+<p>中即可，类模板名字不是真正的类，而实例化的结果才是真正的类</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br></pre></td></tr></table></figure>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充:"></a>补充:</h3><h5 id="非类型模板参数"><a href="#非类型模板参数" class="headerlink" title="非类型模板参数:"></a>非类型模板参数:</h5><p><strong>类型形参即</strong>：出现在模板参数列表中,跟在<strong>class</strong>或者<strong>typename</strong>之类的参数类型名称。 </p>
+<p><strong>非类型形参</strong> :  就是用一个常量作为类(函数)模板的一个参数，在类(函数)模板中可将该参数当成常量来使用。 </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">size_t</span> <span class="title">N</span> <span class="title">N</span> = 10&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong> </p>
+<ul>
+<li>浮点数、类对象以及字符串是不允许作为非类型模板参数的。 </li>
+<li>非类型的模板参数必须在编译期就能确认结果。 </li>
+</ul>
+<h5 id="类模板的特化"><a href="#类模板的特化" class="headerlink" title="类模板的特化"></a><strong>类模板的特化</strong></h5><h5 id="全特化"><a href="#全特化" class="headerlink" title="全特化"></a>全特化</h5><p>全特化即是将模板参数类表中所有参数都确定话</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T1</span>, <span class="title">class</span> <span class="title">T2</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">Data</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">template</span>&lt;&gt;</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">Data</span>&lt;int, char&gt;</span></span><br></pre></td></tr></table></figure>
+<p> <strong>偏特化</strong> </p>
+<p>偏特化：任何针对模版参数进一步进行条件限制设计的特化版本。比如对于以下模板类：</p>
+<p>偏特化有以下两种表现方式： </p>
+<h6 id="部分特化"><a href="#部分特化" class="headerlink" title="部分特化"></a>部分特化</h6><p>将模板参数类表中的一部分参数特化。 </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将第二个参数特化为int </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T1</span>&gt; </span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">Data</span>&lt;T1, int&gt;</span></span><br></pre></td></tr></table></figure>
+<h6 id="参数更进一步的限制"><a href="#参数更进一步的限制" class="headerlink" title="参数更进一步的限制"></a>参数更进一步的限制</h6><p>偏特化并不仅仅是指特化部分参数，而是针对模板参数更进一步的条件限制所设计出来的一个特化版本。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Data</span> &lt;T1*, T2*&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="类模板特化应用之类型萃取"><a href="#类模板特化应用之类型萃取" class="headerlink" title="类模板特化应用之类型萃取"></a>类模板特化应用之类型萃取</h5><p>应用：解决拷贝问题：</p>
+<h5 id="模板的分离编译"><a href="#模板的分离编译" class="headerlink" title="模板的分离编译"></a>模板的分离编译</h5><p>不支持直接分离编译，可以显示实例化（不推荐）；链接时出错</p>
+<h4 id="模板的优缺点"><a href="#模板的优缺点" class="headerlink" title="模板的优缺点"></a>模板的优缺点</h4><p><strong>【优点】</strong> </p>
+<p> 模板复用了代码，节省资源，更快的迭代开发，C++的标准模板库(STL)因此而产生</p>
+<p>增强了代码的灵活性 </p>
+<p><strong>【缺陷】</strong> </p>
+<p> <strong>模板会导致代码膨胀问题，也会导致编译时间变长</strong> </p>
+<p> <strong>出现模板编译错误时，错误信息非常凌乱，不易定位错误</strong> </p>
 
       
     </div>
@@ -402,13 +365,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/24/C-入门知识/">C++入门知识</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/24/C-模板/">C++模板</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">libinxu</a></p>
-        <p><span>发布时间:</span>2019-08-24, 15:27:06</p>
-        <p><span>最后更新:</span>2019-08-24, 15:30:48</p>
+        <p><span>发布时间:</span>2019-08-24, 15:32:00</p>
+        <p><span>最后更新:</span>2019-08-24, 15:35:39</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/24/C-入门知识/" title="C++入门知识">http://yoursite.com/2019/08/24/C-入门知识/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/24/C-入门知识/　　作者: libinxu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/24/C-模板/" title="C++模板">http://yoursite.com/2019/08/24/C-模板/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/24/C-模板/　　作者: libinxu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -420,16 +383,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/24/C-模板/">
-                    C++模板
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/23/二叉树小结/">
-                    二叉树小结
+                <a href="/2019/08/24/C-入门知识/">
+                    C++入门知识
                 </a>
             </div>
         
@@ -441,7 +398,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-入门知识铺垫"><span class="toc-number">1.</span> <span class="toc-text">C++入门知识铺垫</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#命名空间"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">命名空间</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#命名空间的作用"><span class="toc-number">1.0.0.1.1.</span> <span class="toc-text">命名空间的作用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#命名空间的定义"><span class="toc-number">1.0.0.1.2.</span> <span class="toc-text">命名空间的定义:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#命名空间的使用"><span class="toc-number">1.0.0.1.3.</span> <span class="toc-text">命名空间的使用:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#三种使用方式的区别"><span class="toc-number">1.0.0.1.3.1.</span> <span class="toc-text">三种使用方式的区别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-的输入和输出"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">C++的输入和输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#extern-“c”"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">extern “c”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引用"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">引用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#引用特性"><span class="toc-number">1.0.0.4.1.</span> <span class="toc-text">引用特性:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#引用的使用"><span class="toc-number">1.0.0.4.2.</span> <span class="toc-text">引用的使用:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#传值和传引用的区别"><span class="toc-number">1.0.0.4.3.</span> <span class="toc-text">传值和传引用的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#引用和指针的区别"><span class="toc-number">1.0.0.4.4.</span> <span class="toc-text">引用和指针的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#引用的特点"><span class="toc-number">1.0.0.4.4.1.</span> <span class="toc-text">引用的特点:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#引用和指针的不同点"><span class="toc-number">1.0.0.4.4.2.</span> <span class="toc-text">引用和指针的不同点:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内联函数"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">内联函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#宏的优缺点"><span class="toc-number">1.0.0.5.1.</span> <span class="toc-text">宏的优缺点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#auto"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">auto</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#范围for"><span class="toc-number">1.0.0.7.</span> <span class="toc-text">范围for</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NULL和nullptr"><span class="toc-number">1.0.0.8.</span> <span class="toc-text">NULL和nullptr</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-模板"><span class="toc-number">1.</span> <span class="toc-text">C++模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#泛型编程"><span class="toc-number">1.0.1.</span> <span class="toc-text">泛型编程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板"><span class="toc-number">1.1.</span> <span class="toc-text">模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数模板"><span class="toc-number">1.1.1.</span> <span class="toc-text">函数模板</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义格式"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">定义格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现原理"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">实现原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#函数模板实例化"><span class="toc-number">1.1.1.2.1.</span> <span class="toc-text">函数模板实例化:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#模板参数匹配规则"><span class="toc-number">1.1.1.2.2.</span> <span class="toc-text">模板参数匹配规则</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类模板"><span class="toc-number">1.1.2.</span> <span class="toc-text">类模板</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#模板类的定义"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">模板类的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#类模板的实例化"><span class="toc-number">1.1.2.1.1.</span> <span class="toc-text">类模板的实例化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充"><span class="toc-number">1.1.3.</span> <span class="toc-text">补充:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#非类型模板参数"><span class="toc-number">1.1.3.0.1.</span> <span class="toc-text">非类型模板参数:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#类模板的特化"><span class="toc-number">1.1.3.0.2.</span> <span class="toc-text">类模板的特化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#全特化"><span class="toc-number">1.1.3.0.3.</span> <span class="toc-text">全特化</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#部分特化"><span class="toc-number">1.1.3.0.3.1.</span> <span class="toc-text">部分特化</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#参数更进一步的限制"><span class="toc-number">1.1.3.0.3.2.</span> <span class="toc-text">参数更进一步的限制</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#类模板特化应用之类型萃取"><span class="toc-number">1.1.3.0.4.</span> <span class="toc-text">类模板特化应用之类型萃取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#模板的分离编译"><span class="toc-number">1.1.3.0.5.</span> <span class="toc-text">模板的分离编译</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模板的优缺点"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">模板的优缺点</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -477,7 +434,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"C++入门知识　| MonkeyDLee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"C++模板　| MonkeyDLee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -497,15 +454,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/24/C-模板/" title="上一篇: C++模板">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/23/二叉树小结/" title="下一篇: 二叉树小结">
+            <a href="/2019/08/24/C-入门知识/" title="下一篇: C++入门知识">
                 <i class="fa fa-angle-right"></i>
             </a>
         
