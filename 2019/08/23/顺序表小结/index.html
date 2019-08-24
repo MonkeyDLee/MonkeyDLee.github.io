@@ -15,22 +15,22 @@
 
 
 
-<meta name="description" content="线性表相关总结顺序表1.存储方式存在一段连续的空间 2.存储特点:逻辑关系相邻的两个结点在物理上也相邻 3.优点是可以随机访问 缺点是插入和删除不方便 顺序表的结构: 相关操作:头插1234567891011void PushFront(SeqList* seqlist, int val) &amp;#123;true//检验数据合法性trueassert(seqlist != NULL);true//判">
+<meta name="description" content="线性表相关总结顺序表1.存储方式存在一段连续的空间 2.存储特点:逻辑关系相邻的两个结点在物理上也相邻 3.优点是可以随机访问 缺点是插入和删除不方便">
 <meta name="keywords" content="基础数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="顺序表小结">
 <meta property="og:url" content="http://yoursite.com/2019/08/23/顺序表小结/index.html">
 <meta property="og:site_name" content="MonkeyDLee">
-<meta property="og:description" content="线性表相关总结顺序表1.存储方式存在一段连续的空间 2.存储特点:逻辑关系相邻的两个结点在物理上也相邻 3.优点是可以随机访问 缺点是插入和删除不方便 顺序表的结构: 相关操作:头插1234567891011void PushFront(SeqList* seqlist, int val) &amp;#123;true//检验数据合法性trueassert(seqlist != NULL);true//判">
+<meta property="og:description" content="线性表相关总结顺序表1.存储方式存在一段连续的空间 2.存储特点:逻辑关系相邻的两个结点在物理上也相邻 3.优点是可以随机访问 缺点是插入和删除不方便">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="c:/Users/VSAS/Desktop/数据结构/顺序表.png">
 <meta property="og:image" content="c:/Users/VSAS/Desktop/数据结构/顺序表1.png">
 <meta property="og:image" content="c:/Users/VSAS/Desktop/数据结构/顺序表2.bmp">
 <meta property="og:image" content="d:/MyBlog/source/images/链表逆置.png">
-<meta property="og:updated_time" content="2019-08-23T02:03:49.390Z">
+<meta property="og:updated_time" content="2019-08-23T02:04:51.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="顺序表小结">
-<meta name="twitter:description" content="线性表相关总结顺序表1.存储方式存在一段连续的空间 2.存储特点:逻辑关系相邻的两个结点在物理上也相邻 3.优点是可以随机访问 缺点是插入和删除不方便 顺序表的结构: 相关操作:头插1234567891011void PushFront(SeqList* seqlist, int val) &amp;#123;true//检验数据合法性trueassert(seqlist != NULL);true//判">
+<meta name="twitter:description" content="线性表相关总结顺序表1.存储方式存在一段连续的空间 2.存储特点:逻辑关系相邻的两个结点在物理上也相邻 3.优点是可以随机访问 缺点是插入和删除不方便">
 <meta name="twitter:image" content="c:/Users/VSAS/Desktop/数据结构/顺序表.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -317,6 +317,7 @@
         <h1 id="线性表相关总结"><a href="#线性表相关总结" class="headerlink" title="线性表相关总结"></a>线性表相关总结</h1><h2 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h2><p>1.存储方式存在一段连续的空间</p>
 <p>2.存储特点:逻辑关系相邻的两个结点在物理上也相邻</p>
 <p>3.优点是可以随机访问 缺点是插入和删除不方便</p>
+<a id="more"></a>
 <h3 id="顺序表的结构"><a href="#顺序表的结构" class="headerlink" title="顺序表的结构:"></a>顺序表的结构:</h3><p><img src="C:\Users\VSAS\Desktop\数据结构\顺序表.png" alt=""></p>
 <h2 id="相关操作"><a href="#相关操作" class="headerlink" title="相关操作:"></a>相关操作:</h2><h3 id="头插"><a href="#头插" class="headerlink" title="头插"></a>头插</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PushFront</span><span class="params">(SeqList* seqlist, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">true<span class="comment">//检验数据合法性</span></span><br><span class="line">trueassert(seqlist != <span class="literal">NULL</span>);</span><br><span class="line">true<span class="comment">//判断是否容量不够</span></span><br><span class="line">true<span class="comment">//数据往后移动,从后往前移动防止数据被覆盖掉</span></span><br><span class="line">true<span class="keyword">for</span> (<span class="keyword">int</span> i = seqlist-&gt;size<span class="number">-1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">truetrueseqlist-&gt;arr[i + <span class="number">1</span>] = seqlist-&gt;arr[i];</span><br><span class="line">true&#125;</span><br><span class="line">trueseqlist-&gt;arr[<span class="number">0</span>] = val;</span><br><span class="line">trueseqlist-&gt;size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="尾插"><a href="#尾插" class="headerlink" title="尾插"></a>尾插</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Pushback</span><span class="params">(SeqList* seqlist, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">true<span class="comment">//检验数据合法性</span></span><br><span class="line">trueassert(seqlist != <span class="literal">NULL</span>);</span><br><span class="line">trueseqlist-&gt;arr[seqlist-&gt;size] = val;</span><br><span class="line">trueseqlist-&gt;size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -367,7 +368,7 @@
         <p><span>本文标题:</span><a href="/2019/08/23/顺序表小结/">顺序表小结</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">libinxu</a></p>
         <p><span>发布时间:</span>2019-08-23, 10:01:08</p>
-        <p><span>最后更新:</span>2019-08-23, 10:03:49</p>
+        <p><span>最后更新:</span>2019-08-23, 10:04:51</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/08/23/顺序表小结/" title="顺序表小结">http://yoursite.com/2019/08/23/顺序表小结/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/23/顺序表小结/　　作者: libinxu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -381,6 +382,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/08/23/二叉树小结/">
+                    二叉树小结
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -453,7 +460,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/08/23/二叉树小结/" title="上一篇: 二叉树小结">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -465,7 +474,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/23/顺序表小结/">顺序表小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/网络层/">网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/20/传输层/">传输层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/socket-UDP/">socket-UDP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/应用层/">应用层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/DNS系统/">DNS系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/C-多态/">C++多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/C-类和对象/">C++类和对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/信号量/">信号量</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/socket编程-TCP/">socket编程--TCP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/16/Http应用层协议/">Http应用层协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/22/操作符总结/">操作符总结</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/24/C-入门知识/">C++入门知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/23/二叉树小结/">二叉树小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/23/顺序表小结/">顺序表小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/网络层/">网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/20/传输层/">传输层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/socket-UDP/">socket-UDP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/应用层/">应用层</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/DNS系统/">DNS系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/C-多态/">C++多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/C-类和对象/">C++类和对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/信号量/">信号量</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/socket编程-TCP/">socket编程--TCP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/16/Http应用层协议/">Http应用层协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/22/操作符总结/">操作符总结</a></li></ul>
 
 
 

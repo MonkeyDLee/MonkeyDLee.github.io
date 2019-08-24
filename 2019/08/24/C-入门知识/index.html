@@ -15,22 +15,18 @@
 
 
 
-<meta name="description" content="DNS系统TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序. 但是IP地址不方便记忆。于是人们发明了一种叫主机名的东西, 是一个字符串, 并且使用hosts文件来描述主机名和IP地址的关系。最初, 通过互连网信息中心(SRI-NIC)来管理这个hosts文件的。如果一个新计算机要接入网络, 或者某个计算机IP变更, 都需要到信息中心申请变更hosts文件.。其他计算机也需要定期下">
-<meta name="keywords" content="Linux网络">
+<meta name="description" content="C++入门知识铺垫命名空间命名空间的作用在C/C++中，变量、函数和后面要学到的类都是大量存在的，这些变量、函数和类的名称将都存在于全局作用 域中，可能会导致很多冲突。使用命名空间的目的是对标识符的名称进行本地化，以避免命名冲突或名字污 染，namespace关键字的出现就是针对这种问题的。 注意：一个命名空间就定义了一个新的作用域，命名空间中的所有内容都局限于该命名空间中">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DNS系统">
-<meta property="og:url" content="http://yoursite.com/2019/08/17/DNS系统/index.html">
+<meta property="og:title" content="C++入门知识">
+<meta property="og:url" content="http://yoursite.com/2019/08/24/C-入门知识/index.html">
 <meta property="og:site_name" content="MonkeyDLee">
-<meta property="og:description" content="DNS系统TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序. 但是IP地址不方便记忆。于是人们发明了一种叫主机名的东西, 是一个字符串, 并且使用hosts文件来描述主机名和IP地址的关系。最初, 通过互连网信息中心(SRI-NIC)来管理这个hosts文件的。如果一个新计算机要接入网络, 或者某个计算机IP变更, 都需要到信息中心申请变更hosts文件.。其他计算机也需要定期下">
+<meta property="og:description" content="C++入门知识铺垫命名空间命名空间的作用在C/C++中，变量、函数和后面要学到的类都是大量存在的，这些变量、函数和类的名称将都存在于全局作用 域中，可能会导致很多冲突。使用命名空间的目的是对标识符的名称进行本地化，以避免命名冲突或名字污 染，namespace关键字的出现就是针对这种问题的。 注意：一个命名空间就定义了一个新的作用域，命名空间中的所有内容都局限于该命名空间中">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="d:/MyBlog/source/images/域名.png">
-<meta property="og:image" content="d:/MyBlog/source/images/顶级域名和二级域名的分类.png">
-<meta property="og:image" content="d:/MyBlog/source/images/域名树.png">
-<meta property="og:updated_time" content="2019-08-17T04:17:29.523Z">
+<meta property="og:updated_time" content="2019-08-24T07:30:48.052Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DNS系统">
-<meta name="twitter:description" content="DNS系统TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序. 但是IP地址不方便记忆。于是人们发明了一种叫主机名的东西, 是一个字符串, 并且使用hosts文件来描述主机名和IP地址的关系。最初, 通过互连网信息中心(SRI-NIC)来管理这个hosts文件的。如果一个新计算机要接入网络, 或者某个计算机IP变更, 都需要到信息中心申请变更hosts文件.。其他计算机也需要定期下">
-<meta name="twitter:image" content="d:/MyBlog/source/images/域名.png">
+<meta name="twitter:title" content="C++入门知识">
+<meta name="twitter:description" content="C++入门知识铺垫命名空间命名空间的作用在C/C++中，变量、函数和后面要学到的类都是大量存在的，这些变量、函数和类的名称将都存在于全局作用 域中，可能会导致很多冲突。使用命名空间的目的是对标识符的名称进行本地化，以避免命名冲突或名字污 染，namespace关键字的出现就是针对这种问题的。 注意：一个命名空间就定义了一个新的作用域，命名空间中的所有内容都局限于该命名空间中">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -62,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>DNS系统 | MonkeyDLee</title>
+<title>C++入门知识 | MonkeyDLee</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -273,11 +269,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="w-DNS系统" class="article article-type-w" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C-入门知识" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/17/DNS系统/" class="article-date">
-      <time datetime="2019-08-17T02:31:28.000Z" itemprop="datePublished">2019-08-17</time>
+      <a href="/2019/08/24/C-入门知识/" class="article-date">
+      <time datetime="2019-08-24T06:27:06.000Z" itemprop="datePublished">2019-08-24</time>
 </a>
 
 
@@ -292,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      DNS系统
+      C++入门知识
     </h1>
   
 
@@ -303,7 +299,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -313,26 +309,92 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="DNS系统"><a href="#DNS系统" class="headerlink" title="DNS系统"></a>DNS系统</h3><p>TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序. 但是IP地址不方便记忆。于是人们发明了一种叫主机名的东西, 是一个字符串, 并且使用hosts文件来描述主机名和IP地址的关系。最初, 通过互连网信息中心(SRI-NIC)来管理这个hosts文件的。如果一个新计算机要接入网络, 或者某个计算机IP变更, 都需要到信息中心申请变更hosts文件.。其他计算机也需要定期下载更新新版本的hosts文件才能正确上网。 为了方便使用以及管理，构建了DNS系统，一个组织的系统管理机构, 维护系统内的每个主机的IP和主机名的对应关系. 如果新计算机接入网络, 将这个信息注册到数据库中; 用户输入域名的时候, 会自动查询DNS服务器, 由DNS服务器检索数据库, 得到对应的IP地址。DNS是一整套从域名映射到IP的系统。</p>
+        <h1 id="C-入门知识铺垫"><a href="#C-入门知识铺垫" class="headerlink" title="C++入门知识铺垫"></a>C++入门知识铺垫</h1><h4 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h4><h5 id="命名空间的作用"><a href="#命名空间的作用" class="headerlink" title="命名空间的作用"></a>命名空间的作用</h5><p>在C/C++中，变量、函数和后面要学到的类都是大量存在的，这些变量、函数和类的名称将都存在于全局作用 域中，可能会导致很多冲突。使用命名空间的目的是对标识符的名称进行本地化，以避免命名冲突或名字污 染，namespace关键字的出现就是针对这种问题的。</p>
+<p>注意：一个命名空间就定义了一个新的作用域，命名空间中的所有内容都局限于该命名空间中</p>
 <a id="more"></a>
-<h4 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h4><p><img src="D:\MyBlog\source\images\域名.png" alt=""></p>
-<h4 id="域名级别划分："><a href="#域名级别划分：" class="headerlink" title="域名级别划分："></a>域名级别划分：</h4><p><strong>域名的书写：由低级到高级</strong></p>
-<p><img src="D:\MyBlog\source\images\顶级域名和二级域名的分类.png" alt=""></p>
-<h4 id="域名系统是树形的——–域名树"><a href="#域名系统是树形的——–域名树" class="headerlink" title="域名系统是树形的——–域名树"></a>域名系统是树形的——–域名树</h4><p><img src="D:\MyBlog\source\images\域名树.png" alt=""></p>
-<h4 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h4><h5 id="根域名服务器：最高层次的服务器"><a href="#根域名服务器：最高层次的服务器" class="headerlink" title="根域名服务器：最高层次的服务器"></a>根域名服务器：最高层次的服务器</h5><p>根域名服务器知道所有顶级域名服务器的域名和地址；在Internet上有13个不同IP地址的根域名服务器</p>
-<p>名字是a.rootsuser.net~m.rootsuser.net</p>
-<h5 id="权限域名服务器："><a href="#权限域名服务器：" class="headerlink" title="权限域名服务器："></a>权限域名服务器：</h5><p>管理该顶级域名服务器注册的所有的二级域名；</p>
-<h5 id="权限域名服务器：-1"><a href="#权限域名服务器：-1" class="headerlink" title="权限域名服务器："></a>权限域名服务器：</h5><p>负责一个区的域名服务器：</p>
-<p>区：DNS服务器实际管辖的范围。</p>
-<h5 id="本地域名服务器："><a href="#本地域名服务器：" class="headerlink" title="本地域名服务器："></a>本地域名服务器：</h5><p>不属于DNS系统；但是当主机发送域名查询请求的时候，这个查询请求报文就发给本地域名服务器。</p>
-<h4 id="域名解析的流程"><a href="#域名解析的流程" class="headerlink" title="域名解析的流程"></a>域名解析的流程</h4><p>1、在浏览器中输入www . qq .com 域名，操作系统会先检查自己本地的hosts文件是否有这个网址映射关系，如果有，就先调用这个IP地址映射，完成域名解析。</p>
-<p>2、如果hosts里没有这个域名的映射，则查找本地DNS解析器缓存，是否有这个网址映射关系，如果有，直接返回，完成域名解析。</p>
-<p>3、如果hosts与本地DNS解析器缓存都没有相应的网址映射关系，首先会找TCP/ip参数中设置的首选DNS服务器，在此我们叫它本地DNS服务器，此服务器收到查询时，如果要查询的域名，包含在本地配置区域资源中，则返回解析结果给客户机，完成域名解析，此解析具有权威性。</p>
-<p>4、如果要查询的域名，不由本地DNS服务器区域解析，但该服务器已缓存了此网址映射关系，则调用这个IP地址映射，完成域名解析，此解析不具有权威性。</p>
-<p>5、如果本地DNS服务器本地区域文件与缓存解析都失效，则根据本地DNS服务器的设置（是否设置转发器）进行查询，如果未用转发模式，本地DNS就把请求发至13台根DNS，根DNS服务器收到请求后会判断这个域名(.com)是谁来授权管理，并会返回一个负责该顶级域名服务器的一个IP。本地DNS服务器收到IP信息后，将会联系负责.com域的这台服务器。这台负责.com域的服务器收到请求后，如果自己无法解析，它就会找一个管理.com域的下一级DNS服务器地址(<a href="https://link.zhihu.com/?target=http%3A//qq.com" target="_blank" rel="noopener">http://qq.com</a>)给本地DNS服务器。当本地DNS服务器收到这个地址后，就会找<a href="https://link.zhihu.com/?target=http%3A//qq.com" target="_blank" rel="noopener">http://qq.com</a>域服务器，重复上面的动作，进行查询，直至找到www . qq .com主机。</p>
-<p>6、如果用的是转发模式，此DNS服务器就会把请求转发至上一级DNS服务器，由上一级服务器进行解析，上一级服务器如果不能解析，或找根DNS或把转请求转至上上级，以此循环。不管是本地DNS服务器用是是转发，还是根提示，最后都是把结果返回给本地DNS服务器，由此DNS服务器再返回给客户机。 </p>
-<p>从客户端到本地DNS服务器是属于递归查询，而DNS服务器之间就是的交互查询就是迭代查询。</p>
-<h5 id="迭代查询：自己查"><a href="#迭代查询：自己查" class="headerlink" title="迭代查询：自己查"></a>迭代查询：自己查</h5><h5 id="递归查询：抱大腿"><a href="#递归查询：抱大腿" class="headerlink" title="递归查询：抱大腿"></a>递归查询：抱大腿</h5>
+<h5 id="命名空间的定义"><a href="#命名空间的定义" class="headerlink" title="命名空间的定义:"></a>命名空间的定义:</h5><p>关键字:namespace</p>
+<p>namespace  N1{</p>
+<p>……..</p>
+<p>}</p>
+<p>1.命名空间可以嵌套</p>
+<p>2.同一个工程中允许存在多个相同名称的命名空间 ,编译器后会合成同一个命名空间中。 </p>
+<h5 id="命名空间的使用"><a href="#命名空间的使用" class="headerlink" title="命名空间的使用:"></a>命名空间的使用:</h5><p>1.完全展开:</p>
+<p>using namespace;</p>
+<p>2.部分展开</p>
+<p>using std::cout;</p>
+<p>3.不展开</p>
+<p> std :: cout&lt;&lt;”学习使我快乐”&lt;&lt; std:: end1;</p>
+<h6 id="三种使用方式的区别"><a href="#三种使用方式的区别" class="headerlink" title="三种使用方式的区别"></a>三种使用方式的区别</h6><p>完全展开使用方便,但是还是会造成命名污染,部分展开适合在工程中应用,不展开使用麻烦但是不会有命名污染</p>
+<h4 id="C-的输入和输出"><a href="#C-的输入和输出" class="headerlink" title="C++的输入和输出"></a>C++的输入和输出</h4><p>1.缺省参数</p>
+<p>缺省参数是声明或定义函数时为函数的参数指定一个默认值。在调用该函数时，如果没有指定实参则采用该默 认值，否则使用指定的实参。</p>
+<p>1.半缺省</p>
+<p>2.全缺省</p>
+<ol>
+<li><p>半缺省参数必须从右往左依次来给出，不能间隔着给 </p>
+<p>明确缺省的参数传值确定,传参是从左往右的</p>
+</li>
+<li><p>缺省参数不能在函数声明和定义中同时出现,如果生命与定义位置同时出现，恰巧两个位置提供的值不同，那编译器就无法确定到底该用那个缺省值。 </p>
+</li>
+</ol>
+<p>2.函数重载:</p>
+<p>   是函数的一种特殊情况，C++允许在同一作用域中声明几个功能类似的同名函数，这些同名函数的形 参列表(参数个数 或 类型 或 顺序)必须不同，常用来处理实现功能类似数据类型不同的问题</p>
+<p>3.函数重载实现:</p>
+<p>命名修饰规则:</p>
+<p>和C语言不同,函数命名修饰时只是在函数名称前加了下划线,C++中还加入了参数类型的首字母这支持了函数重载</p>
+<h4 id="extern-“c”"><a href="#extern-“c”" class="headerlink" title="extern “c”"></a>extern “c”</h4><p>C++向后兼容所以在c++编译器中是可以执行编译C语言代码的但是为了支持C风格的编译加上extren “C”‘.</p>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>引用不是新定义一个变量，而是给已存在变量取了一个别名，编译器不会为引用变量开辟内存空间，它和它引 用的变量共用同一块内存空间。注意：引用类型必须和引用实体是同种类型的</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a = <span class="number">10</span><span class="comment">; </span></span><br><span class="line"></span><br><span class="line">int&amp; <span class="built_in">ra</span> = a<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h5 id="引用特性"><a href="#引用特性" class="headerlink" title="引用特性:"></a>引用特性:</h5><ol>
+<li>引用在定义时必须初始化 </li>
+<li>一个变量可以有多个引用 </li>
+<li>引用一旦引用一个实体，再不能引用其他实体</li>
+</ol>
+<h5 id="引用的使用"><a href="#引用的使用" class="headerlink" title="引用的使用:"></a>引用的使用:</h5><p>1.传参，2.传返回值</p>
+<p>注意：如果函数返回时，离开函数作用域后，其栈上空间已经还给系统，因此不能用栈上的空间作为引用类型 返回。如果以引用类型返回，返回值的生命周期必须不受函数的限制(即比函数生命周期长)。</p>
+<h5 id="传值和传引用的区别"><a href="#传值和传引用的区别" class="headerlink" title="传值和传引用的区别"></a>传值和传引用的区别</h5><p> 以值作为参数或者返回值类型，在传参和返回期间，函数不会直接传递实参或者将变量本身直接返回，而是传递实 参或者返回变量的一份临时的拷贝，因此用值作为参数或者返回值类型，效率是非常低下的，尤其是当参数或者返回 值类型非常大时，效率就更低</p>
+<h5 id="引用和指针的区别"><a href="#引用和指针的区别" class="headerlink" title="引用和指针的区别"></a>引用和指针的区别</h5><h6 id="引用的特点"><a href="#引用的特点" class="headerlink" title="引用的特点:"></a>引用的特点:</h6><p>在语法概念上引用就是一个别名，没有独立空间，和其引用实体共用同一块空间。</p>
+<p>在底层实现上实际是有空间的，因为引用是按照指针方式来实现的。</p>
+<h6 id="引用和指针的不同点"><a href="#引用和指针的不同点" class="headerlink" title="引用和指针的不同点:"></a>引用和指针的不同点:</h6><ol>
+<li>引用在定义时必须初始化，指针没有要求</li>
+<li>引用在初始化时引用一个实体后，就不能再引用其他实体，而指针可以在任何时候指向任何一个同类型实 体</li>
+<li>没有NULL引用，但有NULL指针 </li>
+<li>在sizeof中含义不同：引用结果为引用类型的大小，但指针始终是地址空间所占字节个数(32位平台下占4 个字节)</li>
+<li>引用自加即引用的实体增加1，指针自加即指针向后偏移一个类型的大小 </li>
+<li>有多级指针，但是没有多级引用 </li>
+<li>访问实体方式不同，指针需要显式解引用，引用编译器自己处理</li>
+<li>引用比指针使用起来相对更安全</li>
+</ol>
+<p><strong>引用的原理</strong>：</p>
+<p>程序在编译时分别将指 针和引用添加到<strong>符号表</strong>上，符号表上记录的是变量名及变量所对应地址。指针变量在符号表上对应的地址值为指针变量的地址值，而引用在符号表上对应的地址值为 引用对象的地址值。符号表生成后就不会再改，因此指针可以改变其指向的对象（指针变量中的值可以改），而引用对象则不能修改。</p>
+<h4 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h4><p>以inline修饰的函数叫做内联函数，编译时C++编译器会在调用内联函数的地方展开，没有函数压栈的开销， 内联函数提升程序运行的效率。(宏函数的升级)</p>
+<p>使用:</p>
+<p>函数前加inline关键字</p>
+<p>特性:</p>
+<ol>
+<li>inline是一种以空间换时间的做法，省去调用函数额开销。所以代码很长或者有循环/递归的函数不适宜使 用作为内联函数。 </li>
+<li>inline对于编译器而言只是一个建议，编译器会自动优化，如果定义为inline的函数体内有循环/递归等 等，编译器优化时会忽略掉内联。 </li>
+<li>inline不建议声明和定义分离，分离会导致链接错误。因为inline被展开，就没有函数地址了，链接就会找 不到。</li>
+</ol>
+<h5 id="宏的优缺点"><a href="#宏的优缺点" class="headerlink" title="宏的优缺点"></a>宏的优缺点</h5><p>优点：</p>
+<ul>
+<li>提高了程序的可读性，同时也方便进行修改；</li>
+<li>提高程序的运行效率：使用带参的宏定义既可完成函数调用的功能，又能避免函数的出栈与入栈操作，减少系统开销，提高运行效率；</li>
+<li>宏是由预处理器处理的，通过字符串操作可以完成很多编译器无法实现的功能。比如##连接符。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>由于是直接嵌入的，所以代码可能相对多一点；</li>
+<li>嵌套定义过多可能会影响程序的可读性，而且很容易出错；</li>
+<li>对带参的宏而言，由于是直接替换，并不会检查参数是否合法，存在安全隐患。</li>
+</ul>
+<p>补充：预编译语句仅仅是简单的值代替，缺乏类型的检测机制。这样预处理语句就不能享受C++严格的类型检查的好处，从而可能成为引发一系列错误的隐患。的确，宏定义给我们带来很多方便之处，但是必须正确使用，否则，可能会出现一些意想不到的问题。</p>
+<p><strong>最后，引用《C 陷进与缺陷》的一句话，对其进行总结：宏并不是函数, 宏并不是语句, 宏并不是类型定义</strong></p>
+<h4 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h4><p>自动匹配类型值</p>
+<p>注意:</p>
+<p>auto 不能做函数参数,同一行定义多个变量时类型要相同</p>
+<h4 id="范围for"><a href="#范围for" class="headerlink" title="范围for"></a>范围for</h4><p>使用时范围确定</p>
+<h4 id="NULL和nullptr"><a href="#NULL和nullptr" class="headerlink" title="NULL和nullptr"></a>NULL和nullptr</h4><p>NULL是一个宏志为0,而nullptr是一个指针(void*)</p>
+
       
     </div>
     
@@ -340,13 +402,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/17/DNS系统/">DNS系统</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/24/C-入门知识/">C++入门知识</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">libinxu</a></p>
-        <p><span>发布时间:</span>2019-08-17, 11:31:28</p>
-        <p><span>最后更新:</span>2019-08-17, 12:17:29</p>
+        <p><span>发布时间:</span>2019-08-24, 15:27:06</p>
+        <p><span>最后更新:</span>2019-08-24, 15:30:48</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/17/DNS系统/" title="DNS系统">http://yoursite.com/2019/08/17/DNS系统/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/17/DNS系统/　　作者: libinxu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/24/C-入门知识/" title="C++入门知识">http://yoursite.com/2019/08/24/C-入门知识/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/24/C-入门知识/　　作者: libinxu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -358,16 +420,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/17/应用层/">
-                    应用层
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/16/C-多态/">
-                    C++多态
+                <a href="/2019/08/23/二叉树小结/">
+                    二叉树小结
                 </a>
             </div>
         
@@ -379,7 +435,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS系统"><span class="toc-number">1.</span> <span class="toc-text">DNS系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#域名"><span class="toc-number">1.1.</span> <span class="toc-text">域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#域名级别划分："><span class="toc-number">1.2.</span> <span class="toc-text">域名级别划分：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#域名系统是树形的——–域名树"><span class="toc-number">1.3.</span> <span class="toc-text">域名系统是树形的——–域名树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#域名服务器"><span class="toc-number">1.4.</span> <span class="toc-text">域名服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#根域名服务器：最高层次的服务器"><span class="toc-number">1.4.1.</span> <span class="toc-text">根域名服务器：最高层次的服务器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#权限域名服务器："><span class="toc-number">1.4.2.</span> <span class="toc-text">权限域名服务器：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#权限域名服务器：-1"><span class="toc-number">1.4.3.</span> <span class="toc-text">权限域名服务器：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#本地域名服务器："><span class="toc-number">1.4.4.</span> <span class="toc-text">本地域名服务器：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#域名解析的流程"><span class="toc-number">1.5.</span> <span class="toc-text">域名解析的流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#迭代查询：自己查"><span class="toc-number">1.5.1.</span> <span class="toc-text">迭代查询：自己查</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#递归查询：抱大腿"><span class="toc-number">1.5.2.</span> <span class="toc-text">递归查询：抱大腿</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-入门知识铺垫"><span class="toc-number">1.</span> <span class="toc-text">C++入门知识铺垫</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#命名空间"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">命名空间</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#命名空间的作用"><span class="toc-number">1.0.0.1.1.</span> <span class="toc-text">命名空间的作用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#命名空间的定义"><span class="toc-number">1.0.0.1.2.</span> <span class="toc-text">命名空间的定义:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#命名空间的使用"><span class="toc-number">1.0.0.1.3.</span> <span class="toc-text">命名空间的使用:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#三种使用方式的区别"><span class="toc-number">1.0.0.1.3.1.</span> <span class="toc-text">三种使用方式的区别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-的输入和输出"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">C++的输入和输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#extern-“c”"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">extern “c”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引用"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">引用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#引用特性"><span class="toc-number">1.0.0.4.1.</span> <span class="toc-text">引用特性:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#引用的使用"><span class="toc-number">1.0.0.4.2.</span> <span class="toc-text">引用的使用:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#传值和传引用的区别"><span class="toc-number">1.0.0.4.3.</span> <span class="toc-text">传值和传引用的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#引用和指针的区别"><span class="toc-number">1.0.0.4.4.</span> <span class="toc-text">引用和指针的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#引用的特点"><span class="toc-number">1.0.0.4.4.1.</span> <span class="toc-text">引用的特点:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#引用和指针的不同点"><span class="toc-number">1.0.0.4.4.2.</span> <span class="toc-text">引用和指针的不同点:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内联函数"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">内联函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#宏的优缺点"><span class="toc-number">1.0.0.5.1.</span> <span class="toc-text">宏的优缺点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#auto"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">auto</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#范围for"><span class="toc-number">1.0.0.7.</span> <span class="toc-text">范围for</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NULL和nullptr"><span class="toc-number">1.0.0.8.</span> <span class="toc-text">NULL和nullptr</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -415,7 +471,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"DNS系统　| MonkeyDLee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"C++入门知识　| MonkeyDLee　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -435,15 +491,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/17/应用层/" title="上一篇: 应用层">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/16/C-多态/" title="下一篇: C++多态">
+            <a href="/2019/08/23/二叉树小结/" title="下一篇: 二叉树小结">
                 <i class="fa fa-angle-right"></i>
             </a>
         

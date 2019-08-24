@@ -274,6 +274,126 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-C-入门知识" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/24/C-入门知识/" class="article-date">
+      <time datetime="2019-08-24T06:27:06.000Z" itemprop="datePublished">2019-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/24/C-入门知识/">C++入门知识</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="C-入门知识铺垫"><a href="#C-入门知识铺垫" class="headerlink" title="C++入门知识铺垫"></a>C++入门知识铺垫</h1><h4 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h4><h5 id="命名空间的作用"><a href="#命名空间的作用" class="headerlink" title="命名空间的作用"></a>命名空间的作用</h5><p>在C/C++中，变量、函数和后面要学到的类都是大量存在的，这些变量、函数和类的名称将都存在于全局作用 域中，可能会导致很多冲突。使用命名空间的目的是对标识符的名称进行本地化，以避免命名冲突或名字污 染，namespace关键字的出现就是针对这种问题的。</p>
+<p>注意：一个命名空间就定义了一个新的作用域，命名空间中的所有内容都局限于该命名空间中</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/08/24/C-入门知识/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-二叉树小结" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/23/二叉树小结/" class="article-date">
+      <time datetime="2019-08-23T01:06:01.000Z" itemprop="datePublished">2019-08-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/23/二叉树小结/">二叉树小结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-顺序表小结" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -303,49 +423,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="线性表相关总结"><a href="#线性表相关总结" class="headerlink" title="线性表相关总结"></a>线性表相关总结</h1><h2 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h2><p>1.存储方式存在一段连续的空间</p>
+              <h1 id="线性表相关总结"><a href="#线性表相关总结" class="headerlink" title="线性表相关总结"></a>线性表相关总结</h1><h2 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h2><p>1.存储方式存在一段连续的空间</p>
 <p>2.存储特点:逻辑关系相邻的两个结点在物理上也相邻</p>
 <p>3.优点是可以随机访问 缺点是插入和删除不方便</p>
-<h3 id="顺序表的结构"><a href="#顺序表的结构" class="headerlink" title="顺序表的结构:"></a>顺序表的结构:</h3><p><img src="C:\Users\VSAS\Desktop\数据结构\顺序表.png" alt=""></p>
-<h2 id="相关操作"><a href="#相关操作" class="headerlink" title="相关操作:"></a>相关操作:</h2><h3 id="头插"><a href="#头插" class="headerlink" title="头插"></a>头插</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PushFront</span><span class="params">(SeqList* seqlist, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">true<span class="comment">//检验数据合法性</span></span><br><span class="line">trueassert(seqlist != <span class="literal">NULL</span>);</span><br><span class="line">true<span class="comment">//判断是否容量不够</span></span><br><span class="line">true<span class="comment">//数据往后移动,从后往前移动防止数据被覆盖掉</span></span><br><span class="line">true<span class="keyword">for</span> (<span class="keyword">int</span> i = seqlist-&gt;size<span class="number">-1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">truetrueseqlist-&gt;arr[i + <span class="number">1</span>] = seqlist-&gt;arr[i];</span><br><span class="line">true&#125;</span><br><span class="line">trueseqlist-&gt;arr[<span class="number">0</span>] = val;</span><br><span class="line">trueseqlist-&gt;size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="尾插"><a href="#尾插" class="headerlink" title="尾插"></a>尾插</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Pushback</span><span class="params">(SeqList* seqlist, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">true<span class="comment">//检验数据合法性</span></span><br><span class="line">trueassert(seqlist != <span class="literal">NULL</span>);</span><br><span class="line">trueseqlist-&gt;arr[seqlist-&gt;size] = val;</span><br><span class="line">trueseqlist-&gt;size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="头删"><a href="#头删" class="headerlink" title="头删"></a>头删</h3><p><img src="C:\Users\VSAS\Desktop\数据结构\顺序表1.png" alt="图示"></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PopFront</span><span class="params">(SeqList* seqlist)</span> </span>&#123;</span><br><span class="line">true<span class="comment">//数据从后往前移动</span></span><br><span class="line">true<span class="comment">//检验数据合法性</span></span><br><span class="line">trueassert(seqlist != <span class="literal">NULL</span>);</span><br><span class="line">true<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &gt;= seqlist-&gt;size<span class="number">-1</span>; --i) &#123;</span><br><span class="line">truetrueseqlist-&gt;arr[i] = seqlist-&gt;arr[i+<span class="number">1</span>];</span><br><span class="line">true&#125;</span><br><span class="line">trueseqlist-&gt;size -= <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="尾删"><a href="#尾删" class="headerlink" title="尾删"></a>尾删</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Popback</span><span class="params">(SeqList* seqlist)</span> </span>&#123;</span><br><span class="line">true<span class="comment">//检验数据合法性</span></span><br><span class="line">trueassert(seqlist != <span class="literal">NULL</span>);</span><br><span class="line">trueseqlist-&gt;size -= <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="任意位置插入"><a href="#任意位置插入" class="headerlink" title="任意位置插入"></a>任意位置插入</h3><p><img src="C:\Users\VSAS\Desktop\数据结构\顺序表2.bmp" alt=""></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(SeqList* seqlist, <span class="keyword">int</span> pos, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">true<span class="comment">//检验数据合法性</span></span><br><span class="line">trueassert(seqlist != <span class="literal">NULL</span>);</span><br><span class="line">true<span class="keyword">for</span> (<span class="keyword">int</span> i = seqlist-&gt;size - <span class="number">1</span>; i &gt;= pos; --i) &#123;</span><br><span class="line">truetrueseqlist-&gt;arr[i + <span class="number">1</span>] = seqlist-&gt;arr[i];</span><br><span class="line">true&#125;</span><br><span class="line">trueseqlist-&gt;arr[pos] = val;</span><br><span class="line">trueseqlist-&gt;size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="任意位置删除"><a href="#任意位置删除" class="headerlink" title="任意位置删除"></a>任意位置删除</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Pop</span><span class="params">(SeqList* seqlist, <span class="keyword">int</span> pos)</span> </span>&#123;</span><br><span class="line">true<span class="comment">//检验数据合法性</span></span><br><span class="line">trueassert(seqlist != <span class="literal">NULL</span>);</span><br><span class="line">true<span class="keyword">for</span> (<span class="keyword">int</span> i = pos; i &gt;= seqlist-&gt;size - <span class="number">1</span>; --i) &#123;</span><br><span class="line">truetrueseqlist-&gt;arr[i] = seqlist-&gt;arr[i + <span class="number">1</span>];</span><br><span class="line">true&#125;</span><br><span class="line">trueseqlist-&gt;size -= <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>1.存储的空间可能不连续</p>
-<p>2.方便增删</p>
-<p>3.可能会更加节约空间</p>
-<h3 id="链表的分类"><a href="#链表的分类" class="headerlink" title="链表的分类"></a>链表的分类</h3><p>1.有头结点的链表</p>
-<p>2.循环链表</p>
-<p>3.双向链表</p>
-<h3 id="头插-1"><a href="#头插-1" class="headerlink" title="头插"></a>头插</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SListPushFront</span><span class="params">(SList* slist, SListDataType v)</span> </span>&#123;</span><br><span class="line">true<span class="comment">//开辟空间</span></span><br><span class="line">trueNode* node = (Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">truenode-&gt;value = v;</span><br><span class="line">truenode-&gt;next = slist-&gt;first;</span><br><span class="line">trueslist-&gt;first = node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="尾插-1"><a href="#尾插-1" class="headerlink" title="尾插"></a>尾插</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PushBack</span><span class="params">(SList* slist, SListDataType v)</span> </span>&#123;</span><br><span class="line">trueNode* news = (Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">truenews-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">truenews-&gt;value = v;</span><br><span class="line">true<span class="keyword">if</span> (slist-&gt;first = <span class="literal">NULL</span>) &#123;</span><br><span class="line">truetrueslist-&gt;first = news;</span><br><span class="line">true&#125;</span><br><span class="line">true<span class="keyword">else</span> &#123;</span><br><span class="line">truetrue<span class="comment">//查找最后一个结点</span></span><br><span class="line">truetrueNode* cur = slist-&gt;first;</span><br><span class="line">truetrue<span class="keyword">while</span> (cur != <span class="literal">NULL</span>) &#123;</span><br><span class="line">truetruetruecur = cur-&gt;next;</span><br><span class="line">truetrue&#125;</span><br><span class="line">truetruecur-&gt;next = news;</span><br><span class="line">true&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="头删-1"><a href="#头删-1" class="headerlink" title="头删"></a>头删</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PopFront</span><span class="params">(Node *head)</span> </span>&#123;</span><br><span class="line">trueNode *second = head-&gt;next;</span><br><span class="line">true<span class="built_in">free</span>(head);</span><br><span class="line">truehead = second;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="尾删-1"><a href="#尾删-1" class="headerlink" title="尾删"></a>尾删</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SListPopBack</span><span class="params">(SList *s)</span> </span>&#123;</span><br><span class="line">true<span class="comment">// 排除掉链表中一个结点都没有的情况</span></span><br><span class="line">trueassert(s-&gt;first != <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">true<span class="keyword">if</span> (s-&gt;first-&gt;next == <span class="literal">NULL</span>) &#123;</span><br><span class="line">truetrue<span class="comment">// 只有一个结点</span></span><br><span class="line">truetrue<span class="built_in">free</span>(s-&gt;first);</span><br><span class="line">truetrues-&gt;first = <span class="literal">NULL</span>;</span><br><span class="line">truetrue<span class="keyword">return</span>;</span><br><span class="line">true&#125;</span><br><span class="line"></span><br><span class="line">true<span class="comment">// 找倒数第二个结点</span></span><br><span class="line">trueNode *c;</span><br><span class="line">true<span class="keyword">for</span> (c = s-&gt;first; c-&gt;next-&gt;next != <span class="literal">NULL</span>; c = c-&gt;next);</span><br><span class="line">true<span class="built_in">free</span>(c-&gt;next);</span><br><span class="line">truec-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="相关总结"><a href="#相关总结" class="headerlink" title="相关总结"></a>相关总结</h3><p><strong>前序（上一个结点）        后继（下一个结点）</strong><br><strong>链表的代码有两个特点</strong></p>
-<ol>
-<li><strong>要操作某一个结点，往往需要找到这个结点的上一个结点(前驱结点)</strong></li>
-<li><p><strong>操作链表的第一个结点，往往是特殊情况</strong></p>
-<p>   <strong>针对第 2 个特点，有个取巧的办法在第一个结点前面加一个假的结点</strong></p>
-</li>
-</ol>
-<h4 id="常见对链表的操作"><a href="#常见对链表的操作" class="headerlink" title="常见对链表的操作"></a>常见对链表的操作</h4><h5 id="1-逆转链表"><a href="#1-逆转链表" class="headerlink" title="1.逆转链表"></a>1.逆转链表</h5><p><img src="D:\MyBlog\source\images\链表逆置.png" alt=""></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Node* <span class="title">reverseList</span><span class="params">(Node* head)</span> </span>&#123;</span><br><span class="line">trueNode* ret = <span class="literal">NULL</span>;</span><br><span class="line">trueNode* cur = head;</span><br><span class="line">true<span class="keyword">while</span> (cur != <span class="literal">NULL</span>)&#123;</span><br><span class="line">truetrueNode* next = cur-&gt;next;</span><br><span class="line">truetruecur-&gt;next = ret;</span><br><span class="line">truetrueret = cur;</span><br><span class="line">truetruecur = next;</span><br><span class="line">true&#125;</span><br><span class="line">true<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Node* <span class="title">reverseList</span><span class="params">(Node* head)</span> </span>&#123;</span><br><span class="line">trueNode* ret = <span class="literal">NULL</span>;</span><br><span class="line">trueNode* cur = head;</span><br><span class="line">true<span class="keyword">while</span> (cur != <span class="literal">NULL</span>)&#123;</span><br><span class="line">truetrue<span class="comment">//保存下一个节点的地址</span></span><br><span class="line">truetrueNode* next = cur-&gt;next;</span><br><span class="line">truetrue<span class="comment">//保存当前节点地址</span></span><br><span class="line">truetrueret = cur;</span><br><span class="line">truetrue<span class="comment">//交换</span></span><br><span class="line">truetruecur-&gt;next = ret;</span><br><span class="line">truetrue<span class="comment">//移动结点</span></span><br><span class="line">truetruecur = next;</span><br><span class="line">true&#125;</span><br><span class="line">true<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="2-删除遇到的所有值"><a href="#2-删除遇到的所有值" class="headerlink" title="2.删除遇到的所有值"></a>2.删除遇到的所有值</h5><p><strong>将遇到的不等于val的值单独组成一个链表</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">RemoveAll</span><span class="params">(Node* head, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">trueNode* cur = head;</span><br><span class="line">trueNode* ret = <span class="literal">NULL</span>;</span><br><span class="line">trueNode* end = <span class="literal">NULL</span>;<span class="comment">//保存尾结点的值</span></span><br><span class="line">true<span class="keyword">while</span> (cur != <span class="literal">NULL</span>) &#123;</span><br><span class="line">truetrueNode* next = cur-&gt;next;</span><br><span class="line">truetrue<span class="keyword">if</span> (cur-&gt;val != val) &#123;</span><br><span class="line">truetruetrue<span class="keyword">if</span> (ret == <span class="literal">NULL</span>) &#123;</span><br><span class="line">truetruetruetruecur-&gt;next = ret;</span><br><span class="line">truetruetruetrueret = cur;</span><br><span class="line">truetruetruetrueend = cur;</span><br><span class="line">truetruetrue&#125;</span><br><span class="line">truetruetrue<span class="keyword">else</span> &#123;</span><br><span class="line">truetruetruetruecur-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">truetruetruetrueend-&gt;next = cur;</span><br><span class="line">truetruetrue&#125;</span><br><span class="line">truetrue&#125;</span><br><span class="line">truetruecur = next;</span><br><span class="line">true&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="3-给定一个带有头结点-head-的非空单链表，返回链表的中间结点。如果有两个中间结点，则返回第二个中间结点。"><a href="#3-给定一个带有头结点-head-的非空单链表，返回链表的中间结点。如果有两个中间结点，则返回第二个中间结点。" class="headerlink" title="3.给定一个带有头结点 head 的非空单链表，返回链表的中间结点。如果有两个中间结点，则返回第二个中间结点。"></a>3.给定一个带有头结点 head 的非空单链表，返回链表的中间结点。如果有两个中间结点，则返回第二个中间结点。</h5><p>方案:这里采用快慢指针的方法即快指针走两步慢指针走一步,当快指针走到尾结点时,慢指针恰好在中间结点</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">middleNode</span><span class="params">(struct ListNode* head)</span> </span>&#123;</span><br><span class="line">   <span class="comment">//设置快慢节点 </span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> *<span class="title">slow</span>,*<span class="title">fast</span>;</span></span><br><span class="line">    <span class="comment">//将快慢节点都指向头节点 </span></span><br><span class="line">trueslow = head;</span><br><span class="line">truefast = head;</span><br><span class="line">true<span class="comment">//当慢节点不为空并且快节点的下一个节点不为空</span></span><br><span class="line">true<span class="comment">//(因为要使用要快节点的下下个节点,所以要确保快节点的下一个节点不为空) </span></span><br><span class="line">true<span class="keyword">while</span>(fast != <span class="literal">NULL</span> &amp;&amp; fast-&gt;next != <span class="literal">NULL</span>)&#123;</span><br><span class="line">truetrue<span class="comment">//慢节点移动一次,快节点移动两次 </span></span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">truetrueslow = slow-&gt;next;</span><br><span class="line">truetruefast = fast-&gt;next;</span><br><span class="line">true&#125;</span><br><span class="line">true<span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="4-将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。"><a href="#4-将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。" class="headerlink" title="4.将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。"></a>4.将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">mergeTwoLists</span><span class="params">(struct ListNode* l1, struct ListNode* l2)</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">ret</span> = <span class="title">NULL</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">end</span> = <span class="title">NULL</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">cur_1</span> = <span class="title">l1</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">cur_2</span> = <span class="title">l2</span>;</span></span><br><span class="line">     <span class="keyword">if</span>(cur_1 == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> cur_1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cur_2 == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> cur_2;</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="keyword">while</span>(cur_1 != <span class="literal">NULL</span> &amp;&amp; cur_2 != <span class="literal">NULL</span>)&#123;</span><br><span class="line">       <span class="comment">//如果第一个值小于第二个值进行尾插</span></span><br><span class="line">        <span class="keyword">if</span>(cur_1-&gt;val &lt;= cur_2-&gt;val)&#123;</span><br><span class="line">            <span class="comment">//第一个节点</span></span><br><span class="line">            <span class="keyword">if</span>(ret == <span class="literal">NULL</span>)&#123;</span><br><span class="line">                ret=end=cur_1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                end-&gt;next = cur_1;</span><br><span class="line">                end = cur_1;</span><br><span class="line">            &#125;</span><br><span class="line">            cur_1 = cur_1-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">       <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(ret == <span class="literal">NULL</span>)&#123;</span><br><span class="line">                ret = end = cur_2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                end-&gt;next = cur_2;</span><br><span class="line">                end = cur_2;</span><br><span class="line">            &#125;</span><br><span class="line">           cur_2 = cur_2-&gt;next;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">      <span class="keyword">if</span>(cur_1 != <span class="literal">NULL</span>)&#123;</span><br><span class="line">           end-&gt;next = cur_1;</span><br><span class="line">       &#125;</span><br><span class="line">      <span class="keyword">if</span>(cur_2 != <span class="literal">NULL</span>)&#123;</span><br><span class="line">          end-&gt;next = cur_2;</span><br><span class="line">    &#125;</span><br><span class="line">       <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="5-输入一个链表，输出该链表中倒数第k个结点。"><a href="#5-输入一个链表，输出该链表中倒数第k个结点。" class="headerlink" title="5.输入一个链表，输出该链表中倒数第k个结点。"></a>5.输入一个链表，输出该链表中倒数第k个结点。</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">FindKthToTail</span><span class="params">(ListNode* pListHead, <span class="keyword">unsigned</span> <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    ListNode* front = pListHead;</span><br><span class="line">        ListNode* Later = pListHead;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//统计结点个数</span></span><br><span class="line">        <span class="comment">//移动k个结点</span></span><br><span class="line">        <span class="keyword">for</span>(;i &lt; k &amp;&amp; front != <span class="literal">NULL</span>;++i)&#123;</span><br><span class="line">           front=front-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(k &gt; i)&#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="literal">NULL</span>;   </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(front != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            Later= Later-&gt;next;</span><br><span class="line">            front = front-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Later;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="编写代码，以给定值x为基准将链表分割成两部分，所有小于x的结点排在大于或等于x的结点之前"><a href="#编写代码，以给定值x为基准将链表分割成两部分，所有小于x的结点排在大于或等于x的结点之前" class="headerlink" title="编写代码，以给定值x为基准将链表分割成两部分，所有小于x的结点排在大于或等于x的结点之前"></a>编写代码，以给定值x为基准将链表分割成两部分，所有小于x的结点排在大于或等于x的结点之前</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Partition</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">partition</span><span class="params">(ListNode* pHead, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">         ListNode* big = <span class="literal">NULL</span>;</span><br><span class="line">         ListNode* big_end = <span class="literal">NULL</span>;</span><br><span class="line">         ListNode* small = <span class="literal">NULL</span>;</span><br><span class="line">         ListNode* small_end = <span class="literal">NULL</span>;</span><br><span class="line">         ListNode* cur = pHead;</span><br><span class="line">         ListNode* ret = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="comment">//遍历链表</span></span><br><span class="line">        <span class="keyword">while</span>(cur != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(cur-&gt;val &gt;= x)&#123;</span><br><span class="line">                <span class="keyword">if</span>(big == <span class="literal">NULL</span>)&#123;</span><br><span class="line">                    big = big_end = cur;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    big_end-&gt;next = cur;</span><br><span class="line">                        big_end = cur;</span><br><span class="line">                &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            <span class="keyword">if</span>(cur-&gt;val &lt; x)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(small == <span class="literal">NULL</span>)&#123;</span><br><span class="line">                    ret =small = small_end = cur;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    small_end-&gt;next = cur;</span><br><span class="line">                       small_end = cur;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">             cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(small == <span class="literal">NULL</span>)&#123;</span><br><span class="line">            big_end-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">            <span class="keyword">return</span> big;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(big == <span class="literal">NULL</span>)&#123;</span><br><span class="line">            small_end-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">            <span class="keyword">return</span> small;</span><br><span class="line">        &#125;</span><br><span class="line">             small_end-&gt;next = big;</span><br><span class="line">             big_end-&gt;next =<span class="literal">NULL</span>;</span><br><span class="line">                <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="6-在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。"><a href="#6-在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。" class="headerlink" title="6.在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。"></a>6.在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">deleteDuplication</span><span class="params">(ListNode* pHead)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pHead == <span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">       ListNode*  Front = pHead;</span><br><span class="line">       ListNode*  Later = pHead-&gt;next;</span><br><span class="line">       ListNode* head = (ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ListNode));</span><br><span class="line">       ListNode*  prev = head;</span><br><span class="line">        head-&gt;next = pHead;</span><br><span class="line">        <span class="keyword">while</span>( Later != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">            <span class="keyword">if</span>(Front-&gt;val != Later-&gt;val)&#123;</span><br><span class="line">                prev = Front;</span><br><span class="line">                Front = Later;</span><br><span class="line">                <span class="keyword">if</span>(Later != <span class="literal">NULL</span>)</span><br><span class="line">                Later = Later-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">while</span>(Later != <span class="literal">NULL</span> &amp;&amp; Front-&gt;val == Later-&gt;val)&#123;</span><br><span class="line">                    Later = Later-&gt;next;</span><br><span class="line">                &#125;</span><br><span class="line">                prev-&gt;next = Later;</span><br><span class="line">                Front = Later;</span><br><span class="line">                <span class="keyword">if</span>(Later != <span class="literal">NULL</span>)</span><br><span class="line">                Later = Later-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;   </span><br><span class="line">        <span class="keyword">return</span> head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。要求返回这个链表的深度拷贝。"><a href="#给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。要求返回这个链表的深度拷贝。" class="headerlink" title="给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。要求返回这个链表的深度拷贝。"></a>给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。要求返回这个链表的深度拷贝。</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">Node* <span class="title">copyRandomList</span><span class="params">(Node* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Node* ret = <span class="literal">NULL</span>;</span><br><span class="line">        Node* end = <span class="literal">NULL</span>;</span><br><span class="line">        Node* cur = head;</span><br><span class="line">        <span class="comment">//复制val的值</span></span><br><span class="line">        <span class="keyword">while</span>(cur != <span class="literal">NULL</span>)&#123;</span><br><span class="line">   Node* Newnode = (Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">      Newnode-&gt;val = cur-&gt;val;</span><br><span class="line">           Node* Next = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = Newnode;</span><br><span class="line">            Newnode-&gt;next = Next;</span><br><span class="line">              cur = Newnode-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        cur = head;</span><br><span class="line">        <span class="comment">//复制random</span></span><br><span class="line">        <span class="keyword">while</span>(cur != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="comment">//如果Random不为空复制 为空继续复制下一个结点</span></span><br><span class="line">           <span class="keyword">if</span>(cur-&gt;random != <span class="literal">NULL</span>)&#123;</span><br><span class="line">               cur-&gt;next-&gt;random = cur-&gt;random-&gt;next;</span><br><span class="line">           &#125;</span><br><span class="line">            cur  = cur-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//拆开链表</span></span><br><span class="line">        cur = head;</span><br><span class="line">        ret = head-&gt;next;</span><br><span class="line">        <span class="keyword">while</span>(cur != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="comment">//将两个链表拆开</span></span><br><span class="line">           Node *node = cur-&gt;next;</span><br><span class="line"></span><br><span class="line">truetruecur-&gt;next = node-&gt;next;</span><br><span class="line">truetrue<span class="keyword">if</span> (node-&gt;next != <span class="literal">NULL</span>) &#123;</span><br><span class="line">truetruetruenode-&gt;next = node-&gt;next-&gt;next;</span><br><span class="line">truetrue&#125;</span><br><span class="line">truetrue</span><br><span class="line">truetruecur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="辨析辨析循环终止条件cur-NULL-cur-gt-next-NULL"><a href="#辨析辨析循环终止条件cur-NULL-cur-gt-next-NULL" class="headerlink" title="辨析辨析循环终止条件cur != NULL,cur-&gt;next != NULL"></a>辨析辨析循环终止条件cur != NULL,cur-&gt;next != NULL</h4><p>cur != NULL是当前结点不为空就是最后一个结点,而cur-&gt;next != NULL当前结点的下一个结点不为空,是倒数第二个结点,在尾删这种情况下,我们需要找到最后一个结点的地址这是个单向链表的情况下我们需要找到他的前一个地址所以循环终止的条件是cur-&gt;next != NULL.</p>
-
+          
       
     </div>
     
@@ -358,6 +439,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础数据结构/">基础数据结构</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/08/23/顺序表小结/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -881,135 +966,6 @@
       
         <p class="article-more-link">
           <a href="/2019/08/15/C-类和对象/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-信号量" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/15/信号量/" class="article-date">
-      <time datetime="2019-08-15T01:53:26.000Z" itemprop="datePublished">2019-08-15</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/15/信号量/">信号量</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>信号是进程之间时间异步通知的方式，属于软中断，信号是一个标记每个信号表示一种事件，位图注册信号表示进程发生了这个事件，sigqueue节点添加一个表示这个事件发生了一次。</p>
-<p>信号阻塞是阻止信号被递达（暂时不处理信号）在进程pcb中标记 那些信号来了不处理 在进程pcb中有个信号阻塞集，阻塞信号就是在这个集合做标记，当信号需要被处理时进行（pending&amp;~block）操作来判定这个信号需要阻塞还是递达。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/08/15/信号量/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-socket编程-TCP" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/07/19/socket编程-TCP/" class="article-date">
-      <time datetime="2019-07-19T05:48:20.000Z" itemprop="datePublished">2019-07-19</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/19/socket编程-TCP/">socket编程--TCP</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="TCP网络编程"><a href="#TCP网络编程" class="headerlink" title="TCP网络编程"></a>TCP网络编程</h2><h4 id="TCP网络编程流程"><a href="#TCP网络编程流程" class="headerlink" title="TCP网络编程流程"></a>TCP网络编程流程</h4><p><img src="D:\MyBlog\source\images\tcp流程.png" alt=""></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux网络/">Linux网络</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/07/19/socket编程-TCP/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
