@@ -26,7 +26,7 @@
 <meta property="og:image" content="d:/MyBlog/source/images/域名.png">
 <meta property="og:image" content="d:/MyBlog/source/images/顶级域名和二级域名的分类.png">
 <meta property="og:image" content="d:/MyBlog/source/images/域名树.png">
-<meta property="og:updated_time" content="2019-08-17T04:17:29.523Z">
+<meta property="og:updated_time" content="2019-09-22T03:10:03.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DNS系统">
 <meta name="twitter:description" content="DNS系统TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序. 但是IP地址不方便记忆。于是人们发明了一种叫主机名的东西, 是一个字符串, 并且使用hosts文件来描述主机名和IP地址的关系。最初, 通过互连网信息中心(SRI-NIC)来管理这个hosts文件的。如果一个新计算机要接入网络, 或者某个计算机IP变更, 都需要到信息中心申请变更hosts文件.。其他计算机也需要定期下">
@@ -321,18 +321,23 @@
 <h4 id="域名系统是树形的——–域名树"><a href="#域名系统是树形的——–域名树" class="headerlink" title="域名系统是树形的——–域名树"></a>域名系统是树形的——–域名树</h4><p><img src="D:\MyBlog\source\images\域名树.png" alt=""></p>
 <h4 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h4><h5 id="根域名服务器：最高层次的服务器"><a href="#根域名服务器：最高层次的服务器" class="headerlink" title="根域名服务器：最高层次的服务器"></a>根域名服务器：最高层次的服务器</h5><p>根域名服务器知道所有顶级域名服务器的域名和地址；在Internet上有13个不同IP地址的根域名服务器</p>
 <p>名字是a.rootsuser.net~m.rootsuser.net</p>
-<h5 id="权限域名服务器："><a href="#权限域名服务器：" class="headerlink" title="权限域名服务器："></a>权限域名服务器：</h5><p>管理该顶级域名服务器注册的所有的二级域名；</p>
-<h5 id="权限域名服务器：-1"><a href="#权限域名服务器：-1" class="headerlink" title="权限域名服务器："></a>权限域名服务器：</h5><p>负责一个区的域名服务器：</p>
+<h5 id="顶级域名服务器："><a href="#顶级域名服务器：" class="headerlink" title="顶级域名服务器："></a>顶级域名服务器：</h5><p>管理该顶级域名服务器注册的所有的二级域名；</p>
+<h5 id="权限域名服务器："><a href="#权限域名服务器：" class="headerlink" title="权限域名服务器："></a>权限域名服务器：</h5><p>负责一个区的域名服务器：</p>
 <p>区：DNS服务器实际管辖的范围。</p>
 <h5 id="本地域名服务器："><a href="#本地域名服务器：" class="headerlink" title="本地域名服务器："></a>本地域名服务器：</h5><p>不属于DNS系统；但是当主机发送域名查询请求的时候，这个查询请求报文就发给本地域名服务器。</p>
 <h4 id="域名解析的流程"><a href="#域名解析的流程" class="headerlink" title="域名解析的流程"></a>域名解析的流程</h4><p>1、在浏览器中输入www . qq .com 域名，操作系统会先检查自己本地的hosts文件是否有这个网址映射关系，如果有，就先调用这个IP地址映射，完成域名解析。</p>
 <p>2、如果hosts里没有这个域名的映射，则查找本地DNS解析器缓存，是否有这个网址映射关系，如果有，直接返回，完成域名解析。</p>
-<p>3、如果hosts与本地DNS解析器缓存都没有相应的网址映射关系，首先会找TCP/ip参数中设置的首选DNS服务器，在此我们叫它本地DNS服务器，此服务器收到查询时，如果要查询的域名，包含在本地配置区域资源中，则返回解析结果给客户机，完成域名解析，此解析具有权威性。</p>
+<p>3、如果hosts与本地DNS解析器缓存都没有相应的网址映射关系，首先会找TCP/IP参数中设置的首选DNS服务器，在此我们叫它本地DNS服务器，此服务器收到查询时，如果要查询的域名，包含在本地配置区域资源中，则返回解析结果给客户机，完成域名解析，此解析具有权威性。</p>
 <p>4、如果要查询的域名，不由本地DNS服务器区域解析，但该服务器已缓存了此网址映射关系，则调用这个IP地址映射，完成域名解析，此解析不具有权威性。</p>
 <p>5、如果本地DNS服务器本地区域文件与缓存解析都失效，则根据本地DNS服务器的设置（是否设置转发器）进行查询，如果未用转发模式，本地DNS就把请求发至13台根DNS，根DNS服务器收到请求后会判断这个域名(.com)是谁来授权管理，并会返回一个负责该顶级域名服务器的一个IP。本地DNS服务器收到IP信息后，将会联系负责.com域的这台服务器。这台负责.com域的服务器收到请求后，如果自己无法解析，它就会找一个管理.com域的下一级DNS服务器地址(<a href="https://link.zhihu.com/?target=http%3A//qq.com" target="_blank" rel="noopener">http://qq.com</a>)给本地DNS服务器。当本地DNS服务器收到这个地址后，就会找<a href="https://link.zhihu.com/?target=http%3A//qq.com" target="_blank" rel="noopener">http://qq.com</a>域服务器，重复上面的动作，进行查询，直至找到www . qq .com主机。</p>
 <p>6、如果用的是转发模式，此DNS服务器就会把请求转发至上一级DNS服务器，由上一级服务器进行解析，上一级服务器如果不能解析，或找根DNS或把转请求转至上上级，以此循环。不管是本地DNS服务器用是是转发，还是根提示，最后都是把结果返回给本地DNS服务器，由此DNS服务器再返回给客户机。 </p>
 <p>从客户端到本地DNS服务器是属于递归查询，而DNS服务器之间就是的交互查询就是迭代查询。</p>
-<h5 id="迭代查询：自己查"><a href="#迭代查询：自己查" class="headerlink" title="迭代查询：自己查"></a>迭代查询：自己查</h5><h5 id="递归查询：抱大腿"><a href="#递归查询：抱大腿" class="headerlink" title="递归查询：抱大腿"></a>递归查询：抱大腿</h5>
+<h5 id="迭代查询：自己查"><a href="#迭代查询：自己查" class="headerlink" title="迭代查询：自己查"></a>迭代查询：自己查</h5><h5 id="递归查询：抱大腿"><a href="#递归查询：抱大腿" class="headerlink" title="递归查询：抱大腿"></a>递归查询：抱大腿</h5><h4 id="为什么根域名服务器有13个"><a href="#为什么根域名服务器有13个" class="headerlink" title="为什么根域名服务器有13个"></a>为什么根域名服务器有13个</h4><p>互联网域名系统 在层次结构的根部使用13个DNS服务器集群有几个原因：13号被选为网络可靠性和性能之间的折中，13是基于互联网协议（IP）的约束，版本4（IPv4）。</p>
+<p>尽管IPv4中只存在13个指定的DNS根服务器名称，但实际上，这些名称中的每一个都不代表单个计算机，而是代表由多台计算机组成的服务器群集。这种使用集群可提高DNS的可靠性，而不会对其性能产生任何负面影响。</p>
+<p>由于新出现的IP版本6标准对单个数据报的大小没有如此低的限制，我们可以预计，随着时间的推移，未来的DNS将包含更多的根服务器来支持IPv6。</p>
+<p>原文链接：<a href="https://blog.csdn.net/weixin_41177699/article/details/80643486" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41177699/article/details/80643486</a></p>
+<h4 id="为什么DNS使用UDP协议"><a href="#为什么DNS使用UDP协议" class="headerlink" title="为什么DNS使用UDP协议"></a>为什么DNS使用UDP协议</h4><p>答：不是只用了UDP服务，优先用了udp服务，因为开销小，这样的无连接的，尽最大能力交付的不可靠数据连接，    一次UDP名字服务器交换可以短到两个包：一个查询包、一个响应包。一次TCP交换则至少包含9个包：三次握手初始化TCP会话、一个查询包、一个响应包以及四次分手的包交换。    考虑到效率原因，TCP连接的开销大得，故采用UDP作为DNS的运输层协议，这也将导致只有13个根域名服务器的结果。只会在UDP报文中表明有截断的时候使用TCP查询。</p>
+
       
     </div>
     
@@ -343,7 +348,7 @@
         <p><span>本文标题:</span><a href="/2019/08/17/DNS系统/">DNS系统</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">libinxu</a></p>
         <p><span>发布时间:</span>2019-08-17, 11:31:28</p>
-        <p><span>最后更新:</span>2019-08-17, 12:17:29</p>
+        <p><span>最后更新:</span>2019-09-22, 11:10:03</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/08/17/DNS系统/" title="DNS系统">http://yoursite.com/2019/08/17/DNS系统/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/17/DNS系统/　　作者: libinxu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -379,7 +384,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS系统"><span class="toc-number">1.</span> <span class="toc-text">DNS系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#域名"><span class="toc-number">1.1.</span> <span class="toc-text">域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#域名级别划分："><span class="toc-number">1.2.</span> <span class="toc-text">域名级别划分：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#域名系统是树形的——–域名树"><span class="toc-number">1.3.</span> <span class="toc-text">域名系统是树形的——–域名树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#域名服务器"><span class="toc-number">1.4.</span> <span class="toc-text">域名服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#根域名服务器：最高层次的服务器"><span class="toc-number">1.4.1.</span> <span class="toc-text">根域名服务器：最高层次的服务器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#权限域名服务器："><span class="toc-number">1.4.2.</span> <span class="toc-text">权限域名服务器：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#权限域名服务器：-1"><span class="toc-number">1.4.3.</span> <span class="toc-text">权限域名服务器：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#本地域名服务器："><span class="toc-number">1.4.4.</span> <span class="toc-text">本地域名服务器：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#域名解析的流程"><span class="toc-number">1.5.</span> <span class="toc-text">域名解析的流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#迭代查询：自己查"><span class="toc-number">1.5.1.</span> <span class="toc-text">迭代查询：自己查</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#递归查询：抱大腿"><span class="toc-number">1.5.2.</span> <span class="toc-text">递归查询：抱大腿</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS系统"><span class="toc-number">1.</span> <span class="toc-text">DNS系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#域名"><span class="toc-number">1.1.</span> <span class="toc-text">域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#域名级别划分："><span class="toc-number">1.2.</span> <span class="toc-text">域名级别划分：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#域名系统是树形的——–域名树"><span class="toc-number">1.3.</span> <span class="toc-text">域名系统是树形的——–域名树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#域名服务器"><span class="toc-number">1.4.</span> <span class="toc-text">域名服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#根域名服务器：最高层次的服务器"><span class="toc-number">1.4.1.</span> <span class="toc-text">根域名服务器：最高层次的服务器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#顶级域名服务器："><span class="toc-number">1.4.2.</span> <span class="toc-text">顶级域名服务器：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#权限域名服务器："><span class="toc-number">1.4.3.</span> <span class="toc-text">权限域名服务器：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#本地域名服务器："><span class="toc-number">1.4.4.</span> <span class="toc-text">本地域名服务器：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#域名解析的流程"><span class="toc-number">1.5.</span> <span class="toc-text">域名解析的流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#迭代查询：自己查"><span class="toc-number">1.5.1.</span> <span class="toc-text">迭代查询：自己查</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#递归查询：抱大腿"><span class="toc-number">1.5.2.</span> <span class="toc-text">递归查询：抱大腿</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么根域名服务器有13个"><span class="toc-number">1.6.</span> <span class="toc-text">为什么根域名服务器有13个</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么DNS使用UDP协议"><span class="toc-number">1.7.</span> <span class="toc-text">为什么DNS使用UDP协议</span></a></li></ol></li></ol>
         
     </div>
     <style>
